@@ -1,10 +1,11 @@
 import React, { ComponentType, createElement } from 'react'
 import { SxStyleProp } from '../../components/Box/types'
-import { getTheme } from './style'
+import { getTheme, withStyle } from './style'
 
 interface StyledParams {
   displayName: string
   sx: SxStyleProp
+  isUikitComponent?: boolean
   attrs?: any // TODO
 }
 
@@ -23,16 +24,30 @@ const resolveSx = (props: any) => {
       } else if (typeof newSx === 'string' || typeof newSx === 'number') {
         resolvedSx[key] = newSx
       }
+    } else if (typeof value === 'object') {
+      resolvedSx[key] = resolveSx({ sx: value, ...rest })
     }
   })
   return resolvedSx
 }
 
 const styled = (baseComponent: ComponentType<any>) => {
-  return function <T>({ displayName, sx, attrs }: StyledParams) {
+  return function <T>({
+    displayName,
+    sx,
+    attrs,
+    isUikitComponent = true,
+  }: StyledParams) {
     const StyledComponent: React.FC<T> = (props) => {
       const newSx = resolveSx({ sx, ...props })
-      return createElement(baseComponent, { ...attrs, ...props, sx: newSx })
+      const styledBaseComponent = isUikitComponent
+        ? baseComponent
+        : withStyle(baseComponent)
+      return createElement(styledBaseComponent, {
+        ...attrs,
+        ...props,
+        sx: newSx,
+      })
     }
     StyledComponent.displayName = displayName || 'Styled'
     return StyledComponent

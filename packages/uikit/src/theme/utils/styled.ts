@@ -1,12 +1,14 @@
-import React, { createElement } from 'react'
+import React, { ComponentType, createElement } from 'react'
 import { SxStyleProp } from '../../components/Box/types'
 import { getTheme } from './style'
 
 interface StyledParams {
   displayName: string
   sx: SxStyleProp
+  attrs?: any // TODO
 }
 
+// TODO props any
 const resolveSx = (props: any) => {
   const { sx = {}, ...rest } = props
   const theme = getTheme()
@@ -26,11 +28,11 @@ const resolveSx = (props: any) => {
   return resolvedSx
 }
 
-const styled = (baseComponent: (props: any) => JSX.Element) => {
-  return function <T>({ displayName, sx }: StyledParams) {
+const styled = (baseComponent: ComponentType<any>) => {
+  return function <T>({ displayName, sx, attrs }: StyledParams) {
     const StyledComponent: React.FC<T> = (props) => {
       const newSx = resolveSx({ sx, ...props })
-      return createElement(baseComponent, { ...props, sx: newSx })
+      return createElement(baseComponent, { ...attrs, ...props, sx: newSx })
     }
     StyledComponent.displayName = displayName || 'Styled'
     return StyledComponent

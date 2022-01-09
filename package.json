@@ -1,0 +1,25 @@
+{
+  "name": "pancake-taro-toolkit",
+  "version": "1.0.0",
+  "description": "pancake-toolkit for taro",
+  "main": "index.js",
+  "author": "opar-xu",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start":"yarn workspace uikit-demo dev",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "build:component": "lerna run --scope taro-ui build",
+    "clean": "lerna run clean",
+    "clean:component": "lerna run --scope taro-ui clean",
+    "publish": "lerna publish from-git --yes"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "typescript": "^4.5.4"
+  }
+}

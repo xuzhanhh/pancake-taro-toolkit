@@ -1,10 +1,11 @@
 export default {
-  entryPagePath: 'pages/buttonMenu/index',
+  entryPagePath: 'pages/text/index',
   pages: [
     'pages/index/index',
     'pages/button/index',
     'pages/box/index',
     'pages/buttonMenu/index',
+    'pages/text/index'
   ],
   window: {
     backgroundTextStyle: 'light',

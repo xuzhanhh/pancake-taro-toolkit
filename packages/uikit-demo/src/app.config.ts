@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/checkbox/index',
+  entryPagePath: 'pages/index/index',
   pages: [
     'pages/index/index',
     'pages/button/index',

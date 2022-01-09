@@ -46,7 +46,7 @@ const styled = (baseComponent: ComponentType<any>) => {
       return createElement(styledBaseComponent, {
         ...attrs,
         ...props,
-        sx: newSx,
+        __css: newSx,
       })
     }
     StyledComponent.displayName = displayName || 'Styled'

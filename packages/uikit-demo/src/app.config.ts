@@ -1,7 +1,8 @@
 export default {
-  entryPagePath: 'pages/link/index',
+  entryPagePath: 'pages/notificationDot/index',
   pages: [
     'pages/index/index',
+    'pages/web-view/index',
     'pages/button/index',
     'pages/box/index',
     'pages/buttonMenu/index',
@@ -10,7 +11,7 @@ export default {
     'pages/checkbox/index',
     'pages/input/index',
     'pages/link/index',
-    'pages/web-view/index'
+    'pages/notificationDot/index',
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -40,7 +40,6 @@ const ButtonMenuItem: PolymorphicComponent<ButtonMenuItemProps, 'button'> = ({
   as,
   ...props
 }: ButtonMenuItemProps) => {
-  console.log('🚀 ~ isActive', isActive)
   if (!isActive) {
     return <InactiveButton forwardedAs={as} variant={variant} {...props} />
   }

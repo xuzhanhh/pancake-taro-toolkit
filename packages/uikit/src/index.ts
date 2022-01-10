@@ -12,3 +12,6 @@ export * from './components/Message'
 
 // Themes
 export * from './theme'
+
+// Icons
+export * from './components/Svg'

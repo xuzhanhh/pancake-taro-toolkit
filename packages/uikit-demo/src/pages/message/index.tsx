@@ -3,6 +3,7 @@ import {
   ThemeProvider,
   Message,
   MessageText,
+  HelpIcon
 } from '@pancake-taro-toolkit/uikit'
 
 const Default: React.FC = () => {
@@ -30,7 +31,7 @@ const Default: React.FC = () => {
           culpa qui officia deserunt mollit anim id est laborum.
         </MessageText>
       </Message>
-      <Message variant="warning" mb="16px">
+      <Message variant="warning" icon={<HelpIcon width="24px" />} mb="16px">
         <MessageText>
           Custom Icon. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

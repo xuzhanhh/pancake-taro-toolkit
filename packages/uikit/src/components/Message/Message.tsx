@@ -3,8 +3,16 @@ import { styled } from '../../theme'
 import { Text, TextProps } from '../Text'
 import { Box } from '../Box'
 import { MessageProps } from './types'
+import { WarningIcon, ErrorIcon, CheckmarkCircleFillIcon } from '../Svg'
+import variants from './theme'
 
 const MessageContext = React.createContext<MessageProps>({ variant: 'success' })
+
+const Icons = {
+  warning: WarningIcon,
+  danger: ErrorIcon,
+  success: CheckmarkCircleFillIcon,
+}
 
 const MessageContainer = styled(Box)<MessageProps>({
   sx: {
@@ -41,12 +49,13 @@ const Message: React.FC<MessageProps> = ({
   icon,
   ...props
 }) => {
-  // TODO support Icon
-  // const Icon = Icons[variant];
+  const Icon = Icons[variant]
   return (
     <MessageContext.Provider value={{ variant }}>
       <MessageContainer variant={variant} {...props}>
-        {/* <Box mr="12px">{icon ?? <Icon color={variants[variant].borderColor} width="24px" />}</Box> */}
+        <Box mr="12px">
+          {icon ?? <Icon color={variants[variant].borderColor} width="24px" />}
+        </Box>
         {children}
       </MessageContainer>
     </MessageContext.Provider>

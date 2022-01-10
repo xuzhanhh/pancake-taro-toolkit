@@ -3,7 +3,7 @@ import { SxStyleProp } from '../../components/Box/types'
 import { getTheme, withStyle } from './style'
 
 interface StyledParams {
-  displayName: string
+  displayName?: string
   sx: SxStyleProp
   isUikitComponent?: boolean
   attrs?: any // TODO

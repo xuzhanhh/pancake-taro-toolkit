@@ -5,6 +5,7 @@ export * from './components/ButtonMenu'
 export * from './components/Text'
 export * from './components/Heading'
 export * from './components/Checkbox'
+export * from './components/Input'
 
 // Themes
 export * from './theme'

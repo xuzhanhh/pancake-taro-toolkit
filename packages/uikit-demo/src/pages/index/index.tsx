@@ -6,7 +6,7 @@ import './index.css'
 
 const list = [
   {
-    name: 'Box',
+    name: 'Box/Flex/Grid',
     url: '/pages/box/index',
   },
   {

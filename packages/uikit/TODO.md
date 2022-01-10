@@ -1,0 +1,8 @@
+- choose a module bundle to use babel
+- lodash split code
+- eslint
+- prettier
+- commitLint
+- components Import on Demand
+- document
+- preview demo

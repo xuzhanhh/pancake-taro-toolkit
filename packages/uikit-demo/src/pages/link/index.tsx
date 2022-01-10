@@ -1,6 +1,11 @@
 import React, { useContext } from 'react'
 import mpService from '@binance/mp-service'
-import { ThemeProvider, Box, Link } from '@pancake-taro-toolkit/uikit'
+import {
+  ThemeProvider,
+  Box,
+  Link,
+  LinkExternal,
+} from '@pancake-taro-toolkit/uikit'
 import { PathContext } from '../../context/pathContext'
 export default function Page() {
   const { setRedirectAddress } = useContext(PathContext)
@@ -25,6 +30,9 @@ export default function Page() {
         <Link onClick={onClick} external>
           External
         </Link>
+      </Box>
+      <Box>
+        <LinkExternal href="/">LinkExternal</LinkExternal>
       </Box>
     </ThemeProvider>
   )

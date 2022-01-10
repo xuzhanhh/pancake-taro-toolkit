@@ -60,10 +60,17 @@ const Svg = ({
     [nextStyle, viewBox, fill, children],
   )
 
-  return <Box {...props} {...nextProps} __css={__css} />
+  return (
+    <Box
+      {...props}
+      {...nextProps}
+      __css={__css}
+      style={`width: ${width};height: ${height || width};`}
+    />
+  )
 }
 
-Svg.defaultProps = { size: 24 }
+Svg.defaultProps = { width: '20px', color: 'text' }
 Svg.displayName = 'Svg'
 
 export default Svg

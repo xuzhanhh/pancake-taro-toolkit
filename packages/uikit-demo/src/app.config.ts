@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/message/index',
+  entryPagePath: 'pages/link/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',

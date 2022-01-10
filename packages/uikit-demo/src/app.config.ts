@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/input/index',
+  entryPagePath: 'pages/link/index',
   pages: [
     'pages/index/index',
     'pages/button/index',
@@ -9,6 +9,8 @@ export default {
     'pages/heading/index',
     'pages/checkbox/index',
     'pages/input/index',
+    'pages/link/index',
+    'pages/web-view/index'
   ],
   window: {
     backgroundTextStyle: 'light',

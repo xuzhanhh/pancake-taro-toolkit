@@ -1,4 +1,6 @@
+import React from 'react'
 import { Component } from 'react'
+import { PathProvider } from './context'
 import './app.scss'
 
 class App extends Component {
@@ -12,7 +14,7 @@ class App extends Component {
 
   // this.props.children 是将要会渲染的页面
   render() {
-    return this.props.children
+    return <PathProvider>{this.props.children}</PathProvider>
   }
 }
 

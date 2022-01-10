@@ -29,6 +29,10 @@ const list = [
     name: 'text',
     url: '/pages/text/index',
   },
+  {
+    name: 'link',
+    url: '/pages/link/index',
+  },
 ]
 
 const Nav = ({ title, list }) => {

@@ -5,7 +5,7 @@ import { BoxProps } from '../Box'
 import { getTheme, useStyle } from '../../theme/utils/style'
 import sizes from './utils/ButtonSize'
 import { Scale, BaseButtonProps } from './types'
-import { scaleVariants } from './themes'
+import { scaleVariants } from './theme'
 
 interface ThemedButtonProps extends BaseButtonProps {
   theme: DefaultTheme
@@ -125,16 +125,7 @@ const StyledButton = (props: BaseButtonProps) => {
       ...getDisabledStyles({ $isLoading }),
     },
   })
-  return (
-    <TaroButton
-      {...rest}
-      style={{
-        '&:disabled': {
-          fontSize: '24px',
-        },
-      }}
-    />
-  )
+  return <TaroButton {...rest} />
 }
 
 export default StyledButton

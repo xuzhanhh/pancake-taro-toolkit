@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/notificationDot/index',
+  entryPagePath: 'pages/message/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -12,6 +12,7 @@ export default {
     'pages/input/index',
     'pages/link/index',
     'pages/notificationDot/index',
+    'pages/message/index',
   ],
   window: {
     backgroundTextStyle: 'light',

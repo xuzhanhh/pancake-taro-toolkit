@@ -8,6 +8,7 @@ export * from './components/Checkbox'
 export * from './components/Input'
 export * from './components/Link'
 export * from './components/NotificationDot'
+export * from './components/Message'
 
 // Themes
 export * from './theme'

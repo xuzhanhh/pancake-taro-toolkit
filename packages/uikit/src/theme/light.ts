@@ -3,7 +3,7 @@ import type { PancakeTheme } from './index'
 // import { light as lightCard } from '../components/Card/theme'
 // import { light as lightPancakeToggle } from '../components/PancakeToggle/theme'
 // import { light as lightRadio } from '../components/Radio/theme'
-// import { light as lightToggle } from '../components/Toggle/theme'
+import { light as lightToggle } from '../components/Toggle/theme'
 // import { light as lightTooltip } from '../components/Tooltip/theme'
 // import { light as lightNav } from '../widgets/Menu/theme'
 // import { light as lightModal } from '../widgets/Modal/theme'
@@ -16,7 +16,7 @@ const lightTheme: PancakeTheme = {
   // alert: lightAlert,
   colors: lightColors,
   // card: lightCard,
-  // toggle: lightToggle,
+  toggle: lightToggle,
   // nav: lightNav,
   // modal: lightModal,
   // pancakeToggle: lightPancakeToggle,

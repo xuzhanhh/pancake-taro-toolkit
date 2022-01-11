@@ -9,6 +9,7 @@ export * from './components/Input'
 export * from './components/Link'
 export * from './components/NotificationDot'
 export * from './components/Message'
+export * from './components/Toggle'
 
 // Themes
 export * from './theme'

@@ -26,12 +26,24 @@ const list = [
     url: '/pages/heading/index',
   },
   {
-    name: 'text',
-    url: '/pages/text/index',
+    name: 'icon',
+    url: '/pages/icon/index',
   },
   {
     name: 'link',
     url: '/pages/link/index',
+  },
+  {
+    name: 'message',
+    url: '/pages/message/index',
+  },
+  {
+    name: 'notificationDot',
+    url: '/pages/notificationDot/index',
+  },
+  {
+    name: 'text',
+    url: '/pages/text/index',
   },
 ]
 

@@ -7,6 +7,7 @@ import { BoxProps } from '../../components/Box/types'
 import hash from 'object-hash'
 import flatten from 'obj-flatten'
 import StyleContext from './ThemeProvider'
+import themeConfig from './themeConfig'
 
 let theme = light
 
@@ -14,8 +15,10 @@ Taro.getSystemInfo().then((res: any) => {
   const { theme: atheme = 'light' } = res || {}
   if (atheme === 'light') {
     theme = light
+    themeConfig.toggle('light')
   } else {
     theme = dark
+    themeConfig.toggle('dark')
   }
 })
 

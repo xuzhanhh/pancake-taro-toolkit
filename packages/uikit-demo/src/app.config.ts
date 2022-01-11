@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/link/index',
+  entryPagePath: 'pages/index/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -13,6 +13,7 @@ export default {
     'pages/link/index',
     'pages/notificationDot/index',
     'pages/message/index',
+    'pages/icon/index',
   ],
   window: {
     backgroundTextStyle: 'light',

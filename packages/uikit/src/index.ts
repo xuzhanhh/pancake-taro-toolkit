@@ -11,6 +11,7 @@ export * from './components/NotificationDot'
 export * from './components/Message'
 export * from './components/Toggle'
 export * from './components/Tag'
+export * from './components/Skeleton'
 
 // Themes
 export * from './theme'

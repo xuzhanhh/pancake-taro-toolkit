@@ -1,5 +1,6 @@
 import React, { ComponentType, createElement } from 'react'
 import { SxStyleProp } from '../../components/Box/types'
+import { getKeyframes } from './keyframes'
 import { getTheme, withStyle } from './style'
 
 interface StyledParams {
@@ -31,6 +32,37 @@ const resolveSx = (props: any) => {
   return resolvedSx
 }
 
+const resolveAnimationKey = (animationValue: string) =>
+  animationValue.split(' ')[0]
+const resolveAnimation = (sx: any) => {
+  const keyframesList: string[] = getKeyframesList(sx)
+  if (keyframesList.length > 0) {
+    const keyframesStyle = keyframesList
+      .map((keyframes) => {
+        const keyframesAnimation = getKeyframes(keyframes)
+        return keyframesAnimation || ''
+      })
+      .join(';')
+    return keyframesStyle
+  }
+  return undefined
+}
+const getKeyframesList = (sx: any) => {
+  const keyframesList: string[] = []
+  const doResolve = (_sx: any) => {
+    if (_sx.animation) {
+      keyframesList.push(resolveAnimationKey(_sx.animation))
+    }
+    Object.keys(_sx).forEach((key) => {
+      if (typeof _sx[key] === 'object') {
+        doResolve(_sx[key])
+      }
+    })
+  }
+  doResolve(sx)
+  return keyframesList
+}
+
 const styled = (baseComponent: ComponentType<any>) => {
   return function <T>({
     displayName,
@@ -40,14 +72,29 @@ const styled = (baseComponent: ComponentType<any>) => {
   }: StyledParams) {
     const StyledComponent: React.FC<T> = (props) => {
       const newSx = resolveSx({ sx, ...props })
+      console.log('🚀 ~ styled ~ newSx', newSx)
+      const keyframesStyle = resolveAnimation(newSx)
       const styledBaseComponent = isUikitComponent
         ? baseComponent
         : withStyle(baseComponent)
-      return createElement(styledBaseComponent, {
+      const Component = createElement(styledBaseComponent, {
         ...attrs,
         ...props,
-        __css: { ...(props as any).__css, ...newSx },
+        __css: { ...newSx, ...(props as any).__css,  },
       })
+      if (keyframesStyle) {
+        return (
+          <>
+            {Component}
+            <style
+              dangerouslySetInnerHTML={{
+                __html: keyframesStyle,
+              }}
+            />
+          </>
+        )
+      }
+      return Component
     }
     StyledComponent.displayName = displayName || 'Styled'
     return StyledComponent

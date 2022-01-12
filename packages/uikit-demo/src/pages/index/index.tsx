@@ -52,7 +52,11 @@ const list = [
   {
     name: 'toggle',
     url: '/pages/toggle/index',
-  }
+  },
+  {
+    name: 'skeleton',
+    url: '/pages/skeleton/index',
+  },
 ]
 
 const Nav = ({ title, list }) => {

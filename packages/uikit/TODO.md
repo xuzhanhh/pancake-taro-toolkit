@@ -6,3 +6,4 @@
 - components Import on Demand
 - document
 - preview demo
+- more flexible type of TS (styled)

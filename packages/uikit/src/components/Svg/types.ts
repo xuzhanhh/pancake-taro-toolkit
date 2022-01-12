@@ -1,8 +1,9 @@
 import { SVGAttributes } from 'react'
 import { SpaceProps } from 'styled-system'
 import { Colors, PancakeTheme } from '../../theme'
+import { SxStyleProp } from '../Box/types'
 
-export interface SvgProps extends SVGAttributes<HTMLOrSVGElement>, SpaceProps {
+export interface SvgProps extends SVGAttributes<HTMLOrSVGElement>, SpaceProps, SxStyleProp {
   theme?: PancakeTheme
   spin?: boolean
 }

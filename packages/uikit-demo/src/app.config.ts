@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/index/index',
+  entryPagePath: 'pages/spinner/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -17,6 +17,7 @@ export default {
     'pages/toggle/index',
     'pages/tag/index',
     'pages/skeleton/index',
+    'pages/spinner/index',
   ],
   window: {
     backgroundTextStyle: 'light',

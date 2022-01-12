@@ -12,6 +12,7 @@ export * from './components/Message'
 export * from './components/Toggle'
 export * from './components/Tag'
 export * from './components/Skeleton'
+export * from './components/Spinner'
 
 // Themes
 export * from './theme'

@@ -13,6 +13,7 @@ export * from './components/Toggle'
 export * from './components/Tag'
 export * from './components/Skeleton'
 export * from './components/Spinner'
+export * from './components/PancakeToggle'
 
 // Themes
 export * from './theme'

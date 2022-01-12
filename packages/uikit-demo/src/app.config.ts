@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/toggle/index',
+  entryPagePath: 'pages/tag/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -15,6 +15,7 @@ export default {
     'pages/message/index',
     'pages/icon/index',
     'pages/toggle/index',
+    'pages/tag/index',
   ],
   window: {
     backgroundTextStyle: 'light',

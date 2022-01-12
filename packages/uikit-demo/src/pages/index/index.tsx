@@ -42,9 +42,17 @@ const list = [
     url: '/pages/notificationDot/index',
   },
   {
+    name: 'tag',
+    url: '/pages/tag/index',
+  },
+  {
     name: 'text',
     url: '/pages/text/index',
   },
+  {
+    name: 'toggle',
+    url: '/pages/toggle/index',
+  }
 ]
 
 const Nav = ({ title, list }) => {

@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/modal/index',
+  entryPagePath: 'pages/themeSwitcher/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -21,6 +21,7 @@ export default {
     'pages/pancakeToggle/index',
     'pages/overlay/index',
     'pages/modal/index',
+    'pages/themeSwitcher/index',
   ],
   window: {
     backgroundTextStyle: 'light',

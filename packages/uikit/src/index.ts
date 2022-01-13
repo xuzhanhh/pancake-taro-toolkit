@@ -15,6 +15,7 @@ export * from './components/Skeleton'
 export * from './components/Spinner'
 export * from './components/PancakeToggle'
 export * from './components/Overlay'
+export * from './components/ThemeSwitcher'
 
 // Widgets
 export * from './widgets/Modal'

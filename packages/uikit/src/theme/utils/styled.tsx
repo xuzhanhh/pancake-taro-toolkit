@@ -72,7 +72,6 @@ const styled = (baseComponent: ComponentType<any>) => {
   }: StyledParams) {
     const StyledComponent: React.FC<T> = (props) => {
       const newSx = resolveSx({ sx, ...props })
-      console.log('🚀 ~ styled ~ newSx', newSx)
       const keyframesStyle = resolveAnimation(newSx)
       const styledBaseComponent = isUikitComponent
         ? baseComponent

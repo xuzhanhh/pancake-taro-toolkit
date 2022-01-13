@@ -6,7 +6,7 @@ import { light as lightPancakeToggle } from '../components/PancakeToggle/theme'
 import { light as lightToggle } from '../components/Toggle/theme'
 // import { light as lightTooltip } from '../components/Tooltip/theme'
 // import { light as lightNav } from '../widgets/Menu/theme'
-// import { light as lightModal } from '../widgets/Modal/theme'
+import { light as lightModal } from '../widgets/Modal/theme'
 import base from './base'
 import { lightColors } from './colors'
 
@@ -18,7 +18,7 @@ const lightTheme: PancakeTheme = {
   // card: lightCard,
   toggle: lightToggle,
   // nav: lightNav,
-  // modal: lightModal,
+  modal: lightModal,
   pancakeToggle: lightPancakeToggle,
   // radio: lightRadio,
   // tooltip: lightTooltip,

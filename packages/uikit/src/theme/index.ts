@@ -1,11 +1,11 @@
 // import { AlertTheme } from "../components/Alert/types";
 // import { CardTheme } from "../components/Card/types";
-import { PancakeToggleTheme } from "../components/PancakeToggle/types";
+import { PancakeToggleTheme } from '../components/PancakeToggle/types'
 // import { RadioTheme } from "../components/Radio/types";
 import { ToggleTheme } from '../components/Toggle/theme'
 // import { TooltipTheme } from "../components/Tooltip/types";
 // import { NavThemeType } from "../widgets/Menu/theme";
-// import { ModalTheme } from "../widgets/Modal/types";
+import { ModalTheme } from "../widgets/Modal/types";
 import {
   Breakpoints,
   Colors,
@@ -22,8 +22,8 @@ export interface PancakeTheme {
   colors: Colors
   // card: CardTheme;
   // nav: NavThemeType;
-  // modal: ModalTheme;
-  pancakeToggle: PancakeToggleTheme;
+  modal: ModalTheme;
+  pancakeToggle: PancakeToggleTheme
   // radio: RadioTheme;
   toggle: ToggleTheme
   // tooltip: TooltipTheme;
@@ -43,3 +43,4 @@ export { ThemeProvider } from './utils/ThemeProvider'
 export { default as styled } from './utils/styled'
 export { keyframes } from './utils/keyframes'
 export { default as themeConfig } from './utils/themeConfig'
+export { getTheme } from './utils/style'

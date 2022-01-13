@@ -70,6 +70,7 @@ const StyledButton = (props: BaseButtonProps) => {
     disabled,
     $isLoading = false,
     sx,
+    __css,
   } = props
 
   const classNames: string = composeClassNames(
@@ -123,6 +124,7 @@ const StyledButton = (props: BaseButtonProps) => {
         },
       ...(scaleVariants[scale] || {}),
       ...getDisabledStyles({ $isLoading }),
+      ...__css,
     },
   })
   return <TaroButton {...rest} />

@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/pancakeToggle/index',
+  entryPagePath: 'pages/overlay/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -19,6 +19,7 @@ export default {
     'pages/skeleton/index',
     'pages/spinner/index',
     'pages/pancakeToggle/index',
+    'pages/overlay/index',
   ],
   window: {
     backgroundTextStyle: 'light',

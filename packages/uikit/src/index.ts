@@ -14,6 +14,7 @@ export * from './components/Tag'
 export * from './components/Skeleton'
 export * from './components/Spinner'
 export * from './components/PancakeToggle'
+export * from './components/Overlay'
 
 // Themes
 export * from './theme'

@@ -1,14 +1,12 @@
 import React, { useContext } from 'react'
-import { ThemeProvider } from '@pancake-taro-toolkit/uikit'
+import { ThemeProvider, WebviewContext } from '@pancake-taro-toolkit/uikit'
 import { View, WebView } from '@binance/mp-components'
-import { PathContext } from '../../context/pathContext'
 
 const WebViewPage = () => {
-  const { redirectAddress } = useContext(PathContext)
-  console.log('🚀 ~ WebViewPage ~ redirectAddress', redirectAddress)
+  const { url } = useContext(WebviewContext)
   return (
     <View>
-      <WebView src={redirectAddress}></WebView>
+      <WebView src={url}></WebView>
     </View>
   )
 }

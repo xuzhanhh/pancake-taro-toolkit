@@ -1,8 +1,9 @@
-import React, { ElementType } from 'react'
+import React, { ElementType, useContext } from 'react'
 import mpService from '@binance/mp-service'
 import getExternalLinkProps from '../../util/getExternalLinkProps'
 import StyledButton from './StyledButton'
 import { ButtonProps, scales, variants } from './types'
+import { WebviewContext } from '../../context'
 
 const Button = <E extends ElementType = 'button'>(
   props: ButtonProps<E>,
@@ -22,6 +23,7 @@ const Button = <E extends ElementType = 'button'>(
   const isDisabled = isLoading || disabled
   const classNames = className ? [className] : []
   const internalProps = external ? getExternalLinkProps() : {}
+  const { webviewFilePath, setUrl } = useContext(WebviewContext)
   if (isLoading) {
     classNames.push('pancake-button--loading')
   }
@@ -38,7 +40,14 @@ const Button = <E extends ElementType = 'button'>(
     } else {
       onClick && onClick(e)
       if (href) {
-        mpService.navigateTo({ url: href })
+        if (!external) {
+          mpService.navigateTo({ url: href })
+        } else if(webviewFilePath) {
+          setUrl(href)
+          setTimeout(() => {
+            mpService.navigateTo({ url: webviewFilePath })
+          }, 500)
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from './Box'
-import { FlexProps } from './types'
+import { GridProps } from './types'
 
-const Flex = (props: FlexProps) => <Box display="grid" {...props} />
+const Flex = (props: GridProps) => <Box display="grid" {...props} />
 
 export default Flex

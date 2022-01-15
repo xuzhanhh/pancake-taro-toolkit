@@ -23,7 +23,6 @@ const svgRenderString = ({ color, ...props }: SVGParams) =>
     .replace(/#/g, '%23')
     .replace(/</g, '%3C')
     .replace(/>/g, '%3E')
-
 const Svg = ({
   width,
   height,

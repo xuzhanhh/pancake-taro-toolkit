@@ -1,13 +1,19 @@
 import { SVGAttributes } from 'react'
-import { SpaceProps } from 'styled-system'
+import { LayoutProps, SpaceProps } from 'styled-system'
 import { Colors, PancakeTheme } from '../../theme'
-import { SxStyleProp } from '../Box/types'
+import { SxProps } from '../Box/types'
 
-export interface SvgProps extends SVGAttributes<HTMLOrSVGElement>, SpaceProps, SxStyleProp {
+export interface SvgProps
+  extends SpaceProps,
+    LayoutProps,
+    Omit<
+      SVGAttributes<HTMLOrSVGElement>,
+      'display' | 'width' | 'overflow' | 'height'
+    >,
+    SxProps {
   theme?: PancakeTheme
   spin?: boolean
 }
-
 export type IconComponentType = {
   iconName: string
   isActive?: boolean

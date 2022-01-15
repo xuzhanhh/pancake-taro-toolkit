@@ -1,4 +1,9 @@
-import React, { ComponentType, createElement } from 'react'
+import React, {
+  ComponentType,
+  createElement,
+  forwardRef,
+  ReactNode,
+} from 'react'
 import { SxStyleProp } from '../../components/Box/types'
 import { getKeyframes } from './keyframes'
 import { getTheme, withStyle } from './style'
@@ -62,24 +67,28 @@ const getKeyframesList = (sx: any) => {
   doResolve(sx)
   return keyframesList
 }
-
-const styled = (baseComponent: ComponentType<any>) => {
+type Merge<T, P> = Omit<T, keyof P> & P
+function styled<P>(baseComponent: ComponentType<P>) {
   return function <T>({
     displayName,
     sx,
     attrs,
     isUikitComponent = true,
   }: StyledParams) {
-    const StyledComponent: React.FC<T> = (props) => {
+    const StyledComponent = forwardRef<
+      any,
+      Merge<P, T> & { children?: ReactNode }
+    >((props, ref) => {
       const newSx = resolveSx({ sx, ...props })
       const keyframesStyle = resolveAnimation(newSx)
       const styledBaseComponent = isUikitComponent
         ? baseComponent
         : withStyle(baseComponent)
-      const Component = createElement(styledBaseComponent, {
+      const Component = createElement(styledBaseComponent as any, {
         ...attrs,
         ...props,
-        __css: { ...newSx, ...(props as any).__css,  },
+        ref,
+        __css: { ...newSx, ...(props as any).__css },
       })
       if (keyframesStyle) {
         return (
@@ -94,7 +103,7 @@ const styled = (baseComponent: ComponentType<any>) => {
         )
       }
       return Component
-    }
+    })
     StyledComponent.displayName = displayName || 'Styled'
     return StyledComponent
   }

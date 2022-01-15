@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { SwitchProps } from "@tarojs/components";
 
 export type PancakeToggleTheme = {
   handleBackground: string;
@@ -13,10 +13,11 @@ export const scales = {
 
 export type Scales = typeof scales[keyof typeof scales];
 
-export interface PancakeToggleProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface PancakeToggleProps extends SwitchProps {
   scale?: Scales;
   checked?: boolean;
   for?: string;
+  ref?: React.Ref<any>;
 }
 
 export interface HandleProps {

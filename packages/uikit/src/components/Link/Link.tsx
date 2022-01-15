@@ -16,7 +16,7 @@ const StyledLink = styled(Text)<LinkProps>({
 })
 
 const Link: React.FC<LinkProps> = ({ external, onClick, href, ...props }) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = (e: any) => {
     if (href && !external) {
       Taro.navigateTo({
         url: href,

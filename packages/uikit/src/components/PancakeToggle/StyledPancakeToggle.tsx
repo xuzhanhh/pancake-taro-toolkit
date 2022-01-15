@@ -145,7 +145,7 @@ export const PancakeInput = styled(TaroSwitch)<InputProps>({
     position: 'absolute',
     top: '0',
     width: '100%',
-		zIndex: '10',
+    zIndex: '10',
     '&:focus + label': {
       boxShadow: ({ theme }) => theme.shadows.focus,
     },

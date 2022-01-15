@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { ComponentType, useEffect, useContext } from 'react'
+import React, { ComponentType, useEffect, useContext, forwardRef } from 'react'
 import Taro from '@tarojs/taro'
 import { light, dark } from '../index'
 import css, { cssProps, get } from './css'
@@ -134,14 +134,14 @@ export function useStyle(props: BoxProps) {
 export function withStyle<T, P extends BoxProps = BoxProps>(
   Component: ComponentType<P>,
 ) {
-  const WrappedComponent = (props) => {
+  const WrappedComponent = forwardRef<any, T>((props, ref) => {
     const { rest } = useStyle(props)
 
     return (
       <>
-        <Component {...rest} />
+        <Component ref={ref} {...rest} />
       </>
     )
-  }
+  })
   return WrappedComponent
 }

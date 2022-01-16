@@ -60,7 +60,7 @@ const convert = (style) => {
       val = val.replace(/"/g, '%998').replace(/,/g, '%10086')
     }
     if (typeof key === 'string') {
-      key = key.replace(/[A-Z](?=[a-z])/g, ($1) => `-${$1.toLowerCase()}`)
+      key = key.replace(/([a-z]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
     }
     if (o[arr.join(' ')]) {
       o[arr.join(' ')][key] = val

@@ -16,6 +16,7 @@ export * from './components/Spinner'
 export * from './components/PancakeToggle'
 export * from './components/Overlay'
 export * from './components/ThemeSwitcher'
+export * from './components/BottomDrawer'
 
 // Widgets
 export * from './widgets/Modal'

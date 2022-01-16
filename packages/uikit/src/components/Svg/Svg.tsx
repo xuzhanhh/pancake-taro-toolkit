@@ -64,7 +64,7 @@ const Svg = ({
       {...props}
       {...nextProps}
       __css={{...__css, ...props.__css}}
-      style={`width: ${width};height: ${height || width};`}
+      style={`width: ${width};height: ${height || width};` as any}
     />
   )
 }

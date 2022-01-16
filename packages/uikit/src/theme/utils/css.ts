@@ -150,7 +150,7 @@ const transforms = [
     [curr]: positiveOrNegative,
   }),
   {},
-)
+  )
 
 export const responsive = styles => theme => {
   const next = {}
@@ -218,13 +218,13 @@ export const css = args => (props: any = {}) => {
       result[prop] = value
     }
   }
-
+  
   for (let type in result) {
     if (typeof result[type] === 'number' && !(type in filterPx)) {
       result[type] += 'px'
     }
   }
-
+  
   return result
 }
 
@@ -287,6 +287,7 @@ const support = {
   minWidth: 'minWidth',
   opacity: 'opacity',
   overflow: 'overflow',
+  overflowY: 'overflowY',
   overlayColor: 'overlayColor',
   padding: 'padding',
   paddingBottom: 'paddingBottom',

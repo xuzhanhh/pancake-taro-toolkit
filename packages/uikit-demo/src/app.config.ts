@@ -1,5 +1,5 @@
 export default {
-  entryPagePath: 'pages/walletModal/index',
+  entryPagePath: 'pages/bottomDrawer/index',
   pages: [
     'pages/index/index',
     'pages/web-view/index',
@@ -23,6 +23,7 @@ export default {
     'pages/modal/index',
     'pages/themeSwitcher/index',
     'pages/walletModal/index',
+    'pages/bottomDrawer/index',
   ],
   window: {
     backgroundTextStyle: 'light',

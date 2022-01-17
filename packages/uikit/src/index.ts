@@ -17,6 +17,7 @@ export * from './components/PancakeToggle'
 export * from './components/Overlay'
 export * from './components/ThemeSwitcher'
 export * from './components/BottomDrawer'
+export * from './components/Card'
 
 // Widgets
 export * from './widgets/Modal'

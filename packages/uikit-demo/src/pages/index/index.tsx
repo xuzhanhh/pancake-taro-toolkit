@@ -18,6 +18,10 @@ const list = [
     url: '/pages/buttonMenu/index',
   },
   {
+    name: 'bottomDrawer',
+    url: '/pages/bottomDrawer/index',
+  },
+  {
     name: 'checkbox',
     url: '/pages/checkbox/index',
   },
@@ -30,6 +34,10 @@ const list = [
     url: '/pages/icon/index',
   },
   {
+    name: 'input',
+    url: '/pages/input/index',
+  },
+  {
     name: 'link',
     url: '/pages/link/index',
   },
@@ -38,8 +46,28 @@ const list = [
     url: '/pages/message/index',
   },
   {
+    name: 'modal',
+    url: '/pages/modal/index',
+  },
+  {
     name: 'notificationDot',
     url: '/pages/notificationDot/index',
+  },
+  {
+    name: 'overlay',
+    url: '/pages/overlay/index',
+  },
+  {
+    name: 'pancakeToggle',
+    url: '/pages/pancakeToggle/index',
+  },
+  {
+    name: 'skeleton',
+    url: '/pages/skeleton/index',
+  },
+  {
+    name: 'spinner',
+    url: '/pages/spinner/index',
   },
   {
     name: 'tag',
@@ -50,12 +78,18 @@ const list = [
     url: '/pages/text/index',
   },
   {
+    name: 'themeSwitcher',
+    url: '/pages/themeSwitcher/index',
+  },
+  {
     name: 'toggle',
     url: '/pages/toggle/index',
   },
+]
+const widgetList = [
   {
-    name: 'skeleton',
-    url: '/pages/skeleton/index',
+    name: 'walletModal',
+    url: '/pages/walletModal/index',
   },
 ]
 
@@ -100,6 +134,7 @@ export default class Index extends Component {
             Lightweight and reliable mini-program components library
           </View>
           <Nav title="Basic Component" list={list} />
+          <Nav title="Widget Component" list={widgetList} />
         </Box>
       </ThemeProvider>
     )

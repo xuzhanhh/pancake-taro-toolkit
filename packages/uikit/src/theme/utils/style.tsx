@@ -108,7 +108,6 @@ export function useStyle(props: BoxProps) {
   const propsStyle = css(styleProps)({ theme })
   const style = { ...baseStyle, ...variantStyle, ...sxStyle, ...propsStyle }
   const test: string = hash(JSON.stringify(style))
-  console.log('🚀 ~ useStyle ~ style', style)
   const classname: string = `bn${test.slice(0, 8)}`
   rest.className = rest?.className
     ? `${rest.className} ${classname} bn ba`

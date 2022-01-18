@@ -24,14 +24,17 @@ const svgRenderString = ({ color, ...props }: SVGParams) =>
     .replace(/</g, '%3C')
     .replace(/>/g, '%3E')
 const Svg = ({
-  width,
-  height,
+  width: propWidth,
+  height:propHeight,
   viewBox,
   fill,
   color,
   children,
   ...props
 }: SvgProps) => {
+  const width = typeof propHeight === 'number'? `${propHeight}px` : propWidth
+  const height = typeof propHeight === 'number'? `${propHeight}px` : propHeight
+
   const nextStyle = useMemo<{
     color?: string
     width?: string

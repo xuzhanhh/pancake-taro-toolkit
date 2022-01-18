@@ -6,6 +6,10 @@ import './index.css'
 
 const list = [
   {
+    name: 'Alert',
+    url: '/pages/alert/index',
+  },
+  {
     name: 'Box/Flex/Grid',
     url: '/pages/box/index',
   },
@@ -20,6 +24,10 @@ const list = [
   {
     name: 'bottomDrawer',
     url: '/pages/bottomDrawer/index',
+  },
+  {
+    name: 'card',
+    url: '/pages/card/index',
   },
   {
     name: 'checkbox',

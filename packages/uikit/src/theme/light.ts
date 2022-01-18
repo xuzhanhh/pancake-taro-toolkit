@@ -1,5 +1,5 @@
 import type { PancakeTheme } from './index'
-// import { light as lightAlert } from '../components/Alert/theme'
+import { light as lightAlert } from '../components/Alert/theme'
 import { light as lightCard } from '../components/Card/theme'
 import { light as lightPancakeToggle } from '../components/PancakeToggle/theme'
 // import { light as lightRadio } from '../components/Radio/theme'
@@ -13,7 +13,7 @@ import { lightColors } from './colors'
 const lightTheme: PancakeTheme = {
   ...base,
   isDark: false,
-  // alert: lightAlert,
+  alert: lightAlert,
   colors: lightColors,
   card: lightCard,
   toggle: lightToggle,

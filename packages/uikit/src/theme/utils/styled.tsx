@@ -67,6 +67,7 @@ const getKeyframesList = (sx: any) => {
   doResolve(sx)
   return keyframesList
 }
+
 type Merge<T, P> = Omit<T, keyof P> & P
 function styled<P>(baseComponent: ComponentType<P>) {
   return function <T>({
@@ -77,7 +78,7 @@ function styled<P>(baseComponent: ComponentType<P>) {
   }: StyledParams) {
     const StyledComponent = forwardRef<
       any,
-      Merge<P, T> & { children?: ReactNode }
+      Omit<Merge<P, T>,'theme'> & { children?: ReactNode }
     >((props, ref) => {
       const newSx = resolveSx({ sx, ...props })
       const keyframesStyle = resolveAnimation(newSx)

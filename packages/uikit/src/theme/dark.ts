@@ -1,5 +1,5 @@
 import type { PancakeTheme } from './index'
-// import { dark as darkAlert } from "../components/Alert/theme";
+import { dark as darkAlert } from "../components/Alert/theme";
 import { dark as darkCard } from "../components/Card/theme";
 import { dark as darkPancakeToggle } from "../components/PancakeToggle/theme";
 // import { dark as darkRadio } from "../components/Radio/theme";
@@ -13,7 +13,7 @@ import { darkColors } from "./colors";
 const darkTheme: PancakeTheme = {
   ...base,
   isDark: true,
-  // alert: darkAlert,
+  alert: darkAlert,
   colors: darkColors,
   card: darkCard,
   toggle: darkToggle,

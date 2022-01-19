@@ -1,14 +1,11 @@
-import { styled } from '../../theme'
+import { styled } from '../../styled-components'
 import { SpaceProps } from 'styled-system'
-import { Box } from '../Box'
 
 export type CardFooterProps = SpaceProps
 
-const CardFooter = styled(Box)<CardFooterProps>({
-  sx: {
-    borderTop: ({ theme }) => `1px solid ${theme.colors.cardBorder}`,
-  },
-})
+const CardFooter = styled.div<CardFooterProps>`
+  border-top: 1px solid ${({ theme }) => theme.colors.cardBorder};
+`
 CardFooter.defaultProps = {
   p: '24px',
 }

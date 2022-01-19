@@ -36,9 +36,6 @@ const StyledCardRibbon = styled(Box)<Partial<StyledCardRibbonProps>>({
     transformOrigin: 'top left',
     width: '96px',
 
-    '&::before': { ...beforeSx, right: '100%' },
-    '&::after': { ...beforeSx, left: '100%' },
-
     '& > bn-view': {
       overflow: 'hidden',
       textOverflow: 'ellipsis',

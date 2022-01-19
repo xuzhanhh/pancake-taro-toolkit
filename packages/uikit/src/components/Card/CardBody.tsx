@@ -1,10 +1,10 @@
-import { styled } from '../../theme'
 import { SpaceProps } from 'styled-system'
-import { Box } from '../Box'
+import { styled } from '../../styled-components'
 
 export type CardBodyProps = SpaceProps
 
-const CardBody = styled(Box)<CardBodyProps>({ sx: {} })
+const CardBody = styled.div<CardBodyProps>`
+`;
 
 CardBody.defaultProps = {
   p: '24px',

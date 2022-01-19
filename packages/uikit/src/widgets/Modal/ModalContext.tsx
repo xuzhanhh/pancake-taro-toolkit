@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import {styled} from '../../theme'
+import styled from '../../theme/utils/styled'
 import { Overlay } from "../../components/Overlay";
 import {Box} from '../../components/Box'
 import { Handler } from "./types";

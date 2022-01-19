@@ -1,6 +1,8 @@
-import {styled, keyframes, PancakeTheme} from '../../theme'
-import { Box } from "../Box";
-import { CardProps } from "./types";
+import { PancakeTheme } from '../../theme'
+import styled from '../../theme/utils/styled'
+import keyframes from '../../theme/utils/keyframes'
+import { Box } from '../Box'
+import { CardProps } from './types'
 
 const PromotedGradient = keyframes(`
   0% {
@@ -15,55 +17,71 @@ const PromotedGradient = keyframes(`
 `)
 
 interface StyledCardProps extends CardProps {
-  theme: PancakeTheme;
+  theme: PancakeTheme
 }
 
 /**
  * Priority: Warning --> Success --> Active
  */
-const getBorderColor = ({ isActive, isSuccess, isWarning, borderBackground, theme }: StyledCardProps) => {
+const getBorderColor = ({
+  isActive,
+  isSuccess,
+  isWarning,
+  borderBackground,
+  theme,
+}: StyledCardProps) => {
   if (borderBackground) {
-    return borderBackground;
+    return borderBackground
   }
   if (isWarning) {
-    return theme.colors.warning;
+    return theme.colors.warning
   }
 
   if (isSuccess) {
-    return theme.colors.success;
+    return theme.colors.success
   }
 
   if (isActive) {
-    return `linear-gradient(180deg, ${theme.colors.primaryBright}, ${theme.colors.secondary})`;
+    return `linear-gradient(180deg, ${theme.colors.primaryBright}, ${theme.colors.secondary})`
   }
 
-  return theme.colors.cardBorder;
-};
+  return theme.colors.cardBorder
+}
 
-export const StyledCard = styled(Box)<CardProps>({sx:{
-	background: getBorderColor,
-  borderRadius: ({ theme }) => theme.radii.card,
-  color: ({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"],
-  overflow: 'hidden',
-  position: 'relative',
-	isActive: ({ isActive }) => isActive && ({
-		animation: `${PromotedGradient} 3s ease infinite`,
-		backgroundSize: '400% 400%',
-	}),
-  padding: '1px 1px 3px 1px',
-}})
+export const StyledCard = styled(Box)<CardProps>({
+  sx: {
+    background: getBorderColor,
+    borderRadius: ({ theme }) => theme.radii.card,
+    color: ({ theme, isDisabled }) =>
+      theme.colors[isDisabled ? 'textDisabled' : 'text'],
+    overflow: 'hidden',
+    position: 'relative',
+    isActive: ({ isActive }) =>
+      isActive && {
+        animation: `${PromotedGradient} 3s ease infinite`,
+        backgroundSize: '400% 400%',
+      },
+    padding: '1px 1px 3px 1px',
+  },
+})
 
-export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean }>({sx:{
-	width: '100%',
-  height: '100%',
-  overflow: ({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit"),
-  background: ({ theme, background }) => background ?? theme.card.background,
-  borderRadius: ({ theme }) => theme.radii.card,
-}})
+export const StyledCardInner = styled(Box)<{
+  background?: string
+  hasCustomBorder: boolean
+}>({
+  sx: {
+    width: '100%',
+    height: '100%',
+    overflow: ({ hasCustomBorder }) =>
+      hasCustomBorder ? 'initial' : 'inherit',
+    background: ({ theme, background }) => background ?? theme.card.background,
+    borderRadius: ({ theme }) => theme.radii.card,
+  },
+})
 
 StyledCard.defaultProps = {
   isActive: false,
   isSuccess: false,
   isWarning: false,
   isDisabled: false,
-};
+}

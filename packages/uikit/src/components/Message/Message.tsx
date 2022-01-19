@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 import { Text, TextProps } from '../Text'
 import { Box } from '../Box'
 import { MessageProps } from './types'

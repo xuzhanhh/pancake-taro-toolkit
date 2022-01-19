@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 import { LinkProps } from './types'
 import { Text } from '../Text'
 import Taro from '@tarojs/taro'

@@ -1,4 +1,4 @@
-import {styled} from '../../theme'
+import styled from '../../theme/utils/styled'
 import React, { FC, useEffect } from "react";
 import { Box, BoxProps } from "../Box";
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Colors } from "../../theme/types";
-import { styled, PancakeTheme } from '../../theme'
+import { PancakeTheme } from '../../theme'
+import styled from '../../theme/utils/styled'
 import { Box } from '../Box'
 import { CardRibbonProps } from './types'
 

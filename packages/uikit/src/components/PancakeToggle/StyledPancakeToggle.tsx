@@ -1,5 +1,5 @@
 import { Switch as TaroSwitch, Label as TaroLabel } from '@tarojs/components'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 import { Box } from '../Box'
 import {
   scales,

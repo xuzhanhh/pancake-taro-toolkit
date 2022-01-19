@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import mpService from '@binance/mp-service'
-import { styled, getTheme } from '../../theme'
+import { getTheme } from '../../theme'
+import styled from '../../theme/utils/styled'
 import Grid from '../../components/Box/Grid'
 import Box from '../../components/Box/Box'
 import Button from '../../components/Button/Button'

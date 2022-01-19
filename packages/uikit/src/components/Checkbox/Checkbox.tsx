@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Box } from '../Box'
 import { Checkbox as TaroCheckbox } from '@tarojs/components'
 import { CheckboxProps, scales, Scales } from './types'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 
 const getScale = ({ scale }: CheckboxProps) => {
   switch (scale) {

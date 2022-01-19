@@ -8,11 +8,9 @@ import {
 } from '@pancake-taro-toolkit/uikit'
 import noop from 'lodash/noop'
 
-const Row = styled(Box)({
-  sx: {
-    marginBottom: '32px',
-  },
-})
+const Row = styled.div`
+  margin-bottom: 32px;
+`
 const Default: React.FC = () => {
   return (
     <Box style={{ padding: '32px', width: '400px' }}>

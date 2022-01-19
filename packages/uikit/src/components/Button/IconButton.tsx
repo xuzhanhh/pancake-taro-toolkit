@@ -1,6 +1,6 @@
 import Button from './Button'
 import { BaseButtonProps, PolymorphicComponent } from './types'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 
 const IconButton: PolymorphicComponent<BaseButtonProps, 'button'> = styled(
   Button,

@@ -12,11 +12,9 @@ import {
   getTheme
 } from '@pancake-taro-toolkit/uikit'
 
-const Row = styled(Box)({
-  sx: {
-    marginBottom: '32px',
-  },
-})
+const Row = styled.div`
+  margin-bottom: 32px;
+`
 const Default: React.FC = () => {
   return (
     <Box style={{ padding: '32px', width: '500px' }}>

@@ -1,5 +1,5 @@
 import React, { cloneElement, Children, ReactElement } from 'react'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 import { Box } from '../Box'
 import { NotificationDotProps, DotProps } from './types'
 

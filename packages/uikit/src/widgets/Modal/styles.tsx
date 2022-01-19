@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 import Flex from '../../components/Box/Flex'
 import { Box } from '../../components/Box'
 import { ArrowBackIcon, CloseIcon } from '../../components/Svg'

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import mpService from '@binance/mp-service'
 import Text from '../../components/Text/Text'
 import { CopyIcon } from '../../components/Svg'
-import { styled } from '../../theme'
+import styled from '../../theme/utils/styled'
 import { Box } from '../../components/Box'
 
 interface Props {

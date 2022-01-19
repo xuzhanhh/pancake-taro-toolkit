@@ -1,5 +1,6 @@
 import React from 'react'
-import { keyframes, styled } from '../../theme'
+import styled from '../../theme/utils/styled'
+import keyframes from '../../theme/utils/keyframes'
 import { Box } from '../Box'
 import {
   SkeletonProps,

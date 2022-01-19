@@ -1,6 +1,7 @@
 import { Input as TaroInput } from '@tarojs/components'
 import { getTheme } from '../../theme/utils/style'
-import { styled, PancakeTheme } from '../../theme'
+import styled from '../../theme/utils/styled'
+import { PancakeTheme } from '../../theme'
 import { InputProps, scales } from './types'
 
 interface StyledInputProps extends InputProps {
@@ -49,7 +50,7 @@ const Input = styled(TaroInput)<InputProps>({
     display: 'block',
     fontSize: '16px',
     height: getHeight,
-		minHeight: getHeight,
+    minHeight: getHeight,
     outline: '0',
     padding: '0 16px',
     width: '100%',

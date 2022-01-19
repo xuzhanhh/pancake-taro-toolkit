@@ -1,5 +1,5 @@
 import React from 'react'
-import {styled} from '../../styled-components'
+import styled from '../../styled-components'
 import { PancakeTheme } from '../../theme'
 import CheckmarkCircleIcon from '../Svg/Icons/CheckmarkCircle'
 import ErrorIcon from '../Svg/Icons/Error'
@@ -57,23 +57,25 @@ const Details = styled(Box)<{ hasHandler: boolean }>`
   flex: 1;
   padding-bottom: 12px;
   padding-left: 12px;
-  padding-right: ${({ hasHandler }) => (hasHandler ? `${withHandlerSpacing}px` : "12px")};
+  padding-right: ${({ hasHandler }) =>
+    hasHandler ? `${withHandlerSpacing}px` : '12px'};
   padding-top: 12px;
-`;
+`
 
 const CloseHandler = styled(Box)`
   border-radius: 0 16px 16px 0;
   right: 8px;
   position: absolute;
   top: 8px;
-`;
+`
 
 const StyledAlert = styled(Flex)`
   position: relative;
   background-color: ${({ theme }) => theme.alert.background};
   border-radius: 16px;
-  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
-`;
+  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1),
+    0px 1px 1px rgba(0, 0, 0, 0.05);
+`
 
 const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
   const Icon = getIcon(variant)

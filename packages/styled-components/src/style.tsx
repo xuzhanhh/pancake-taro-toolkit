@@ -9,19 +9,6 @@ import flatten from 'obj-flatten'
 import StyleContext from './ThemeProvider'
 import themeConfig from './themeConfig'
 
-let theme = light
-
-Taro.getSystemInfo().then((res: any) => {
-  const { theme: atheme = 'light' } = res || {}
-  if (atheme === 'light') {
-    theme = light
-    themeConfig.toggle('light')
-  } else {
-    theme = dark
-    themeConfig.toggle('dark')
-  }
-})
-
 export const objToString = (o) => {
   let value = JSON.stringify(o)
   value = value
@@ -34,19 +21,6 @@ export const objToString = (o) => {
     .replace(/%998/g, '"')
     .replace(/%10086/g, ',')
   return value
-}
-
-// @ts-ignore
-// eslint-disable-next-line no-undef
-if (bn) {
-  // eslint-disable-next-line no-undef
-  bn.onThemeChange(({ theme: atheme }) => {
-    if (atheme === 'light') {
-      theme = lightAPPTheme
-    } else {
-      theme = darkAPPTheme
-    }
-  })
 }
 
 const convert = (style) => {
@@ -84,9 +58,8 @@ const convert = (style) => {
   return { value: JSON.stringify(o), o }
 }
 
-export const getTheme = () => theme
-
 export function useStyle(props: BoxProps) {
+	const {theme} = useContext(styleContext)
   const {
     sx = {},
     __css = {},
@@ -106,18 +79,13 @@ export function useStyle(props: BoxProps) {
 
   // by the order of priority
   const baseStyle = css(__css)({ theme })
-  console.log('🚀 ~ useStyle ~ baseStyle', baseStyle)
   const variantStyle = css(get(theme, tx + '.' + variant, get(theme, variant)))(
     { theme },
   )
-  console.log('🚀 ~ useStyle ~ variantStyle', variantStyle)
   const sxStyle = css(sx)({ theme })
-  console.log('🚀 ~ useStyle ~ sxStyle', sxStyle)
   const propsStyle = css(styleProps)({ theme })
-  console.log('🚀 ~ useStyle ~ propsStyle', propsStyle)
   const style = { ...baseStyle, ...variantStyle, ...sxStyle, ...propsStyle }
   const test: string = hash(JSON.stringify(style))
-  console.log('🚀 ~ useStyle ~ style', style)
   const classname: string = `bn${test.slice(0, 8)}`
   rest.className = rest?.className
     ? `${rest.className} ${classname} bn ba`

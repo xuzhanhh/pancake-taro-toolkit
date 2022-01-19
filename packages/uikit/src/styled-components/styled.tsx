@@ -8,31 +8,11 @@ import { compile, serialize, middleware } from 'stylis'
 import { getKeyframes } from './keyframes'
 import { getTheme, withStyle } from '../theme/utils/style'
 import { Box, BoxProps } from '../components/Box'
+import { Svg } from '../components/Svg'
 
-const domElement: Record<string, typeof Box> = {
+const domElement = {
   div: Box,
-}
-
-// TODO props any
-const resolveSx = (props: any) => {
-  const { sx = {}, ...rest } = props
-  const theme = getTheme()
-  let resolvedSx = { ...sx }
-  Object.keys(resolvedSx).forEach((key) => {
-    const value = resolvedSx[key]
-    if (typeof value === 'function') {
-      delete resolvedSx[key]
-      const newSx = value({ theme, ...rest })
-      if (typeof newSx === 'object') {
-        resolvedSx = { ...resolvedSx, ...newSx }
-      } else if (typeof newSx === 'string' || typeof newSx === 'number') {
-        resolvedSx[key] = newSx
-      }
-    } else if (typeof value === 'object') {
-      resolvedSx[key] = resolveSx({ sx: value, ...rest })
-    }
-  })
-  return resolvedSx
+  svg: Svg,
 }
 
 const resolveAnimationKey = (animationValue: string) =>
@@ -85,6 +65,7 @@ function styled<P>(baseComponent: ComponentType<P>) {
               : interpolations[i]
           result.push(interpolation + strings[i + 1])
         }
+
         const sx = {}
         serialize(
           compile(result.join('')),
@@ -92,15 +73,16 @@ function styled<P>(baseComponent: ComponentType<P>) {
             (element) => {
               if (element.type === 'decl') {
                 sx[element.props] = element.children
-              } else if (element.type === 'rule') {
+              } else if (element.type === 'rule' || element.type === '@media') {
                 const value = element.children
                   .filter((item) => item.type === 'decl')
                   .reduce((acc, curr) => {
                     acc[curr.props] = curr.children
                     return acc
                   }, {})
+                const prefix = element.type === 'rule' ? '&' : '@media '
                 element.props.forEach((key) => {
-                  sx[`&${key}`] = value
+                  sx[prefix + key] = value
                 })
               }
             },
@@ -110,8 +92,7 @@ function styled<P>(baseComponent: ComponentType<P>) {
       }
       const sx = normalizeRawStyle(strings, ...interpolations)
       const isUikitComponent = true // TODO
-      const newSx = resolveSx({ sx, ...props })
-      const keyframesStyle = resolveAnimation(newSx)
+      const keyframesStyle = resolveAnimation(sx)
       const styledBaseComponent = isUikitComponent
         ? baseComponent
         : withStyle(baseComponent)
@@ -119,7 +100,7 @@ function styled<P>(baseComponent: ComponentType<P>) {
         // ...attrs,
         ...props,
         ref,
-        sx: { ...newSx, ...(props as any).sx },
+        sx: { ...sx, ...(props as any).sx },
       })
       if (keyframesStyle) {
         return (

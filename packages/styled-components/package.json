@@ -1,0 +1,36 @@
+{
+  "name": "@pancake-taro-toolkit/styled-components",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "module": "dist/esm/index.js",
+  "main": "dist/lib/index.js",
+  "source": "src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "lib",
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "yarn run dev:lib",
+    "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
+    "build": "npm-run-all build:*",
+    "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/lib --declaration false",
+    "build:es": "tsc -p tsconfig.build.json -m esNext --outDir dist/esm --declarationDir dist/types"
+  },
+  "keywords": [],
+  "author": "opar-xu",
+  "dependencies": {
+    "@tarojs/taro": "^3.4.0",
+    "obj-flatten": "^2.0.6",
+    "object-hash": "^2.2.0",
+    "react": "^17.0.2"
+  }
+}

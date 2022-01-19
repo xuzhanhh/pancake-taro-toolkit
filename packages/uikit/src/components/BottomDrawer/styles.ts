@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { styled, keyframes } from '../../styled-components'
+import styled, { keyframes } from '../../styled-components'
 
 const MountAnimation = keyframes`
 0% {
@@ -26,12 +26,12 @@ export const DrawerContainer = styled.div<{ isUnmounting: boolean }>`
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   position: fixed;
-  left:0;
+  left: 0;
   animation: ${MountAnimation} 350ms ease forwards;
   padding-bottom: env(safe-area-inset-bottom);
   z-index: 21;
   ${({ isUnmounting }) =>
-   isUnmounting &&
+    isUnmounting &&
     `animation: ${UnmountAnimation} 350ms ease forwards;
     `}
 `

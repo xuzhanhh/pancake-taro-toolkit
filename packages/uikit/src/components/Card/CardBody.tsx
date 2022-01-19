@@ -1,5 +1,5 @@
 import { SpaceProps } from 'styled-system'
-import { styled } from '../../styled-components'
+import styled from '../../styled-components'
 
 export type CardBodyProps = SpaceProps
 

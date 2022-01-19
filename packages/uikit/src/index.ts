@@ -26,7 +26,6 @@ export * from './widgets/WalletModal'
 
 // Themes
 export * from './theme'
-
 // Icons
 export * from './components/Svg'
 
@@ -34,3 +33,6 @@ export * from './components/Svg'
 export * from './context'
 
 export * from './styled-components'
+import styled from './styled-components'
+
+export default styled

@@ -42,6 +42,7 @@
     "lodash": "^4.17.21",
     "obj-flatten": "^2.0.6",
     "object-hash": "^2.2.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "stylis": "^4.0.13"
   }
 }

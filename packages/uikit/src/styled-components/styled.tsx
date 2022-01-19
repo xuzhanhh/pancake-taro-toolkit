@@ -4,6 +4,7 @@ import React, {
   forwardRef,
   ReactNode,
 } from 'react'
+import { compile, serialize, middleware } from 'stylis'
 import { getKeyframes } from './keyframes'
 import { getTheme, withStyle } from '../theme/utils/style'
 import { Box, BoxProps } from '../components/Box'
@@ -66,7 +67,7 @@ const getKeyframesList = (sx: any) => {
 }
 const theme = getTheme()
 // TODO don't use BoxProps as default
-type DefaultType<T> = T extends unknown? BoxProps:T
+type DefaultType<T> = T extends unknown ? BoxProps : T
 type Merge<T, P> = Omit<DefaultType<T>, keyof P> & P
 
 function styled<P>(baseComponent: ComponentType<P>) {
@@ -76,23 +77,35 @@ function styled<P>(baseComponent: ComponentType<P>) {
       Omit<Merge<P, T>, 'theme'> & { children?: ReactNode }
     >((props, ref) => {
       const normalizeRawStyle = (strings, ...interpolations) => {
-      console.log('🚀 ~ normalizeRawStyle ~ strings, ...interpolations', strings, interpolations)
         const result = [strings[0]]
         for (let i = 0; i < interpolations.length; i++) {
-          const interpolation = typeof interpolations[i] === 'function' ? interpolations[i]({...props,theme}) : interpolations[i]
+          const interpolation =
+            typeof interpolations[i] === 'function'
+              ? interpolations[i]({ ...props, theme })
+              : interpolations[i]
           result.push(interpolation + strings[i + 1])
         }
-        console.log(result)
         const sx = {}
-        result
-          .join('')
-          .split(';')
-          .forEach((item) => {
-            const [key, value] = item.split(':')
-            if (key && value) {
-              sx[key.trim()] = value.trim()
-            }
-          })
+        serialize(
+          compile(result.join('')),
+          middleware([
+            (element) => {
+              if (element.type === 'decl') {
+                sx[element.props] = element.children
+              } else if (element.type === 'rule') {
+                const value = element.children
+                  .filter((item) => item.type === 'decl')
+                  .reduce((acc, curr) => {
+                    acc[curr.props] = curr.children
+                    return acc
+                  }, {})
+                element.props.forEach((key) => {
+                  sx[`&${key}`] = value
+                })
+              }
+            },
+          ]),
+        )
         return sx
       }
       const sx = normalizeRawStyle(strings, ...interpolations)
@@ -106,7 +119,7 @@ function styled<P>(baseComponent: ComponentType<P>) {
         // ...attrs,
         ...props,
         ref,
-        __css: { ...newSx, ...(props as any).__css },
+        sx: { ...newSx, ...(props as any).sx },
       })
       if (keyframesStyle) {
         return (

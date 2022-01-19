@@ -1,5 +1,5 @@
 import React from 'react'
-import { getTheme } from '../../theme/utils/style'
+import { styled } from '../../styled-components'
 import Button from '../Button/Button'
 import {
   BaseButtonProps,
@@ -11,28 +11,19 @@ import { ButtonMenuItemProps } from './types'
 interface InactiveButtonProps extends BaseButtonProps {
   forwardedAs: BaseButtonProps['as']
 }
-
-const InactiveButton: PolymorphicComponent<InactiveButtonProps, 'button'> = (
-  props: InactiveButtonProps,
-) => {
-  const theme = getTheme()
-  const { variant } = props
-  return (
-    <Button
-      sx={{
-        backgroundColor: 'transparent',
-        color:
-          variant === variants.PRIMARY
-            ? theme.colors.primary
-            : theme.colors.textSubtle,
-        '&:hover:not(:disabled):not(:active)': {
-          backgroundColor: 'transparent',
-        },
-      }}
-      {...props}
-    />
-  )
-}
+const InactiveButton: PolymorphicComponent<
+  InactiveButtonProps,
+  'button'
+> = styled(Button)<InactiveButtonProps>`
+  background-color: transparent;
+  color: ${({ theme, variant }) =>
+    variant === variants.PRIMARY
+      ? theme.colors.primary
+      : theme.colors.textSubtle};
+  &:hover:not(:disabled):not(:active) {
+    background-color: transparent;
+  }
+`
 
 const ButtonMenuItem: PolymorphicComponent<ButtonMenuItemProps, 'button'> = ({
   isActive = false,

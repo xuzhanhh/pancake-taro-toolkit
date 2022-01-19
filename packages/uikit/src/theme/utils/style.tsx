@@ -69,8 +69,8 @@ const convert = (style) => {
     }
   })
   Object.keys(o).forEach((el) => {
-    // adaption for bmp (bn-button)
-    let newEl = el.replace(/ &/g, '').replace(/ button/g, ' bn-button')
+    // adaption for bmp css
+    let newEl = el.replace(/ &/g, '').replace(/\>button/g, ' bn-button').replace(/:disabled/g, '[disabled=true]')
     if (el !== newEl) {
       o[newEl] = o[el]
       delete o[el]

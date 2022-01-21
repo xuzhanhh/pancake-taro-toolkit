@@ -31,8 +31,3 @@ export * from './components/Svg'
 
 // Context
 export * from './context'
-
-export * from './styled-components'
-import styled from './styled-components'
-
-export default styled

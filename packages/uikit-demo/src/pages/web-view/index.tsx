@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { ThemeProvider, WebviewContext } from '@pancake-taro-toolkit/uikit'
+import { WebviewContext } from '@pancake-taro-toolkit/uikit'
 import { View, WebView } from '@binance/mp-components'
+import Provider from 'src/Provider'
 
 const WebViewPage = () => {
   const { url } = useContext(WebviewContext)
@@ -12,8 +13,8 @@ const WebViewPage = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <WebViewPage />
-    </ThemeProvider>
+    </Provider>
   )
 }

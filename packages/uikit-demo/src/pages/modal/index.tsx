@@ -6,10 +6,10 @@ import {
   Button,
   Modal,
   useModal,
-  getTheme,
   ModalProvider,
 } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
+import { useTheme } from '@pancake-taro-toolkit/styled'
 
 const CustomModal: React.FC<ModalProps> = ({ title, onDismiss, ...props }) => {
   return (
@@ -20,7 +20,7 @@ const CustomModal: React.FC<ModalProps> = ({ title, onDismiss, ...props }) => {
   )
 }
 const Default: React.FC = () => {
-  const theme = getTheme()
+  const theme = useTheme()
   const [onPresent1] = useModal(<CustomModal title="Modal 1" />)
   const [onPresent2] = useModal(<CustomModal title="Modal 2" />)
   const [onPresent3] = useModal(

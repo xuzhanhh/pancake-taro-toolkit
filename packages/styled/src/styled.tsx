@@ -73,10 +73,23 @@ function styled<P>(
         const result = [strings[0]]
         for (let i = 0; i < interpolations.length; i++) {
           let interpolation =
-          (typeof interpolations[i] === 'function'
-          ? interpolations[i]({ ...props, theme })
-          : interpolations[i]) || ''
-          interpolation = typeof interpolation === 'object'? objToString(interpolation): interpolation
+            typeof interpolations[i] === 'function'
+              ? interpolations[i]({ ...props, theme })
+              : interpolations[i]
+          console.log(
+            '🚀 ~ before normalizeRawStyle ~ interpolation',
+            interpolation,
+          )
+          interpolation =
+            (typeof interpolation === 'boolean' || typeof interpolation === 'undefined' ) ? '' : interpolation
+          interpolation =
+            typeof interpolation === 'object'
+              ? `${objToString(interpolation)};`
+              : interpolation
+          console.log(
+            '🚀 ~ after normalizeRawStyle ~ interpolation',
+            interpolation,
+          )
           result.push(interpolation + strings[i + 1])
         }
         const sx = {}
@@ -116,7 +129,7 @@ function styled<P>(
       console.log('🚀 ~ sx', sx)
       const keyframesStyle = resolveAnimation(sx)
       const newStyledCss = useMemo(
-        () => ({ ...propsStyledCss, ...sx }),
+        () => ({ ...sx, ...propsStyledCss }),
         [sx, propsStyledCss],
       )
       const Component = createElement(styledBaseComponent as any, {

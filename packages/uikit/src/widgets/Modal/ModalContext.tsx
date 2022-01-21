@@ -1,7 +1,6 @@
 import React, { createContext, useState } from "react";
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import { Overlay } from "../../components/Overlay";
-import {Box} from '../../components/Box'
 import { Handler } from "./types";
 
 interface ModalsContext {
@@ -14,19 +13,18 @@ interface ModalsContext {
   setCloseOnOverlayClick: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ModalWrapper = styled(Box)({sx:{
-	display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'fixed',
-  top: '0',
-  right: '0',
-  bottom: '0',
-  left: '0',
-  zIndex: ({ theme }) => theme.zIndices.modal - 1,
-
-}})
+const ModalWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: ${({ theme }) => theme.zIndices.modal - 1};
+`;
 
 export const Context = createContext<ModalsContext>({
   isOpen: false,

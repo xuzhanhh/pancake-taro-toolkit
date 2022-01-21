@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled, { useTheme } from '@pancake-taro-toolkit/styled'
 import {
   CardRibbon,
   Box,
@@ -8,7 +8,6 @@ import {
   CardFooter,
   Heading,
   CardHeader as UIKitCardHeader,
-  getTheme,
 } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 
@@ -52,8 +51,8 @@ const Default: React.FC = () => {
   )
 }
 
-const theme = getTheme()
 const CardHeader: React.FC = () => {
+  const theme = useTheme()
   // This is example how to make card header "overlap" the border.
   // Seems to be easiest solution that works on all screens and does not rely on absolute positioning trickery
   const headerHeight = '60px'

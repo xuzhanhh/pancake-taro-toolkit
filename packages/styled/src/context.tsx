@@ -1,8 +1,11 @@
 import React, { useReducer, createContext, useState, useEffect } from 'react'
-import { objToString } from './style'
+import { objToString } from './utils/style'
 
-const StyleContext = createContext({})
-export default StyleContext
+export const ThemeContext = createContext({
+  theme: {} as any,
+  state: {},
+  dispatch: (() => {}) as React.Dispatch<any>,
+})
 
 const initState = {}
 
@@ -24,9 +27,9 @@ export const ThemeProvider = ({ children, theme: propTheme }) => {
     }
   }, [propTheme])
   return (
-    <StyleContext.Provider value={{ state, dispatch, theme }}>
+    <ThemeContext.Provider value={{ state, dispatch, theme }}>
       <style dangerouslySetInnerHTML={{ __html: objToString(state) }} />
       {children}
-    </StyleContext.Provider>
+    </ThemeContext.Provider>
   )
 }

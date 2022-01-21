@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import mpService from '@binance/mp-service'
-import { getTheme } from '../../theme'
-import styled from '../../theme/utils/styled'
+import styled  from '@pancake-taro-toolkit/styled'
+import {useTheme} from '../../theme'
 import Grid from '../../components/Box/Grid'
 import Box from '../../components/Box/Box'
 import Button from '../../components/Button/Button'
@@ -26,11 +26,9 @@ interface Props {
   t: (key: string) => string
 }
 
-const WalletWrapper = styled(Box)<any>({
-  sx: {
-    borderBottom: ({ theme }) => `1px solid ${theme.colors.cardBorder}`,
-  },
-})
+const WalletWrapper = styled(Box)<any>`
+  border-bottom: ${({ theme }) => `1px solid ${theme.colors.cardBorder}`}
+`
 
 /**
  * Checks local storage if we have saved the last wallet the user connected with
@@ -63,13 +61,13 @@ const getPreferredConfig = (walletConfig: Config[]) => {
     ),
   ]
 }
-const theme = getTheme()
 const ConnectModal: React.FC<Props> = ({
   login,
   onDismiss = () => null,
   displayCount = 3,
   t,
 }) => {
+  const theme = useTheme()
   const [showMore, setShowMore] = useState(false)
 
   const sortedConfig = getPreferredConfig(config)

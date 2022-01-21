@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '../../styled-components'
+import styled from '@pancake-taro-toolkit/styled'
 import { PancakeTheme } from '../../theme'
 import CheckmarkCircleIcon from '../Svg/Icons/CheckmarkCircle'
 import ErrorIcon from '../Svg/Icons/Error'

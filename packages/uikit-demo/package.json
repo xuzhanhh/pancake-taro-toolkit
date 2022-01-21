@@ -6,7 +6,6 @@
   "author": "",
   "scripts": {
     "dev": "bmp dev",
-    "build": "bmp build",
     "cp":"node ./tools/createPage.js"
   },
   "dependencies": {

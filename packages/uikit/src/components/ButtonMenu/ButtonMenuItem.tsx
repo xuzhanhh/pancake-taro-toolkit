@@ -1,12 +1,12 @@
 import React from 'react'
-import styled from '../../styled-components'
+import styled from '@pancake-taro-toolkit/styled'
 import Button from '../Button/Button'
 import {
   BaseButtonProps,
   PolymorphicComponent,
   variants,
 } from '../Button/types'
-import { ButtonMenuItemProps } from './types'
+import type { ButtonMenuItemProps } from './types'
 
 interface InactiveButtonProps extends BaseButtonProps {
   forwardedAs: BaseButtonProps['as']

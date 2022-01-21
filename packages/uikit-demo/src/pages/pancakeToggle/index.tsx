@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { ThemeProvider, Box, PancakeToggle } from '@pancake-taro-toolkit/uikit'
+import {  Box, PancakeToggle } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider';
 
 const Default: React.FC = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -22,9 +23,8 @@ const Default: React.FC = () => {
 };
 export default function Page() {
   return (
-    <ThemeProvider>
-      <Box>123</Box>
+    <Provider>
       <Default />
-    </ThemeProvider>
+    </Provider>
   )
 }

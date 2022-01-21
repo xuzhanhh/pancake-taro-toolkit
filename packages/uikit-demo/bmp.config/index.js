@@ -1,5 +1,8 @@
+const path = require('path')
 module.exports = {
-  alias: {},
+  alias: {
+    src: path.resolve(__dirname, '../src'),
+  },
 
   entry: {
     app: ['src/app'],

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { ThemeProvider } from '@pancake-taro-toolkit/styled'
 import {
-  ThemeProvider,
+  light,
   Box,
   Text,
   Button,
@@ -47,7 +48,7 @@ const Default: React.FC = () => {
 
 export default function Page() {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={light}>
       <Default />
     </ThemeProvider>
   )

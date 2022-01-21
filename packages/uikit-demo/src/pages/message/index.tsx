@@ -1,10 +1,10 @@
 import React from 'react'
 import {
-  ThemeProvider,
   Message,
   MessageText,
   HelpIcon
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 
 const Default: React.FC = () => {
   return (
@@ -58,8 +58,8 @@ const Default: React.FC = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Default />
-    </ThemeProvider>
+    </Provider>
   )
 }

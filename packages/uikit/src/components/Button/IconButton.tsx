@@ -1,6 +1,6 @@
 import Button from './Button'
+import styled from '@pancake-taro-toolkit/styled'
 import { BaseButtonProps, PolymorphicComponent } from './types'
-import styled from '../../styled-components'
 
 const IconButton: PolymorphicComponent<BaseButtonProps, 'button'> = styled(
   Button,

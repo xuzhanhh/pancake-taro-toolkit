@@ -24,7 +24,7 @@
     "dev": "yarn run dev:lib",
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
     "build": "npm-run-all build:*",
-    "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/lib --declaration false",
+    "build:cjs": "rm -rf ./dist && tsc -p tsconfig.build.json -m commonjs --outDir dist/lib --declaration false",
     "build:es": "tsc -p tsconfig.build.json -m esNext --outDir dist/esm --declarationDir dist/types"
   },
   "devDependencies": {

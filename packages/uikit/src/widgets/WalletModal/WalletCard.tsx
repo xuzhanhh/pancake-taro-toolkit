@@ -1,6 +1,6 @@
 import React from 'react'
 import mpService from '@binance/mp-service'
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import Button from '../../components/Button/Button'
 import Text from '../../components/Text/Text'
 import MoreHorizontal from '../../components/Svg/Icons/MoreHorizontal'
@@ -14,20 +14,18 @@ interface Props {
   onDismiss: () => void
 }
 
-const WalletButton = styled(Button)<any>({
-  attrs: { variant: 'text' },
-  sx: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    height: 'auto',
-    justifyContent: 'center',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '100%',
-    py: '16px',
-  },
-})
+const WalletButton = styled(Button).attrs({ variant: 'text' })<any>`
+  alignItems: center;
+  display: flex;
+  flexDirection: column;
+  height: auto;
+  justifyContent: center;
+  marginLeft: auto;
+  marginRight: auto;
+  width: 100%;
+  py: 16px;
+
+`
 interface MoreWalletCardProps extends ButtonProps {
   t: (key: string) => string
 }

@@ -1,8 +1,6 @@
 import React, { Children, cloneElement, ReactElement } from 'react'
-import styled from '../../styled-components'
-// import { getTheme } from '../../theme/utils/style'
+import styled from '@pancake-taro-toolkit/styled'
 import { PancakeTheme } from '../../theme'
-// import { Box } from '../Box'
 import { scales, variants } from '../Button/types'
 import { ButtonMenuProps } from './types'
 

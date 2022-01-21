@@ -80,7 +80,6 @@ const convert = (style) => {
       delete o[el]
     }
   })
-  console.log('🚀 ~ useStyle ~ o', o)
   return { value: JSON.stringify(o), o }
 }
 
@@ -106,18 +105,13 @@ export function useStyle(props: BoxProps) {
 
   // by the order of priority
   const baseStyle = css(__css)({ theme })
-  console.log('🚀 ~ useStyle ~ baseStyle', baseStyle)
   const variantStyle = css(get(theme, tx + '.' + variant, get(theme, variant)))(
     { theme },
   )
-  console.log('🚀 ~ useStyle ~ variantStyle', variantStyle)
   const sxStyle = css(sx)({ theme })
-  console.log('🚀 ~ useStyle ~ sxStyle', sxStyle)
   const propsStyle = css(styleProps)({ theme })
-  console.log('🚀 ~ useStyle ~ propsStyle', propsStyle)
   const style = { ...baseStyle, ...variantStyle, ...sxStyle, ...propsStyle }
   const test: string = hash(JSON.stringify(style))
-  console.log('🚀 ~ useStyle ~ style', style)
   const classname: string = `bn${test.slice(0, 8)}`
   rest.className = rest?.className
     ? `${rest.className} ${classname} bn ba`

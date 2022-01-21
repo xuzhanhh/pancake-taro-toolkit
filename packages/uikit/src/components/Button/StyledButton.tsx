@@ -2,17 +2,19 @@
 import React, { forwardRef } from 'react'
 import { Button as TaroButton } from '@tarojs/components'
 import { BoxProps } from '../Box'
-import { getTheme, useStyle } from '../../theme/utils/style'
+import { useStyle, useTheme } from '@pancake-taro-toolkit/styled'
 import sizes from './utils/ButtonSize'
 import { Scale, BaseButtonProps } from './types'
 import { scaleVariants } from './theme'
+import { PancakeTheme } from '../../theme'
 
 interface ThemedButtonProps extends BaseButtonProps {
-  theme: DefaultTheme
+  theme: PancakeTheme
 }
 
 interface TransientButtonProps extends ThemedButtonProps {
   $isLoading?: boolean
+  theme: PancakeTheme
 }
 
 const composeClassNames: (
@@ -39,8 +41,7 @@ const composeClassNames: (
 const getOpacity = ({ $isLoading = false }: TransientButtonProps) => {
   return $isLoading ? '.5' : '1'
 }
-const getDisabledStyles = ({ $isLoading }: TransientButtonProps) => {
-  const theme = getTheme()
+const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
   let style = {}
   if ($isLoading === true) {
     style = {
@@ -72,7 +73,7 @@ const StyledButton = (props: BaseButtonProps) => {
     sx,
     __css,
   } = props
-
+  const theme = useTheme()
   const classNames: string = composeClassNames(
     className,
     !!inactive,
@@ -86,6 +87,8 @@ const StyledButton = (props: BaseButtonProps) => {
     className: classNames,
     sx: sx || {},
     __css: {
+      ml: 'unset',
+      mr: 'unset',
       appearance: 'none',
       userSelect: 'none',
       cursor: 'pointer',
@@ -109,7 +112,7 @@ const StyledButton = (props: BaseButtonProps) => {
       fontWeight: 600,
       letterSpacing: '0.03em',
       lineHeight: 1,
-      opacity: getOpacity({ $isLoading }),
+      opacity: getOpacity({ $isLoading, theme }),
       outline: 0,
       transition: 'background-color 0.2s, opacity 0.2s',
       '&:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active)':
@@ -123,7 +126,7 @@ const StyledButton = (props: BaseButtonProps) => {
           boxShadow: 'none',
         },
       ...(scaleVariants[scale] || {}),
-      ...getDisabledStyles({ $isLoading }),
+      ...getDisabledStyles({ $isLoading, theme }),
       ...__css,
     },
   })

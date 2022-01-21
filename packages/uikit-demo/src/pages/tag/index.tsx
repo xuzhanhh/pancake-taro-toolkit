@@ -1,13 +1,13 @@
 import React from 'react'
 import capitalize from 'lodash/capitalize'
 import {
-  ThemeProvider,
   Box,
   Tag,
   Flex,
   CommunityIcon,
   RemoveIcon,
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const variants = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
@@ -84,9 +84,9 @@ const TextVariations: React.FC = () => {
 };
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Default />
       <TextVariations />
-    </ThemeProvider>
+    </Provider>
   )
 }

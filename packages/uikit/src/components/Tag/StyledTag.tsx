@@ -1,9 +1,8 @@
+import styled from '@pancake-taro-toolkit/styled'
 import { PancakeTheme } from '../../theme'
-import styled from '../../theme/utils/styled'
 import { Colors } from '../../theme/types'
 import { scaleVariants, styleVariants } from './theme'
 import { TagProps, variants } from './types'
-import { Box } from '../Box'
 
 interface ThemedProps extends TagProps {
   theme: PancakeTheme
@@ -19,31 +18,27 @@ const getOutlineStyles = ({
       .backgroundColor as keyof Colors
     const color = theme.colors[themeColorKey]
 
-    return {
-      color,
-      background: theme.colors.background,
-      border: `2px solid ${color}`,
-    }
+    return `
+      color: ${color};
+      background: ${theme.colors.background};
+      border: 2px solid ${color};
+    `
   }
 
   return ''
 }
 
-export const StyledTag = styled(Box)<TagProps>({
-  sx: {
-    alignItems: 'center',
-    borderRadius: '16px',
-    color: '#ffffff',
-    display: 'inline-flex',
-    fontWeight: '400',
-    whiteSpace: 'nowrap',
-
-    textTransform: ({ textTransform }) =>
-      textTransform ? textTransform : 'none',
-    scale: ({ scale }) => scaleVariants[scale],
-    variant: ({ variant }) => styleVariants[variant],
-    getOutlineStyles,
-  },
-})
+export const StyledTag = styled.div<TagProps>`
+  align-items: center;
+  border-radius: 16px;
+  color: #ffffff;
+  display: inline-flex;
+  font-weight: 400;
+  white-space: nowrap;
+  ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
+  ${({ scale }) => scaleVariants[scale]}
+  ${({ variant }) => styleVariants[variant]}
+  ${getOutlineStyles}
+`
 
 export default null

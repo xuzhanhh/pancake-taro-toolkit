@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import {
-  ThemeProvider,
   Box,
   NotificationDot,
   Button,
   ButtonMenu,
   ButtonMenuItem,
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 
 const Default: React.FC = () => {
   return (
@@ -45,13 +45,13 @@ const MenuButtons: React.FC = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Box p="24px">
         <Box sx={{ fontSize: '24px', mb: '14px' }}>Default</Box>
         <Default />
         <Box sx={{ fontSize: '24px', my: '14px' }}>MenuButtons</Box>
         <MenuButtons />
       </Box>
-    </ThemeProvider>
+    </Provider>
   )
 }

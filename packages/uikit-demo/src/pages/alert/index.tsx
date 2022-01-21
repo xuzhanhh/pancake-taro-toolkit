@@ -1,12 +1,8 @@
 import React from 'react'
-import {
-  styled,
-  ThemeProvider,
-  Box,
-  Alert,
-  Text,
-} from '@pancake-taro-toolkit/uikit'
+import { Box, Alert, Text } from '@pancake-taro-toolkit/uikit'
+import styled from '@pancake-taro-toolkit/styled'
 import noop from 'lodash/noop'
+import Provider from 'src/Provider'
 
 const Row = styled.div`
   margin-bottom: 32px;
@@ -64,9 +60,9 @@ const WithHandler: React.FC = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Default />
       <WithHandler />
-    </ThemeProvider>
+    </Provider>
   )
 }

@@ -1,13 +1,11 @@
 // @ts-nocheck
 import React, { ComponentType, useEffect, useContext, forwardRef } from 'react'
 import Taro from '@tarojs/taro'
-import { light, dark } from '../index'
 import css, { cssProps, get } from './css'
 import { BoxProps } from '../../components/Box/types'
 import hash from 'object-hash'
 import flatten from 'obj-flatten'
-import StyleContext from './ThemeProvider'
-import themeConfig from './themeConfig'
+import { ThemeContext } from '../context'
 
 export const objToString = (o) => {
   let value = JSON.stringify(o)
@@ -54,17 +52,17 @@ const convert = (style) => {
       delete o[el]
     }
   })
-  console.log('🚀 ~ useStyle ~ o', o)
   return { value: JSON.stringify(o), o }
 }
 
 export function useStyle(props: BoxProps) {
-	const {theme} = useContext(styleContext)
+  const { theme } = useContext(ThemeContext)
   const {
     sx = {},
     __css = {},
     variant = 'default',
     tx = 'variants',
+    __styledCss,
     ...rest
   } = props
 
@@ -79,12 +77,19 @@ export function useStyle(props: BoxProps) {
 
   // by the order of priority
   const baseStyle = css(__css)({ theme })
+  const styledStyle = css(__styledCss)({ theme })
   const variantStyle = css(get(theme, tx + '.' + variant, get(theme, variant)))(
     { theme },
   )
   const sxStyle = css(sx)({ theme })
   const propsStyle = css(styleProps)({ theme })
-  const style = { ...baseStyle, ...variantStyle, ...sxStyle, ...propsStyle }
+  const style = {
+    ...baseStyle,
+    ...variantStyle,
+    ...styledStyle,
+    ...sxStyle,
+    ...propsStyle,
+  }
   const test: string = hash(JSON.stringify(style))
   const classname: string = `bn${test.slice(0, 8)}`
   rest.className = rest?.className
@@ -100,7 +105,7 @@ export function useStyle(props: BoxProps) {
     .replace(/}$/, '')
     .replace(/%998/g, '"')
     .replace(/%10086/g, ',')
-  const { dispatch } = useContext(StyleContext)
+  const { dispatch } = useContext(ThemeContext)
   useEffect(() => {
     if (value) {
       dispatch({ type: 'stylechange', payload: { o } })

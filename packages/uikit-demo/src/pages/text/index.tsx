@@ -1,8 +1,10 @@
 import React from 'react'
-import { ThemeProvider, Box, Text } from '@pancake-taro-toolkit/uikit'
+import { } from '@pancake-taro-toolkit/styled'
+import { Text, } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Text>Default</Text>
       <Text bold>Bold text</Text>
       <Text small>Small text</Text>
@@ -14,10 +16,10 @@ export default function Page() {
       </Text>
       <Text textAlign="center">center</Text>
       <Text display="inline" color="textSubtle" textTransform="uppercase">
-        Example of{" "}
+        Example of{' '}
       </Text>
       <Text display="inline" bold textTransform="uppercase">
-        inline{" "}
+        inline{' '}
       </Text>
       <Text display="inline" color="textSubtle" textTransform="uppercase">
         Text
@@ -25,6 +27,6 @@ export default function Page() {
       <Text ellipsis width="250px">
         Ellipsis: a long text with an ellipsis just for the example
       </Text>
-    </ThemeProvider>
+    </Provider>
   )
 }

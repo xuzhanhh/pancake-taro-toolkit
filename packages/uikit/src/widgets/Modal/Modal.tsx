@@ -1,9 +1,16 @@
-import React from "react";
-import { getTheme } from "../../theme/utils/style";
-import Heading from "../../components/Heading/Heading";
-import getThemeValue from "../../util/getThemeValue";
-import { ModalBody, ModalHeader, ModalTitle, ModalContainer, ModalCloseButton, ModalBackButton } from "./styles";
-import { ModalProps } from "./types";
+import React from 'react'
+import { useTheme } from '../../theme'
+import Heading from '../../components/Heading/Heading'
+import getThemeValue from '../../util/getThemeValue'
+import {
+  ModalBody,
+  ModalHeader,
+  ModalTitle,
+  ModalContainer,
+  ModalCloseButton,
+  ModalBackButton,
+} from './styles'
+import { ModalProps } from './types'
 
 const Modal: React.FC<ModalProps> = ({
   title,
@@ -11,15 +18,20 @@ const Modal: React.FC<ModalProps> = ({
   onBack,
   children,
   hideCloseButton = false,
-  bodyPadding = "24px",
-  headerBackground = "transparent",
-  minWidth = "320px",
+  bodyPadding = '24px',
+  headerBackground = 'transparent',
+  minWidth = '320px',
   ...props
 }) => {
-  const theme = getTheme();
+  const theme = useTheme()
   return (
     <ModalContainer minWidth={minWidth} {...props}>
-      <ModalHeader background={getThemeValue(`colors.${headerBackground}`, headerBackground)(theme)}>
+      <ModalHeader
+        background={getThemeValue(
+          `colors.${headerBackground}`,
+          headerBackground,
+        )(theme)}
+      >
         <ModalTitle>
           {onBack && <ModalBackButton onBack={onBack} />}
           <Heading>{title}</Heading>
@@ -28,7 +40,7 @@ const Modal: React.FC<ModalProps> = ({
       </ModalHeader>
       <ModalBody p={bodyPadding}>{children}</ModalBody>
     </ModalContainer>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

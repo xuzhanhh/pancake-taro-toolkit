@@ -1,10 +1,9 @@
 import { Switch as TaroSwitch } from '@tarojs/components'
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import { Box } from '../Box'
 import {
   ToggleProps,
   HandleProps,
-  // InputProps,
   ScaleKeys,
   scales,
   StyleToggleProps,
@@ -47,68 +46,60 @@ const getScale =
   }
 
 const handleClassName = 'styledToggle-handle'
-export const Handle = styled(Box)<HandleProps>({
-  sx: {
-    backgroundColor: ({ theme }) => theme.toggle.handleBackground,
-    borderRadius: '50%',
-    cursor: 'pointer',
-    height: getScale('handleHeight'),
-    left: getScale('handleLeft'),
-    position: 'absolute',
-    top: getScale('handleTop'),
-    transition: 'left 200ms ease-in',
-    width: getScale('handleWidth'),
-    zIndex: 1,
-  },
-  attrs: {
-    className: handleClassName,
-  },
-})
+export const Handle = styled(Box).attrs({
+  className: handleClassName,
+})<HandleProps>`
+  background-color: ${({ theme }) => theme.toggle.handleBackground};
+  border-radius: 50%;
+  cursor: pointer;
+  height: ${getScale('handleHeight')};
+  left: ${getScale('handleLeft')};
+  position: absolute;
+  top: ${getScale('handleTop')};
+  transition: left 200ms ease-in;
+  width: ${getScale('handleWidth')};
+  z-index: 1;
+`
 
 // TODO remove any
-export const Input = styled(TaroSwitch)<any>({
-  sx: {
-    cursor: 'pointer',
-    opacity: '0',
-    height: '100%',
-    position: 'absolute',
-    width: '100%',
-    zIndex: '3',
-    '&:checked': {
-      color:'red'
-    },
-    '&[checked=true]': {
-      color:'blue'
-    },
-    [`&[checked=true] + .${handleClassName}`]: {
-      left: getScale('checkedLeft'),
-    },
+export const Input = styled(TaroSwitch, { isStyled: false }).attrs({
+  type: 'switch',
+})<any>`
+  cursor: pointer;
+  opacity: 0;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  &:checked {
+    color: 'red';
+  }
 
-    [`&:focus + .${handleClassName}`]: {
-      boxShadow: ({ theme }) => theme.shadows.focus,
-    },
-  },
-  attrs: {
-    type: 'switch',
-  },
-  isUikitComponent: false,
-})
+  &[checked='true'] {
+    color: 'blue';
+  }
 
-const StyledToggle = styled(Box)<StyleToggleProps>({
-  sx: {
-    alignItems: 'center',
-    backgroundColor: ({ theme, $checked, $checkedColor, $defaultColor }) =>
-      theme.colors[$checked ? $checkedColor : $defaultColor],
+  &[checked='true'] + .${handleClassName} {
+    left: ${getScale('checkedLeft')};
+  }
 
-    borderRadius: '24px',
-    boxShadow: ({ theme }) => theme.shadows.inset,
-    cursor: 'pointer',
-    display: 'inline-flex',
-    height: getScale('toggleHeight'),
-    position: 'relative',
-    transition: 'background-color 200ms',
-    width: getScale('toggleWidth'),
-  },
-})
+  &:focus + .${handleClassName} {
+    box-shadow: ${({ theme }) => theme.shadows.focus};
+  }
+`
+
+const StyledToggle = styled(Box)<StyleToggleProps>`
+  align-items: center;
+  background-color: ${({ theme, $checked, $checkedColor, $defaultColor }) =>
+    theme.colors[$checked ? $checkedColor : $defaultColor]};
+  border-radius: 24px;
+  box-shadow: ${({ theme }) => theme.shadows.inset};
+  cursor: pointer;
+  display: inline-flex;
+  height: ${getScale('toggleHeight')};
+  position: relative;
+  transition: background-color 200ms;
+  width: ${getScale('toggleWidth')};
+`
 
 export default StyledToggle

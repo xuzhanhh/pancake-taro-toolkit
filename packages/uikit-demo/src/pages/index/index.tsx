@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { View, Image } from '@binance/mp-components'
 import mpService from '@binance/mp-service'
-import { ThemeProvider, Box } from '@pancake-taro-toolkit/uikit'
+import { Box } from '@pancake-taro-toolkit/uikit'
 import './index.css'
+import Provider from 'src/Provider'
 
 const list = [
   {
@@ -128,7 +129,7 @@ export default class Index extends Component {
   }
   render() {
     return (
-      <ThemeProvider>
+      <Provider>
         <Box p="24px">
           <View className="demo-home__title">
             <Image
@@ -144,7 +145,7 @@ export default class Index extends Component {
           <Nav title="Basic Component" list={list} />
           <Nav title="Widget Component" list={widgetList} />
         </Box>
-      </ThemeProvider>
+      </Provider>
     )
   }
 }

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import {
-  ThemeProvider,
   Box,
   Toggle,
   SunIcon,
   MoonIcon,
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const Default: React.FC = () => {
   const [isChecked, setIsChecked] = useState(false)
 
@@ -42,8 +42,8 @@ const Default: React.FC = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Default />
-    </ThemeProvider>
+    </Provider>
   )
 }

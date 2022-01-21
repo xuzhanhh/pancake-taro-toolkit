@@ -1,7 +1,6 @@
-import { Input as TaroInput } from '@tarojs/components'
-import { getTheme } from '../../theme/utils/style'
-import styled from '../../theme/utils/styled'
-import { PancakeTheme } from '../../theme'
+import React from 'react'
+import styled from '@pancake-taro-toolkit/styled'
+import { PancakeTheme, useTheme } from '../../theme'
 import { InputProps, scales } from './types'
 
 interface StyledInputProps extends InputProps {
@@ -28,6 +27,7 @@ const getBoxShadow = ({
 }
 
 const getHeight = ({ scale = scales.MD }: StyledInputProps) => {
+console.log('🚀 ~ getHeight ~ scale', scale)
   switch (scale) {
     case scales.SM:
       return '32px'
@@ -38,41 +38,36 @@ const getHeight = ({ scale = scales.MD }: StyledInputProps) => {
       return '40px'
   }
 }
-const theme = getTheme()
 
-const Input = styled(TaroInput)<InputProps>({
-  isUikitComponent: false,
-  sx: {
-    backgroundColor: ({ theme }) => theme.colors.input,
-    borderRadius: '16px',
-    boxShadow: getBoxShadow,
-    color: ({ theme }) => theme.colors.text,
-    display: 'block',
-    fontSize: '16px',
-    height: getHeight,
-    minHeight: getHeight,
-    outline: '0',
-    padding: '0 16px',
-    width: '100%',
-    border: ({ theme }) => `1px solid ${theme.colors.inputSecondary}`,
+const StyledInput = styled.input<InputProps>`
+  background-color: ${({ theme }) => theme.colors.input};
+  border: 0;
+  border-radius: 16px;
+  box-shadow: ${getBoxShadow};
+  color: ${({ theme }) => theme.colors.text};
 
-    '&:disabled': ({ disabled, theme }) =>
-      disabled && {
-        backgroundColor: theme.colors.backgroundDisabled,
-        boxShadow: 'none',
-        color: theme.colors.textDisabled,
-        cursor: 'not-allowed',
-      },
+  display: block;
+  font-size: 16px;
+  height: ${getHeight};
+  minHeight: ${getHeight};
+  outline: 0;
+  padding: 0 16px;
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
 
-    '&:focus:not(:disabled)': {
-      boxShadow: ({ theme }) => theme.shadows.focus,
-    },
-  },
-  attrs: {
-    placeholderStyle: {
-      color: theme.colors.textSubtle,
-    },
-  },
-})
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.backgroundDisabled};
+    box-shadow: none;
+    color: ${({ theme }) => theme.colors.textDisabled};
+    cursor: not-allowed;
+  }
 
+  &:focus:not(:disabled) {
+    box-shadow: ${({ theme }) => theme.shadows.focus};
+  }
+`
+const Input = (props: InputProps) => {
+  const theme = useTheme()
+  return <StyledInput placeholderStyle={{ color: theme.colors.textSubtle }} {...props} />
+}
 export default Input

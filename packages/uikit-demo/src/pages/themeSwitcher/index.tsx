@@ -1,11 +1,12 @@
 import React from 'react'
-import { ThemeProvider, Box, ThemeSwitcher } from '@pancake-taro-toolkit/uikit'
+import {  ThemeSwitcher } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 export default function Page() {
   const [isDark, setIsDark] = React.useState(false)
   const toggleTheme = React.useCallback(() => setIsDark(!isDark), [isDark])
   return (
-    <ThemeProvider>
+    <Provider>
       <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
-    </ThemeProvider>
+    </Provider>
   )
 }

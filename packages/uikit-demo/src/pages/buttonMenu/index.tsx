@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import {
-  ThemeProvider,
-  Box,
-  ButtonMenu,
-  ButtonMenuItem,
-} from '@pancake-taro-toolkit/uikit'
+import React, { useState } from 'react'
+import { Box, ButtonMenu, ButtonMenuItem } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const Row = (props) => (
   <Box
     sx={{
@@ -151,13 +147,18 @@ const AsLinks: React.FC = () => {
   )
 }
 const FullWidthMenu: React.FC = () => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0)
 
-  const handleClick = (newIndex: number) => setIndex(newIndex);
+  const handleClick = (newIndex: number) => setIndex(newIndex)
 
   return (
     <Box width="840px">
-      <ButtonMenu activeIndex={index} onItemClick={handleClick} fullWidth mb="24px">
+      <ButtonMenu
+        activeIndex={index}
+        onItemClick={handleClick}
+        fullWidth
+        mb="24px"
+      >
         <ButtonMenuItem>Button 1</ButtonMenuItem>
         <ButtonMenuItem>Button 2</ButtonMenuItem>
         <ButtonMenuItem>Button 3</ButtonMenuItem>
@@ -175,11 +176,11 @@ const FullWidthMenu: React.FC = () => {
         </ButtonMenuItem>
       </ButtonMenu>
     </Box>
-  );
-};
+  )
+}
 export default function ButtonMenuPage() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Box>
         <Default />
         <Box fontSize="24px" mb="24px">
@@ -189,6 +190,6 @@ export default function ButtonMenuPage() {
         <DisabledMenu />
         <FullWidthMenu />
       </Box>
-    </ThemeProvider>
+    </Provider>
   )
 }

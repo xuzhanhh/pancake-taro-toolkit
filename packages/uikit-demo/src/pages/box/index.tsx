@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import {
-  ThemeProvider,
-  Box,
-  BoxProps,
-  Flex,
-  Grid,
-} from '@pancake-taro-toolkit/uikit'
+import { Box, BoxProps, Flex, Grid } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 
 const Title = (props: BoxProps) => (
   <Box textAlign="center" fontSize="20px" {...props} />
@@ -23,7 +18,7 @@ export default class Index extends Component {
 
   render() {
     return (
-      <ThemeProvider>
+      <Provider>
         <Title>Box: </Title>
         <Box
           _css={{
@@ -49,7 +44,7 @@ export default class Index extends Component {
         </Flex>
         <Title my="16px">Flex:</Title>
         <Grid>I am Grid</Grid>
-      </ThemeProvider>
+      </Provider>
     )
   }
 }

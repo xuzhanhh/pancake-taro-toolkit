@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import styled, { keyframes } from '../../styled-components'
+import styled, { keyframes } from '@pancake-taro-toolkit/styled'
 
 const MountAnimation = keyframes`
 0% {

@@ -1,39 +1,34 @@
 import React, { useState } from 'react'
 import mpService from '@binance/mp-service'
+import styled from '@pancake-taro-toolkit/styled'
 import Text from '../../components/Text/Text'
 import { CopyIcon } from '../../components/Svg'
-import styled from '../../theme/utils/styled'
 import { Box } from '../../components/Box'
 
 interface Props {
   toCopy: string
 }
 
-const StyleButton = styled(Text)<any>({
-  sx: {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    color: ({ theme }) => theme.colors.primary,
-  },
-  attrs: { role: 'button' },
-})
+const StyleButton = styled(Text).attrs({ role: 'button' })<any>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.primary};
+`
 
-const Tooltip = styled(Box)<{ isTooltipDisplayed: boolean }>({
-  sx: {
-    display: ({ isTooltipDisplayed }) =>
-      isTooltipDisplayed ? 'block' : 'none',
-    position: 'absolute',
-    bottom: '-22px',
-    right: '0',
-    left: '0',
-    textAlign: 'center',
-    backgroundColor: ({ theme }) => theme.colors.contrast,
-    color: ({ theme }) => theme.colors.invertedContrast,
-    borderRadius: '16px',
-    opacity: '0.7',
-  },
-})
+const Tooltip = styled(Box)<{ isTooltipDisplayed: boolean }>`
+  display: ${({ isTooltipDisplayed }) =>
+    isTooltipDisplayed ? 'block' : 'none'};
+  position: absolute;
+  bottom: -22px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  background-color: ${({ theme }) => theme.colors.contrast};
+  color: ${({ theme }) => theme.colors.invertedContrast};
+  border-radius: 16px;
+  opacity: 0.7;
+`
 const CopyToClipboard: React.FC<Props> = ({ toCopy, children, ...props }) => {
   const [isTooltipDisplayed, setIsTooltipDisplayed] = useState(false)
 
@@ -53,8 +48,8 @@ const CopyToClipboard: React.FC<Props> = ({ toCopy, children, ...props }) => {
       small
       bold
       onClick={() => {
-				copyToClipboard(toCopy).then(displayTooltip)
-			}}
+        copyToClipboard(toCopy).then(displayTooltip)
+      }}
       {...props}
     >
       {children}

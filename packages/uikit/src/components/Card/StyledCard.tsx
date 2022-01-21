@@ -1,6 +1,5 @@
 import { PancakeTheme } from '../../theme'
-import styled from '../../theme/utils/styled'
-import keyframes from '../../theme/utils/keyframes'
+import styled, { keyframes } from '@pancake-taro-toolkit/styled'
 import { Box } from '../Box'
 import { CardProps } from './types'
 
@@ -48,36 +47,35 @@ const getBorderColor = ({
   return theme.colors.cardBorder
 }
 
-export const StyledCard = styled(Box)<CardProps>({
-  sx: {
-    background: getBorderColor,
-    borderRadius: ({ theme }) => theme.radii.card,
-    color: ({ theme, isDisabled }) =>
-      theme.colors[isDisabled ? 'textDisabled' : 'text'],
-    overflow: 'hidden',
-    position: 'relative',
-    isActive: ({ isActive }) =>
-      isActive && {
-        animation: `${PromotedGradient} 3s ease infinite`,
-        backgroundSize: '400% 400%',
-      },
-    padding: '1px 1px 3px 1px',
-  },
-})
+export const StyledCard = styled(Box)<CardProps>`
+  background: ${getBorderColor};
+  border-radius: ${({ theme }) => theme.radii.card};
+  color: ${({ theme, isDisabled }) =>
+    theme.colors[isDisabled ? 'textDisabled' : 'text']};
+  overflow: hidden;
+  position: relative;
+
+  ${({ isActive }) =>
+    isActive &&
+    `
+    animation: ${PromotedGradient} 3s ease infinite;
+    background-size: 400% 400%;
+  `}
+
+  padding: 1px 1px 3px 1px;
+`
 
 export const StyledCardInner = styled(Box)<{
   background?: string
   hasCustomBorder: boolean
-}>({
-  sx: {
-    width: '100%',
-    height: '100%',
-    overflow: ({ hasCustomBorder }) =>
-      hasCustomBorder ? 'initial' : 'inherit',
-    background: ({ theme, background }) => background ?? theme.card.background,
-    borderRadius: ({ theme }) => theme.radii.card,
-  },
-})
+}>`
+  width: 100%;
+  height: 100%;
+  overflow: ${({ hasCustomBorder }) =>
+    hasCustomBorder ? 'initial' : 'inherit'};
+  background: ${({ theme, background }) => background ?? theme.card.background};
+  border-radius: ${({ theme }) => theme.radii.card};
+`
 
 StyledCard.defaultProps = {
   isActive: false,

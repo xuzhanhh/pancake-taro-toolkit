@@ -1,10 +1,10 @@
 import React from 'react'
 import {
-  ThemeProvider,
   Box,
   Flex,
   Text,
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const context = require.context(
   '@pancake-taro-toolkit/uikit/dist/esm/components/Svg/Icons',
   true,
@@ -21,7 +21,7 @@ const components = context.keys().reduce((accum, path) => {
 
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Flex flexWrap="wrap">
         {Object.keys(components).map((file) => {
           const Icon = components[file].default
@@ -55,6 +55,6 @@ export default function Page() {
           )
         })}
       </Flex>
-    </ThemeProvider>
+    </Provider>
   )
 }

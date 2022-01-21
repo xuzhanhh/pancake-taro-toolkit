@@ -1,4 +1,4 @@
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import Text from '../Text/Text'
 import { tags, scales, HeadingProps } from './types'
 
@@ -17,18 +17,11 @@ const style = {
   },
 }
 
-const Heading = styled(Text)<HeadingProps>({
-  sx: {
-    fontSize: ({ scale }) => style[scale],
-    fontWeight: 600,
-    lineHeight: '1.1',
-  },
-  displayName: 'Heading',
-  attrs: {
-    bold: true,
-  },
-})
-
+const Heading = styled(Text).attrs({ bold: true })<HeadingProps>`
+  font-size: ${({ scale }) => style[scale || scales.MD].fontSize};
+  font-weight: 600;
+  line-height: 1.1;
+`
 Heading.defaultProps = {
   as: tags.H2,
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import { Text, TextProps } from '../Text'
 import { Box } from '../Box'
 import { MessageProps } from './types'
@@ -14,19 +14,13 @@ const Icons = {
   success: CheckmarkCircleFillIcon,
 }
 
-const MessageContainer = styled(Box)<MessageProps>({
-  sx: {
-    display: 'flex',
-    backgroundColor: 'gray',
-    padding: '16px',
-    borderRadius: '16px',
-    border: 'solid 1px',
-  },
-  attrs: {
-    tx: 'message',
-  },
-})
-
+const MessageContainer = styled(Box).attrs({ tx: 'message' })<MessageProps>`
+  display: flex;
+  padding: 16px;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 1px;
+`
 const colors = {
   // these color names should be place in the theme once the palette is finalized
   warning: '#D67E0A',

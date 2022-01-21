@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react'
 import { renderToString } from 'react-dom/server'
-import { getTheme } from '../../theme/utils/style'
-import { css } from '../../theme/utils/css'
 import { Box } from '../Box'
 import { SvgProps } from './types'
+import { useTheme, css } from '@pancake-taro-toolkit/styled'
 
 interface SVGParams {
   width?: any
@@ -25,24 +24,21 @@ const svgRenderString = ({ color, ...props }: SVGParams) =>
     .replace(/>/g, '%3E')
 const Svg = ({
   width: propWidth,
-  height:propHeight,
+  height: propHeight,
   viewBox,
   fill,
   color,
   children,
   ...props
 }: SvgProps) => {
-  const width = typeof propHeight === 'number'? `${propHeight}px` : propWidth
-  const height = typeof propHeight === 'number'? `${propHeight}px` : propHeight
-
+  const width = typeof propHeight === 'number' ? `${propHeight}px` : propWidth
+  const height = typeof propHeight === 'number' ? `${propHeight}px` : propHeight
+  const theme = useTheme()
   const nextStyle = useMemo<{
     color?: string
     width?: string
     height?: string
-  }>(
-    () => css({ color, width, height })({ theme: getTheme() }),
-    [color, width, height],
-  )
+  }>(() => css({ color, width, height })({ theme }), [color, width, height])
   const { nextProps, __css } = useMemo(
     () => ({
       nextProps: {},
@@ -66,7 +62,7 @@ const Svg = ({
     <Box
       {...props}
       {...nextProps}
-      __css={{...__css, ...props.__css}}
+      __css={{ ...__css, ...props.__css }}
       style={`width: ${width};height: ${height || width};` as any}
     />
   )

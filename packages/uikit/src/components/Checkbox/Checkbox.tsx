@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
+import styled from '@pancake-taro-toolkit/styled'
 import { Box } from '../Box'
 import { Checkbox as TaroCheckbox } from '@tarojs/components'
 import { CheckboxProps, scales, Scales } from './types'
-import styled from '../../theme/utils/styled'
 
 const getScale = ({ scale }: CheckboxProps) => {
   switch (scale) {
@@ -18,54 +18,55 @@ interface CheckboxIconProps {
   disabled?: boolean
   scale?: Scales
 }
-const StyledCheckboxIcon = styled(Box)<CheckboxIconProps>({
-  displayName: 'CheckboxAfter',
-  sx: {
-    position: 'absolute',
-    borderBottom: '2px solid',
-    borderLeft: '2px solid',
-    borderColor: ({ checked }) => (checked ? 'white' : 'transparent'),
-    top: '30%',
-    left: '0',
-    right: '0',
-    width: '50%',
-    height: '25%',
-    margin: 'auto',
-    transform: 'rotate(-50deg)',
-    transition: 'border-color 0.2s ease-in-out',
-  },
-})
-const StyledCheckboxIconWrap = styled(Box)<CheckboxIconProps>({
-  displayName: 'CheckboxIcon2',
-  sx: {
-    appearance: 'none',
-    overflow: 'hidden',
-    cursor: 'pointer',
-    position: 'relative',
-    display: 'inline-block',
-    height: getScale,
-    width: getScale,
-    verticalAlign: 'middle',
-    transition: 'background-color 0.2s ease-in-out',
-    border: '0',
-    borderRadius: '8px',
-    backgroundColor: ({ theme, checked }) =>
-      checked ? theme.colors.success : theme.colors.input,
-    boxShadow: ({ theme }) => theme.shadows.inset,
-    '&:hover:not(:disabled):not(:checked)': {
-      boxShadow: ({ theme }) => theme.shadows.focus,
-    },
-    '&:focus': {
-      outline: 'none',
-      boxShadow: ({ theme }) => theme.shadows.focus,
-    },
-    '&:disabled': ({ disabled }) =>
-      disabled && {
-        cursor: 'default',
-        opacity: 0.6,
-      },
-  },
-})
+const StyledCheckboxIcon = styled(Box)<CheckboxIconProps>`
+  position: absolute;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  border-color: ${({ checked }) => (checked ? 'white' : 'transparent')};
+  top: 30%;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 25%;
+  margin: auto;
+  transform: rotate(-50deg);
+  transition: border-color 0.2s ease-in-out;
+`
+// borderColor: ({ checked }) => (checked ? 'white' : 'transparent'),
+
+const StyledCheckboxIconWrap = styled(Box)<CheckboxIconProps>`
+  appearance: none;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  height: ${getScale};
+  width: ${getScale};
+  vertical-align: middle;
+  transition: background-color 0.2s ease-in-out;
+  border: 0;
+  border-radius: 8px;
+  background-color: ${({ theme, checked }) =>
+    checked ? theme.colors.success : theme.colors.input};
+  box-shadow: ${({ theme }) => theme.shadows.inset};
+  
+  &:hover:not(:disabled):not(:checked) {
+    box-shadow: ${({ theme }) => theme.shadows.focus};
+  }
+  &:focus {
+    outline: none;
+    box-shadow: ${({ theme }) => theme.shadows.focus};
+  }
+
+  &:checked {
+    background-color: ${({ theme }) => theme.colors.success};
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+`
 const CheckboxIcon = (props: CheckboxIconProps) => (
   <StyledCheckboxIconWrap {...props}>
     <StyledCheckboxIcon {...props} />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {
-  ThemeProvider,
   Box,
   ModalProps,
   Heading,
@@ -10,6 +9,7 @@ import {
   getTheme,
   ModalProvider,
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 
 const CustomModal: React.FC<ModalProps> = ({ title, onDismiss, ...props }) => {
   return (
@@ -141,7 +141,7 @@ const ReactingToOusideChanges: React.FC = () => {
 };
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <ModalProvider>
         <Default />
         <DisableOverlayClick />
@@ -149,6 +149,6 @@ export default function Page() {
         <WithCustomHeader />
         <ReactingToOusideChanges />
       </ModalProvider>
-    </ThemeProvider>
+    </Provider>
   )
 }

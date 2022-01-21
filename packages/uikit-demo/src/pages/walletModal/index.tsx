@@ -1,11 +1,11 @@
 import React from 'react'
 import {
-  ThemeProvider,
   ModalProvider,
   Flex,
   Button,
   useWalletModal,
 } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const Wallet: React.FC = () => {
   const { onPresentConnectModal } = useWalletModal(
     () => null,
@@ -20,10 +20,10 @@ const Wallet: React.FC = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <ModalProvider>
         <Wallet />
       </ModalProvider>
-    </ThemeProvider>
+    </Provider>
   )
 }

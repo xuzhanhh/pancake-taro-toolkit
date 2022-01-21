@@ -1,7 +1,7 @@
 import React from 'react'
+import { useTheme } from '../../theme'
 import { scales, TagProps } from './types'
 import { StyledTag } from './StyledTag'
-import { getTheme } from '../../theme/utils/style'
 import { styleVariants } from './theme'
 import { Colors } from '../../theme/types'
 
@@ -11,7 +11,7 @@ const Tag: React.FC<TagProps> = ({
   children,
   ...props
 }) => {
-  const theme = getTheme()
+  const theme = useTheme()
   const themeColorKey = styleVariants[props.variant || 'primary']
     .backgroundColor as keyof Colors
   const color = props.outline ? theme.colors[themeColorKey] : '#ffffff'

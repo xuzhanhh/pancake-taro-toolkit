@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { ThemeProvider, Box, Skeleton } from '@pancake-taro-toolkit/uikit'
+import { Box, Skeleton } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 
 const Default: React.FC<any> = (args) => {
   return <Skeleton {...args} />
@@ -22,14 +23,14 @@ const Text = (args) => {
 const ParentSize: React.FC = (args) => {
   return (
     <Box style={{ width: 200, height: 90 }}>
-      {" "}
-      <Skeleton {...args} />{" "}
+      {' '}
+      <Skeleton {...args} />{' '}
     </Box>
-  );
-};
+  )
+}
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Default animation="waves" width="100px" height="100px" />
       <Default
         animation="pulse"
@@ -39,6 +40,6 @@ export default function Page() {
       />
       <Text />
       <ParentSize />
-    </ThemeProvider>
+    </Provider>
   )
 }

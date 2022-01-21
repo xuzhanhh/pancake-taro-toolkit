@@ -1,29 +1,24 @@
 import React, { cloneElement, Children, ReactElement } from 'react'
-import styled from '../../theme/utils/styled'
-import { Box } from '../Box'
+import styled from '@pancake-taro-toolkit/styled'
 import { NotificationDotProps, DotProps } from './types'
 
-const NotificationDotRoot = styled(Box)({
-  sx: {
-    display: 'inline-flex',
-    position: 'relative',
-  },
-})
+const NotificationDotRoot = styled.div`
+  display: inline-flex;
+  position: relative;
+`;
 
-const Dot = styled(Box)<DotProps>({
-  sx: {
-    display: ({ show }) => (show ? 'inline-flex' : 'none'),
-    position: 'absolute',
-    top: '0',
-    right: '0',
-    width: '10px',
-    height: '10px',
-    pointerEvents: 'none',
-    border: ({ theme }) => `2px solid ${theme.colors.invertedContrast}`,
-    borderRadius: '50%',
-    backgroundColor: ({ theme, color }) => theme.colors[color],
-  },
-})
+const Dot = styled.div<DotProps>`
+  display: ${({ show }) => (show ? "inline-flex" : "none")};
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  border: 2px solid ${({ theme }) => theme.colors.invertedContrast};
+  border-radius: 50%;
+  background-color: ${({ theme, color }) => theme.colors[color]};
+`;
 
 const NotificationDot: React.FC<NotificationDotProps> = ({
   show = false,

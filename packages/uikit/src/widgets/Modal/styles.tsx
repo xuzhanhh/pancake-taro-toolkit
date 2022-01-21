@@ -1,34 +1,29 @@
 import React from 'react'
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import Flex from '../../components/Box/Flex'
 import { Box } from '../../components/Box'
 import { ArrowBackIcon, CloseIcon } from '../../components/Svg'
 import { IconButton } from '../../components/Button'
 import { ModalProps } from './types'
 
-export const ModalHeader = styled(Box)<{ background?: string }>({
-  sx: {
-    alignItems: 'center',
-    background: ({ background }) => background || 'transparent',
-    borderBottom: ({ theme }) => `1px solid ${theme.colors.cardBorder}`,
-    display: 'flex',
-    padding: '12px 24px',
-  },
-})
+export const ModalHeader = styled.div<{ background?: string }>`
+  align-items: center;
+  background: ${({ background }) => background || 'transparent'};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  display: flex;
+  padding: 12px 24px;
+`
 
-export const ModalTitle = styled(Flex)({
-  sx: {
-    alignItems: 'center',
-    flex: '1',
-  },
-})
-// TODO need remove
-export const ModalBody = styled(Flex)<any>({sx:{
-	flexDirection: 'column',
-  maxHeight: '90vh',
-  overflowY: 'auto',
+export const ModalTitle = styled(Flex)`
+  align-items: center;
+  flex: 1;
+`
 
-}})
+export const ModalBody = styled(Flex)`
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+`
 
 export const ModalCloseButton: React.FC<{
   onDismiss: ModalProps['onDismiss']
@@ -54,15 +49,17 @@ export const ModalBackButton: React.FC<{ onBack: ModalProps['onBack'] }> = ({
   )
 }
 
-export const ModalContainer = styled(Box)<{ minWidth: string }>({sx:{
-	overflow: 'hidden',
-  background: ({ theme }) => theme.modal.background,
-  boxShadow: '0px 20px 36px -8px rgba(14, 14, 44, 0.1),0px 1px 1px rgba(0, 0, 0, 0.05)',
-  border: ({theme}) => `1px solid ${theme.colors.cardBorder}`,
-  borderRadius: '32px',
-  maxHeight: '100vh',
-  zIndex: ({ theme }) => theme.zIndices.modal,
-  width: 'auto',
-  minWidth: ({ minWidth }) => minWidth,
-  maxWidth: '100%',
-}})
+export const ModalContainer = styled(Box)<{ minWidth: string }>`
+  overflow: hidden;
+  background: ${({ theme }) => theme.modal.background};
+  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1),
+    0px 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  border-radius: 32px;
+  max-height: 100vh;
+  z-index: ${({ theme }) => theme.zIndices.modal};
+
+  width: auto;
+  min-width: ${({ minWidth }) => minWidth};
+  max-width: 100%;
+`

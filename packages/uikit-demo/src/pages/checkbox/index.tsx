@@ -1,9 +1,10 @@
 import React from 'react'
-import { ThemeProvider, Box, Checkbox } from '@pancake-taro-toolkit/uikit'
+import { Box, Checkbox, } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const ControlCheck = () => {
   const [checked, setChecked] = React.useState(false)
   return (
-    <ThemeProvider>
+    <>
       <Box>control Checkbox</Box>
       <Box>
         <Checkbox
@@ -14,12 +15,12 @@ const ControlCheck = () => {
           }}
         />
       </Box>
-    </ThemeProvider>
+    </>
   )
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Box>default</Box>
       <Box>
         <Checkbox />
@@ -40,6 +41,6 @@ export default function Page() {
         <Checkbox scale="sm" disabled checked />
       </Box>
       <ControlCheck />
-    </ThemeProvider>
+    </Provider>
   )
 }

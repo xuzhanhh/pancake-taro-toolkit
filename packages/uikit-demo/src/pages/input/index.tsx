@@ -1,5 +1,6 @@
 import React from 'react'
-import { ThemeProvider, Box, Input, Heading } from '@pancake-taro-toolkit/uikit'
+import { Box, Input, Heading } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 const scales = {
   SM: 'sm',
   MD: 'md',
@@ -36,10 +37,10 @@ const Default: React.FC = () => {
 }
 export default function Page() {
   return (
-    <ThemeProvider>
+    <Provider>
       <Box p="16px" width="320px">
         <Default />
       </Box>
-    </ThemeProvider>
+    </Provider>
   )
 }

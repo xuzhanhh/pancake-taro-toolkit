@@ -1,19 +1,17 @@
 import React from 'react'
-import styled from '../../theme/utils/styled'
+import styled from '@pancake-taro-toolkit/styled'
 import { LinkProps } from './types'
 import { Text } from '../Text'
 import Taro from '@tarojs/taro'
 
-const StyledLink = styled(Text)<LinkProps>({
-  sx: {
-    display: 'flex',
-    alignItems: 'center',
-    width: 'fit-content',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-})
+const StyledLink = styled(Text)<LinkProps>`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 const Link: React.FC<LinkProps> = ({ external, onClick, href, ...props }) => {
   const handleClick = (e: any) => {

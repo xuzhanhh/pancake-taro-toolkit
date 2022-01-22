@@ -1,5 +1,5 @@
 import React, { useReducer, createContext, useState, useEffect } from 'react'
-import { objToString } from './utils/style'
+import { objToString } from '../utils/style'
 
 export const ThemeContext = createContext({
   theme: {} as any,

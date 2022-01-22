@@ -9,13 +9,13 @@ import { compile, serialize, middleware } from 'stylis'
 import { Input as MpInput } from '@binance/mp-components'
 import { getKeyframes } from './keyframes'
 import { withStyle, objToString } from './utils/style'
-import { Svg } from '@pancake-taro-toolkit/uikit'
+import { Svg } from './components/Svg'
 import { Box, BoxProps } from './components/Box'
 import useTheme from './hooks/useTheme'
 
 const domElement: Record<string, [any, { isStyled: boolean }]> = {
   div: [Box, { isStyled: true }],
-  svg: [Svg, { isStyled: true }],
+  svg: [Svg, { isStyled: false }],
   input: [MpInput, { isStyled: false }],
 }
 
@@ -49,6 +49,7 @@ const getKeyframesList = (sx: any) => {
   doResolve(sx)
   return keyframesList
 }
+
 // TODO don't use BoxProps as default
 type MergeBox<T> = Merge<BoxProps, T>
 type Merge<P, T> = Omit<P, keyof T> & T
@@ -58,6 +59,7 @@ function styled<P>(
   { isStyled = true }: { isStyled?: boolean } = {},
 ) {
   let attrs: any = {}
+
   const styledBaseComponent = isStyled
     ? baseComponent
     : withStyle(baseComponent)
@@ -76,20 +78,17 @@ function styled<P>(
             typeof interpolations[i] === 'function'
               ? interpolations[i]({ ...props, theme })
               : interpolations[i]
-          console.log(
-            '🚀 ~ before normalizeRawStyle ~ interpolation',
-            interpolation,
-          )
+
           interpolation =
-            (typeof interpolation === 'boolean' || typeof interpolation === 'undefined' ) ? '' : interpolation
+            typeof interpolation === 'boolean' ||
+            typeof interpolation === 'undefined'
+              ? ''
+              : interpolation
           interpolation =
             typeof interpolation === 'object'
               ? `${objToString(interpolation)};`
               : interpolation
-          console.log(
-            '🚀 ~ after normalizeRawStyle ~ interpolation',
-            interpolation,
-          )
+
           result.push(interpolation + strings[i + 1])
         }
         const sx = {}
@@ -126,7 +125,6 @@ function styled<P>(
         return sx
       }
       const sx = normalizeRawStyle(strings, ...interpolations)
-      console.log('🚀 ~ sx', sx)
       const keyframesStyle = resolveAnimation(sx)
       const newStyledCss = useMemo(
         () => ({ ...sx, ...propsStyledCss }),
@@ -164,6 +162,7 @@ const enhancedStyled = styled as BaseStyled & {
   [key in keyof typeof domElement]: ReturnType<BaseStyled>
 }
 Object.keys(domElement).forEach((key) => {
-  enhancedStyled[key] = styled(...domElement[key])
+  const value = domElement[key]
+  enhancedStyled[key] = styled(...value)
 })
 export default enhancedStyled

@@ -5,7 +5,7 @@ import css, { cssProps, get } from './css'
 import { BoxProps } from '../../components/Box/types'
 import hash from 'object-hash'
 import flatten from 'obj-flatten'
-import { ThemeContext } from '../context'
+import { ThemeContext } from '../context/ThemeContext'
 
 export const objToString = (o) => {
   let value = JSON.stringify(o)

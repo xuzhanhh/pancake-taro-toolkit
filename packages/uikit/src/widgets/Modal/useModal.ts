@@ -11,7 +11,6 @@ const useModal = (
 ): [Handler, Handler] => {
   const { isOpen, nodeId, modalNode, setModalNode, onPresent, onDismiss, setCloseOnOverlayClick } = useContext(Context);
   const onPresentCallback = useCallback(() => {
-    console.log('🚀 ~ onPresentCallback ~ modalId', modalId)
     onPresent(modal, modalId);
   }, [modal, modalId, onPresent]);
 

@@ -5,7 +5,8 @@ import css, { cssProps, get } from './css'
 import { BoxProps } from '../../components/Box/types'
 import hash from 'object-hash'
 import flatten from 'obj-flatten'
-import { ThemeContext } from '../context/ThemeContext'
+import { StyleContext } from '../context/StyleContext'
+import useTheme from '../hooks/useTheme'
 
 export const objToString = (o) => {
   let value = JSON.stringify(o)
@@ -56,7 +57,7 @@ const convert = (style) => {
 }
 
 export function useStyle(props: BoxProps) {
-  const { theme } = useContext(ThemeContext)
+  const theme = useTheme()
   const {
     sx = {},
     __css = {},
@@ -105,7 +106,7 @@ export function useStyle(props: BoxProps) {
     .replace(/}$/, '')
     .replace(/%998/g, '"')
     .replace(/%10086/g, ',')
-  const { dispatch } = useContext(ThemeContext)
+  const { dispatch } = useContext(StyleContext)
   useEffect(() => {
     if (value) {
       dispatch({ type: 'stylechange', payload: { o } })

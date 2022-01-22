@@ -1,4 +1,4 @@
-export * from './context/ThemeContext'
+export * from './context'
 export { keyframes } from './keyframes'
 export * from './hooks'
 export { default } from './styled'

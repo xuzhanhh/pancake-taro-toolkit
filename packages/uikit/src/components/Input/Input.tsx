@@ -27,7 +27,6 @@ const getBoxShadow = ({
 }
 
 const getHeight = ({ scale = scales.MD }: StyledInputProps) => {
-console.log('🚀 ~ getHeight ~ scale', scale)
   switch (scale) {
     case scales.SM:
       return '32px'

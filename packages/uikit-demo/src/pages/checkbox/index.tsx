@@ -10,7 +10,6 @@ const ControlCheck = () => {
         <Checkbox
           checked={checked}
           onChange={(checked) => {
-            console.log('🚀 ~ ControlCheck ~ checked', checked)
             setChecked(checked)
           }}
         />

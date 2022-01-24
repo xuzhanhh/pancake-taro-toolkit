@@ -158,6 +158,19 @@ const transforms = [
   {},
 )
 
+const transformRem = (value) => {
+  let newValue = value
+  if(typeof value === 'string' && value.includes('rem')) {
+    newValue = value.split(' ').map(v => {
+      if(v.includes('rem')) {
+        return `${parseFloat(v) * 16}px`
+      }
+      return v
+    }).join(' ')
+    
+  }
+  return newValue
+}
 export const responsive = (styles) => (theme) => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
@@ -234,6 +247,7 @@ export const css =
       if (typeof result[type] === 'number' && !(type in filterPx)) {
         result[type] += 'px'
       }
+      result[type] = transformRem(result[type])
     }
 
     return result

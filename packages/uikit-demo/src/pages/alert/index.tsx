@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from '@tarojs/taro'
 import { Box, Alert, Text } from '@pancake-taro-toolkit/uikit'
 import styled from '@pancake-taro-toolkit/styled'
 import noop from 'lodash/noop'
@@ -59,6 +60,9 @@ const WithHandler: React.FC = () => {
   )
 }
 export default function Page() {
+  const router = useRouter()
+  console.log('🚀 ~ router', router)
+
   return (
     <Provider>
       <Default />

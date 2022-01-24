@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Image } from '@binance/mp-components'
+import { useRouter } from '@tarojs/taro'
 import mpService from '@binance/mp-service'
 import { Box } from '@pancake-taro-toolkit/uikit'
 import './index.css'
@@ -104,7 +105,7 @@ const widgetList = [
 
 const Nav = ({ title, list }) => {
   const handleClick = (item: any) => {
-    mpService.navigateTo({ url: item.url })
+    mpService.navigateTo({ url: item.url+'?name=hello' })
   }
   return (
     <View className="demo-home-nav">
@@ -123,29 +124,27 @@ const Nav = ({ title, list }) => {
     </View>
   )
 }
-export default class Index extends Component {
-  handleClick = (item: any) => {
-    mpService.navigateTo({ url: item.url })
-  }
-  render() {
-    return (
-      <Provider>
-        <Box p="24px">
-          <View className="demo-home__title">
-            <Image
-              mode="aspectFit"
-              className="demo-home__image"
-              src="../../asset/logo.png"
-            />
-            <View className="demo-home__text">Pancake Taro</View>
-          </View>
-          <View className="demo-home__desc">
-            Lightweight and reliable mini-program components library
-          </View>
-          <Nav title="Basic Component" list={list} />
-          <Nav title="Widget Component" list={widgetList} />
-        </Box>
-      </Provider>
-    )
-  }
+export default function Index() {
+  const router = useRouter()
+  console.log('🚀 ~ router', router)
+  
+  return (
+    <Provider>
+      <Box p="24px">
+        <View className="demo-home__title">
+          <Image
+            mode="aspectFit"
+            className="demo-home__image"
+            src="../../asset/logo.png"
+          />
+          <View className="demo-home__text">Pancake Taro</View>
+        </View>
+        <View className="demo-home__desc">
+          Lightweight and reliable mini-program components library
+        </View>
+        <Nav title="Basic Component" list={list} />
+        <Nav title="Widget Component" list={widgetList} />
+      </Box>
+    </Provider>
+  )
 }

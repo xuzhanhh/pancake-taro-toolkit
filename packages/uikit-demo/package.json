@@ -6,9 +6,10 @@
   "author": "",
   "scripts": {
     "dev": "bmp dev",
-    "cp":"node ./tools/createPage.js"
+    "cp": "node ./tools/createPage.js"
   },
   "dependencies": {
+    "@tarojs/taro": "^3.4.0",
     "react": "^17.0.0"
   },
   "devDependencies": {

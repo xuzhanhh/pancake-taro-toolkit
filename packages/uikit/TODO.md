@@ -7,4 +7,3 @@
 - document
 - preview demo
 - more flexible type of TS (styled)
-- split styled-components

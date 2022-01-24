@@ -26,8 +26,12 @@ export * from './widgets/WalletModal'
 
 // Themes
 export * from './theme'
+
 // Icons
 export * from './components/Svg'
 
 // Context
 export * from './context'
+
+// Hooks
+export * from './hooks'

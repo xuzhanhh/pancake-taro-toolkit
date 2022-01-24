@@ -29,6 +29,7 @@ const Svg = ({
   fill,
   color,
   children,
+  style,
   ...props
 }: SvgProps) => {
   const width = typeof propHeight === 'number' ? `${propHeight}px` : propWidth
@@ -62,8 +63,9 @@ const Svg = ({
     <Box
       {...props}
       {...nextProps}
-      __css={{ ...__css, ...props.__css }}
-      style={`width: ${width};height: ${height || width};` as any}
+      __css={{ ...__css, ...props.__css,...style  }}
+      width={width}
+      height={height || width}
     />
   )
 }

@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from 'react'
 import { compile, serialize, middleware } from 'stylis'
-import { Input as MpInput } from '@binance/mp-components'
+import { Input as MpInput, Button as MpButton } from '@binance/mp-components'
 import { getKeyframes } from './keyframes'
 import { withStyle, objToString } from './utils/style'
 import { Svg } from './components/Svg'
@@ -17,6 +17,7 @@ const domElement: Record<string, [any, { isStyled: boolean }]> = {
   div: [Box, { isStyled: true }],
   svg: [Svg, { isStyled: false }],
   input: [MpInput, { isStyled: false }],
+  button: [MpButton, { isStyled: false }],
 }
 
 const resolveAnimationKey = (animationValue: string) =>

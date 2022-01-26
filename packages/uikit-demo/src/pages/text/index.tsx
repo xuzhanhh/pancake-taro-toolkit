@@ -1,6 +1,6 @@
 import React from 'react'
 import { } from '@pancake-taro-toolkit/styled'
-import { Text, } from '@pancake-taro-toolkit/uikit'
+import { Text } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 export default function Page() {
   return (

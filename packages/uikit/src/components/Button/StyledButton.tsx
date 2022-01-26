@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 import { Button as TaroButton } from '@tarojs/components'
 import { BoxProps } from '../Box'
-import { useStyle, useTheme } from '@pancake-taro-toolkit/styled'
+import styled,{ useStyle, useTheme } from '@pancake-taro-toolkit/styled'
 import sizes from './utils/ButtonSize'
 import { Scale, BaseButtonProps } from './types'
 import { scaleVariants } from './theme'
@@ -60,7 +60,7 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
     '&.pancake-button--disabled': style,
   }
 }
-
+const Button = styled.button``
 const StyledButton = (props: BaseButtonProps) => {
   let {
     variant = 'default',
@@ -80,7 +80,7 @@ const StyledButton = (props: BaseButtonProps) => {
     'inactive',
     disabled,
   )
-  const { rest } = useStyle({
+  const newProps = {
     tx: 'button',
     ...props,
     variant,
@@ -129,8 +129,8 @@ const StyledButton = (props: BaseButtonProps) => {
       ...getDisabledStyles({ $isLoading, theme }),
       ...__css,
     },
-  })
-  return <TaroButton {...rest} />
+  }
+  return <Button {...newProps} />
 }
 
 export default StyledButton

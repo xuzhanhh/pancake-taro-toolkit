@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
-import { ThemeProvider } from '@pancake-taro-toolkit/styled'
-import {
-  light,
-  Box,
-  Text,
-  Button,
-  BottomDrawer,
-} from '@pancake-taro-toolkit/uikit'
+import { Box, Text, Button, BottomDrawer } from '@pancake-taro-toolkit/uikit'
+import Provider from 'src/Provider'
 
 const Default: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,8 +42,8 @@ const Default: React.FC = () => {
 
 export default function Page() {
   return (
-    <ThemeProvider theme={light}>
+    <Provider>
       <Default />
-    </ThemeProvider>
+    </Provider>
   )
 }

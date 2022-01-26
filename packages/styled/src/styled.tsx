@@ -6,17 +6,18 @@ import React, {
   useMemo,
 } from 'react'
 import { compile, serialize, middleware } from 'stylis'
-import { Input as MpInput, Button as MpButton } from '@binance/mp-components'
+import { Button as MpButton, View } from '@binance/mp-components'
 import { getKeyframes } from './keyframes'
-import { withStyle, objToString } from './utils/style'
+import { withStyle, objToString, resolveAllStyle } from './utils/style'
 import { Svg } from './components/Svg'
-import { Box, BoxProps } from './components/Box'
+import Input from './components/Input'
+import { BoxProps } from './components/Box'
 import useTheme from './hooks/useTheme'
 
 const domElement: Record<string, [any, { isStyled: boolean }]> = {
-  div: [Box, { isStyled: true }],
+  div: [View, { isStyled: false }],
   svg: [Svg, { isStyled: false }],
-  input: [MpInput, { isStyled: false }],
+  input: [Input, { isStyled: false }],
   button: [MpButton, { isStyled: false }],
 }
 
@@ -127,10 +128,11 @@ function styled<P>(
       }
       const sx = normalizeRawStyle(strings, ...interpolations)
       const keyframesStyle = resolveAnimation(sx)
-      const newStyledCss = useMemo(
+      const styledCss = useMemo(
         () => ({ ...sx, ...propsStyledCss }),
         [sx, propsStyledCss],
       )
+      const newStyledCss = resolveAllStyle(props, styledCss, theme)
       const Component = createElement(styledBaseComponent as any, {
         ...props,
         ref,

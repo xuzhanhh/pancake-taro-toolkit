@@ -5,6 +5,7 @@ import { withStyle } from '../../utils/style'
 
 const Box = withStyle<BoxProps>(
   View as (props: BoxProps) => React.FunctionComponentElement<BoxProps>,
+  { needResolved: true },
 )
 
 export default Box

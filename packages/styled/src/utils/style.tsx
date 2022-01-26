@@ -55,15 +55,13 @@ const convert = (style) => {
   })
   return { value: JSON.stringify(o), o }
 }
-
-export function useStyle(props: BoxProps) {
-  const theme = useTheme()
+export const resolveAllStyle = (props, __styledCss, theme) => {
   const {
     sx = {},
     __css = {},
     variant = 'default',
     tx = 'variants',
-    __styledCss,
+    __styledCss: propsStyledCss = {},
     ...rest
   } = props
 
@@ -90,7 +88,12 @@ export function useStyle(props: BoxProps) {
     ...styledStyle,
     ...sxStyle,
     ...propsStyle,
+    ...propsStyledCss,
   }
+  return style
+}
+export function useStyle(props: BoxProps) {
+  const { __styledCss: style, ...rest } = props
   const test: string = hash(JSON.stringify(style))
   const classname: string = `bn${test.slice(0, 8)}`
   rest.className = rest?.className
@@ -117,8 +120,14 @@ export function useStyle(props: BoxProps) {
 
 export function withStyle<T, P extends BoxProps = BoxProps>(
   Component: ComponentType<P>,
+  { needResolved = false } = {},
 ) {
   const WrappedComponent = forwardRef<any, T>((props, ref) => {
+    const theme = useTheme()
+    if (needResolved) {
+      const newStyledCss = resolveAllStyle(props, {}, theme)
+      props.__styledCss = newStyledCss
+    }
     const { rest } = useStyle(props)
 
     return (

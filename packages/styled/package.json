@@ -23,7 +23,9 @@
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
     "build": "npm-run-all build:*",
     "build:cjs": "rm -rf ./dist && tsc -p tsconfig.build.json -m commonjs --outDir dist/lib --declaration false",
-    "build:es": "rm -rf ./dist && tsc -p tsconfig.build.json -m esNext --outDir dist/esm --declarationDir dist/types"
+    "build:es": "rm -rf ./dist && tsc -p tsconfig.build.json -m esNext --outDir dist/esm --declarationDir dist/types",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format:write": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "keywords": [],
   "author": "opar-xu",

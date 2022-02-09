@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 import { Button as TaroButton } from '@tarojs/components'
 import { BoxProps } from '../Box'
-import styled,{ useStyle, useTheme } from '@pancake-taro-toolkit/styled'
+import styled, { useStyle, useTheme } from '@pancake-taro-toolkit/styled'
 import sizes from './utils/ButtonSize'
 import { Scale, BaseButtonProps } from './types'
 import { scaleVariants } from './theme'
@@ -17,11 +17,12 @@ interface TransientButtonProps extends ThemedButtonProps {
   theme: PancakeTheme
 }
 
-const composeClassNames: (
-  originalNamesStr: string | undefined,
-  flag: boolean,
-  target: string,
-) => string = (originalNamesStr, flag, target, disabled) => {
+const composeClassNames: (originalNamesStr: string | undefined, flag: boolean, target: string) => string = (
+  originalNamesStr,
+  flag,
+  target,
+  disabled,
+) => {
   const classNames: string[] = []
   if (originalNamesStr) {
     classNames.push(originalNamesStr)
@@ -62,24 +63,9 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
 }
 const Button = styled.button``
 const StyledButton = (props: BaseButtonProps) => {
-  let {
-    variant = 'default',
-    colorStyle,
-    scale,
-    inactive,
-    className,
-    disabled,
-    $isLoading = false,
-    sx,
-    __css,
-  } = props
+  let { variant = 'default', colorStyle, scale, inactive, className, disabled, $isLoading = false, sx, __css } = props
   const theme = useTheme()
-  const classNames: string = composeClassNames(
-    className,
-    !!inactive,
-    'inactive',
-    disabled,
-  )
+  const classNames: string = composeClassNames(className, !!inactive, 'inactive', disabled)
   const newProps = {
     tx: 'button',
     ...props,
@@ -115,16 +101,14 @@ const StyledButton = (props: BaseButtonProps) => {
       opacity: getOpacity({ $isLoading, theme }),
       outline: 0,
       transition: 'background-color 0.2s, opacity 0.2s',
-      '&:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active)':
-        {
-          opacity: 0.65,
-        },
-      '&:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled)':
-        {
-          opacity: 0.85,
-          transform: 'translateY(1px)',
-          boxShadow: 'none',
-        },
+      '&:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active)': {
+        opacity: 0.65,
+      },
+      '&:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled)': {
+        opacity: 0.85,
+        transform: 'translateY(1px)',
+        boxShadow: 'none',
+      },
       ...(scaleVariants[scale] || {}),
       ...getDisabledStyles({ $isLoading, theme }),
       ...__css,

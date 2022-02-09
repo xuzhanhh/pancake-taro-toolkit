@@ -10,7 +10,7 @@ const StyledOverlay = styled(Box)`
   height: 100%;
   background-color: ${({ theme }) => `${theme.colors.text}99`};
   z-index: 20;
-`;
+`
 
 const BodyLock = () => {
   useEffect(() => {

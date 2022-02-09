@@ -5,10 +5,10 @@ import { NotificationDotProps, DotProps } from './types'
 const NotificationDotRoot = styled.div`
   display: inline-flex;
   position: relative;
-`;
+`
 
 const Dot = styled.div<DotProps>`
-  display: ${({ show }) => (show ? "inline-flex" : "none")};
+  display: ${({ show }) => (show ? 'inline-flex' : 'none')};
   position: absolute;
   top: 0;
   right: 0;
@@ -18,18 +18,11 @@ const Dot = styled.div<DotProps>`
   border: 2px solid ${({ theme }) => theme.colors.invertedContrast};
   border-radius: 50%;
   background-color: ${({ theme, color }) => theme.colors[color]};
-`;
+`
 
-const NotificationDot: React.FC<NotificationDotProps> = ({
-  show = false,
-  color = 'failure',
-  children,
-  ...props
-}) => (
+const NotificationDot: React.FC<NotificationDotProps> = ({ show = false, color = 'failure', children, ...props }) => (
   <NotificationDotRoot>
-    {Children.map(children, (child: ReactElement) =>
-      cloneElement(child, props),
-    )}
+    {Children.map(children, (child: ReactElement) => cloneElement(child, props))}
     <Dot show={show} color={color} />
   </NotificationDotRoot>
 )

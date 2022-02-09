@@ -9,14 +9,11 @@ export const WebviewContext = createContext<WebviewContextValue>({
   setUrl: () => {},
 })
 
-export const WebviewProvider: React.FC<
-  Pick<WebviewContextValue, 'webviewFilePath'>
-> = ({ children, webviewFilePath }) => {
+export const WebviewProvider: React.FC<Pick<WebviewContextValue, 'webviewFilePath'>> = ({
+  children,
+  webviewFilePath,
+}) => {
   const [url, setUrl] = useState('')
-  
-  return (
-    <WebviewContext.Provider value={{ url, setUrl, webviewFilePath }}>
-      {children}
-    </WebviewContext.Provider>
-  )
+
+  return <WebviewContext.Provider value={{ url, setUrl, webviewFilePath }}>{children}</WebviewContext.Provider>
 }

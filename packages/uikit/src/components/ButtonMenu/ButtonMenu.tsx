@@ -7,19 +7,14 @@ import { ButtonMenuProps } from './types'
 interface StyledButtonMenuProps extends ButtonMenuProps {
   theme: PancakeTheme
 }
-type StyledUtilsParams = { theme: PancakeTheme } & Pick<
-  ButtonMenuProps,
-  'variant'
->
+type StyledUtilsParams = { theme: PancakeTheme } & Pick<ButtonMenuProps, 'variant'>
 
 const getBackgroundColor = ({ theme, variant }: StyledUtilsParams) => {
   return theme.colors[variant === variants.SUBTLE ? 'input' : 'tertiary']
 }
 
 const getBorderColor = ({ theme, variant }: StyledUtilsParams) => {
-  return theme.colors[
-    variant === variants.SUBTLE ? 'inputSecondary' : 'disabled'
-  ]
+  return theme.colors[variant === variants.SUBTLE ? 'inputSecondary' : 'disabled']
 }
 // TODO remove any
 const StyledButtonMenu: any = styled.div<StyledButtonMenuProps>`
@@ -51,11 +46,7 @@ const StyledButtonMenu: any = styled.div<StyledButtonMenuProps>`
         opacity: 0.5;
         & > button:disabled {
           background-color: transparent;
-          color: ${
-            variant === variants.PRIMARY
-              ? theme.colors.primary
-              : theme.colors.textSubtle
-          };
+          color: ${variant === variants.PRIMARY ? theme.colors.primary : theme.colors.textSubtle};
         }
     `
     }
@@ -119,12 +110,7 @@ const ButtonMenu: React.FC<ButtonMenuProps> = ({
   ...props
 }) => {
   return (
-    <StyledButtonMenu
-      disabled={disabled}
-      variant={variant}
-      fullWidth={fullWidth}
-      {...props}
-    >
+    <StyledButtonMenu disabled={disabled} variant={variant} fullWidth={fullWidth} {...props}>
       {Children.map(children, (child: ReactElement, index) => {
         return cloneElement(child, {
           isActive: activeIndex === index,

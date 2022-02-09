@@ -23,4 +23,3 @@ export interface BoxProps
     SxProps {}
 export interface FlexProps extends BoxProps, FlexboxProps {}
 export interface GridProps extends FlexProps, _GridProps {}
-

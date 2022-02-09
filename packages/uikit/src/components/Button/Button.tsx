@@ -5,21 +5,8 @@ import StyledButton from './StyledButton'
 import { ButtonProps, scales, variants } from './types'
 import { WebviewContext } from '../../context'
 
-const Button = <E extends ElementType = 'button'>(
-  props: ButtonProps<E>,
-): JSX.Element => {
-  const {
-    startIcon,
-    endIcon,
-    external,
-    className,
-    isLoading,
-    disabled,
-    children,
-    href,
-    onClick,
-    ...rest
-  } = props
+const Button = <E extends ElementType = 'button'>(props: ButtonProps<E>): JSX.Element => {
+  const { startIcon, endIcon, external, className, isLoading, disabled, children, href, onClick, ...rest } = props
   const isDisabled = isLoading || disabled
   const classNames = className ? [className] : []
   const internalProps = external ? getExternalLinkProps() : {}
@@ -31,9 +18,7 @@ const Button = <E extends ElementType = 'button'>(
   if (isDisabled && !isLoading) {
     classNames.push('pancake-button--disabled')
   }
-  const handleClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ): void => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     if (isDisabled || isLoading) {
       e.preventDefault()
       e.stopPropagation()
@@ -42,7 +27,7 @@ const Button = <E extends ElementType = 'button'>(
       if (href) {
         if (!external) {
           mpService.navigateTo({ url: href })
-        } else if(webviewFilePath) {
+        } else if (webviewFilePath) {
           setUrl(href)
           setTimeout(() => {
             mpService.navigateTo({ url: webviewFilePath })

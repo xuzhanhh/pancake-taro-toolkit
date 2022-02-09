@@ -11,8 +11,7 @@ interface StyledCardRibbonProps extends CardRibbonProps {
 
 const StyledCardRibbon = styled.div<Partial<StyledCardRibbonProps>>`
   z-index: 10;
-  background-color: ${({ variantColor = 'secondary', theme }) =>
-    theme.colors[variantColor]};
+  background-color: ${({ variantColor = 'secondary', theme }) => theme.colors[variantColor]};
   color: white;
   margin: 0;
   padding: 0;
@@ -42,8 +41,7 @@ interface PseudoProps {
 }
 
 const StyledBefore = styled(Box)<PseudoProps>`
-  background-color: ${({ variantColor = 'secondary', theme }) =>
-    theme.colors[variantColor]};
+  background-color: ${({ variantColor = 'secondary', theme }) => theme.colors[variantColor]};
   height: 100%;
   margin: 0 -1px; /* Removes tiny gap */
   position: absolute;
@@ -52,8 +50,7 @@ const StyledBefore = styled(Box)<PseudoProps>`
   right: 100%;
 `
 const StyledAfter = styled(Box)<PseudoProps>`
-  background-color: ${({ variantColor = 'secondary', theme }) =>
-    theme.colors[variantColor]};
+  background-color: ${({ variantColor = 'secondary', theme }) => theme.colors[variantColor]};
   height: 100%;
   margin: 0 -1px; /* Removes tiny gap */
   position: absolute;
@@ -61,18 +58,9 @@ const StyledAfter = styled(Box)<PseudoProps>`
   width: 100%;
   left: 100%;
 `
-const CardRibbon: React.FC<CardRibbonProps> = ({
-  variantColor,
-  text,
-  ribbonPosition,
-  ...props
-}) => {
+const CardRibbon: React.FC<CardRibbonProps> = ({ variantColor, text, ribbonPosition, ...props }) => {
   return (
-    <StyledCardRibbon
-      variantColor={variantColor}
-      ribbonPosition={ribbonPosition}
-      {...props}
-    >
+    <StyledCardRibbon variantColor={variantColor} ribbonPosition={ribbonPosition} {...props}>
       <StyledBefore variantColor={variantColor} />
       <Box title={text}>{text}</Box>
       <StyledAfter variantColor={variantColor} />

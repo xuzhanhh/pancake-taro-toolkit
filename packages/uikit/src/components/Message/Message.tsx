@@ -37,19 +37,12 @@ export const MessageText: React.FC<TextProps> = ({ children, ...props }) => {
   )
 }
 
-const Message: React.FC<MessageProps> = ({
-  children,
-  variant,
-  icon,
-  ...props
-}) => {
+const Message: React.FC<MessageProps> = ({ children, variant, icon, ...props }) => {
   const Icon = Icons[variant]
   return (
     <MessageContext.Provider value={{ variant }}>
       <MessageContainer variant={variant} {...props}>
-        <Box mr="12px">
-          {icon ?? <Icon color={variants[variant].borderColor} width="24px" />}
-        </Box>
+        <Box mr="12px">{icon ?? <Icon color={variants[variant].borderColor} width="24px" />}</Box>
         {children}
       </MessageContainer>
     </MessageContext.Provider>

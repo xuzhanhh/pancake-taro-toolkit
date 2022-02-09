@@ -46,10 +46,9 @@ const StyledCheckboxIconWrap = styled(Box)<CheckboxIconProps>`
   transition: background-color 0.2s ease-in-out;
   border: 0;
   border-radius: 8px;
-  background-color: ${({ theme, checked }) =>
-    checked ? theme.colors.success : theme.colors.input};
+  background-color: ${({ theme, checked }) => (checked ? theme.colors.success : theme.colors.input)};
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  
+
   &:hover:not(:disabled):not(:checked) {
     box-shadow: ${({ theme }) => theme.shadows.focus};
   }

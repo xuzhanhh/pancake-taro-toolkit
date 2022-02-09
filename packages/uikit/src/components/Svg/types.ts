@@ -6,10 +6,7 @@ import { SxProps } from '../Box/types'
 export interface SvgProps
   extends SpaceProps,
     LayoutProps,
-    Omit<
-      SVGAttributes<HTMLOrSVGElement>,
-      'display' | 'width' | 'overflow' | 'height'
-    >,
+    Omit<SVGAttributes<HTMLOrSVGElement>, 'display' | 'width' | 'overflow' | 'height'>,
     SxProps {
   theme?: PancakeTheme
   spin?: boolean

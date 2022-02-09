@@ -1,11 +1,5 @@
 // based on https://github.com/developit/dlv
-export const get = (
-  obj,
-  key,
-  def: any = undefined,
-  p: any = undefined,
-  undef: any = undefined,
-) => {
+export const get = (obj, key, def: any = undefined, p: any = undefined, undef: any = undefined) => {
   key = key && key.split ? key.split('.') : [key]
   for (p = 0; p < key.length; p++) {
     obj = obj ? obj[key[p]] : undef
@@ -160,28 +154,26 @@ const transforms = [
 
 const transformRem = (value) => {
   let newValue = value
-  if(typeof value === 'string' && value.includes('rem')) {
-    newValue = value.split(' ').map(v => {
-      if(v.includes('rem')) {
-        return `${parseFloat(v) * 16}px`
-      }
-      return v
-    }).join(' ')
-    
+  if (typeof value === 'string' && value.includes('rem')) {
+    newValue = value
+      .split(' ')
+      .map((v) => {
+        if (v.includes('rem')) {
+          return `${parseFloat(v) * 16}px`
+        }
+        return v
+      })
+      .join(' ')
   }
   return newValue
 }
 export const responsive = (styles) => (theme) => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [
-    null,
-    ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
-  ]
+  const mediaQueries = [null, ...breakpoints.map((n) => `@media screen and (min-width: ${n})`)]
 
   for (const key in styles) {
-    const value =
-      typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
+    const value = typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
 
     if (value == null) continue
     if (!Array.isArray(value)) {

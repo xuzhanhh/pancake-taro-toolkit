@@ -22,16 +22,7 @@ const svgRenderString = ({ color, ...props }: SVGParams) =>
     .replace(/#/g, '%23')
     .replace(/</g, '%3C')
     .replace(/>/g, '%3E')
-const Svg = ({
-  width: propWidth,
-  height: propHeight,
-  viewBox,
-  fill,
-  color,
-  children,
-  style,
-  ...props
-}: SvgProps) => {
+const Svg = ({ width: propWidth, height: propHeight, viewBox, fill, color, children, style, ...props }: SvgProps) => {
   const width = typeof propHeight === 'number' ? `${propHeight}px` : propWidth
   const height = typeof propHeight === 'number' ? `${propHeight}px` : propHeight
   const theme = useTheme()
@@ -63,7 +54,7 @@ const Svg = ({
     <Box
       {...props}
       {...nextProps}
-      __css={{ ...__css, ...props.__css,...style  }}
+      __css={{ ...__css, ...props.__css, ...style }}
       width={width}
       height={height || width}
     />

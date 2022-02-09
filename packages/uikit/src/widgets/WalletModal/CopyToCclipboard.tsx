@@ -17,8 +17,7 @@ const StyleButton = styled(Text).attrs({ role: 'button' })<any>`
 `
 
 const Tooltip = styled(Box)<{ isTooltipDisplayed: boolean }>`
-  display: ${({ isTooltipDisplayed }) =>
-    isTooltipDisplayed ? 'block' : 'none'};
+  display: ${({ isTooltipDisplayed }) => (isTooltipDisplayed ? 'block' : 'none')};
   position: absolute;
   bottom: -22px;
   right: 0;

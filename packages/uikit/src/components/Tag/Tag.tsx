@@ -5,15 +5,9 @@ import { StyledTag } from './StyledTag'
 import { styleVariants } from './theme'
 import { Colors } from '../../theme/types'
 
-const Tag: React.FC<TagProps> = ({
-  startIcon,
-  endIcon,
-  children,
-  ...props
-}) => {
+const Tag: React.FC<TagProps> = ({ startIcon, endIcon, children, ...props }) => {
   const theme = useTheme()
-  const themeColorKey = styleVariants[props.variant || 'primary']
-    .backgroundColor as keyof Colors
+  const themeColorKey = styleVariants[props.variant || 'primary'].backgroundColor as keyof Colors
   const color = props.outline ? theme.colors[themeColorKey] : '#ffffff'
   return (
     <StyledTag {...props}>

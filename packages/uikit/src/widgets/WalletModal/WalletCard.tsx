@@ -15,25 +15,21 @@ interface Props {
 }
 
 const WalletButton = styled(Button).attrs({ variant: 'text' })<any>`
-  alignItems: center;
+  alignitems: center;
   display: flex;
-  flexDirection: column;
+  flexdirection: column;
   height: auto;
-  justifyContent: center;
-  marginLeft: auto;
-  marginRight: auto;
+  justifycontent: center;
+  marginleft: auto;
+  marginright: auto;
   width: 100%;
   py: 16px;
-
 `
 interface MoreWalletCardProps extends ButtonProps {
   t: (key: string) => string
 }
 
-export const MoreWalletCard: React.FC<MoreWalletCardProps> = ({
-  t,
-  ...props
-}) => {
+export const MoreWalletCard: React.FC<MoreWalletCardProps> = ({ t, ...props }) => {
   return (
     <WalletButton {...props}>
       <MoreHorizontal width="40px" mb="8px" color="textSubtle" />
@@ -56,10 +52,7 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss }) => {
           login(walletConfig.connectorId)
         }
         mpService.setStorageSync(walletLocalStorageKey, walletConfig.title)
-        mpService.setStorageSync(
-          connectorLocalStorageKey,
-          walletConfig.connectorId,
-        )
+        mpService.setStorageSync(connectorLocalStorageKey, walletConfig.connectorId)
         onDismiss()
       }}
       id={`wallet-connect-${title.toLocaleLowerCase()}`}

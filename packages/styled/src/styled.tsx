@@ -1,10 +1,4 @@
-import React, {
-  ComponentType,
-  createElement,
-  forwardRef,
-  ReactNode,
-  useMemo,
-} from 'react'
+import React, { ComponentType, createElement, forwardRef, ReactNode, useMemo } from 'react'
 import { compile, serialize, middleware } from 'stylis'
 import { Button as MpButton, View } from '@binance/mp-components'
 import { getKeyframes } from './keyframes'
@@ -21,8 +15,7 @@ const domElement: Record<string, [any, { isStyled: boolean }]> = {
   button: [MpButton, { isStyled: false }],
 }
 
-const resolveAnimationKey = (animationValue: string) =>
-  animationValue.split(' ')[0]
+const resolveAnimationKey = (animationValue: string) => animationValue.split(' ')[0]
 const resolveAnimation = (sx: any) => {
   const keyframesList: string[] = getKeyframesList(sx)
   if (keyframesList.length > 0) {
@@ -56,102 +49,85 @@ const getKeyframesList = (sx: any) => {
 type MergeBox<T> = Merge<BoxProps, T>
 type Merge<P, T> = Omit<P, keyof T> & T
 
-function styled<P>(
-  baseComponent: ComponentType<P>,
-  { isStyled = true }: { isStyled?: boolean } = {},
-) {
+function styled<P>(baseComponent: ComponentType<P>, { isStyled = true }: { isStyled?: boolean } = {}) {
   let attrs: any = {}
 
-  const styledBaseComponent = isStyled
-    ? baseComponent
-    : withStyle(baseComponent)
+  const styledBaseComponent = isStyled ? baseComponent : withStyle(baseComponent)
   function createdStyled<T>(strings, ...interpolations) {
-    const StyledComponent = forwardRef<
-      any,
-      Omit<MergeBox<Merge<P, T>>, 'theme'> & { children?: ReactNode }
-    >((_props, ref) => {
-      const props = { ...attrs, ..._props }
-      const { __styledCss: propsStyledCss } = props
-      const theme = useTheme()
-      const normalizeRawStyle = (strings, ...interpolations) => {
-        const result = [strings[0]]
-        for (let i = 0; i < interpolations.length; i++) {
-          let interpolation =
-            typeof interpolations[i] === 'function'
-              ? interpolations[i]({ ...props, theme })
-              : interpolations[i]
+    const StyledComponent = forwardRef<any, Omit<MergeBox<Merge<P, T>>, 'theme'> & { children?: ReactNode }>(
+      (_props, ref) => {
+        const props = { ...attrs, ..._props }
+        const { __styledCss: propsStyledCss } = props
+        const theme = useTheme()
+        const normalizeRawStyle = (strings, ...interpolations) => {
+          const result = [strings[0]]
+          for (let i = 0; i < interpolations.length; i++) {
+            let interpolation =
+              typeof interpolations[i] === 'function' ? interpolations[i]({ ...props, theme }) : interpolations[i]
 
-          interpolation =
-            typeof interpolation === 'boolean' ||
-            typeof interpolation === 'undefined'
-              ? ''
-              : interpolation
-          interpolation =
-            typeof interpolation === 'object'
-              ? `${objToString(interpolation)};`
-              : interpolation
+            interpolation =
+              typeof interpolation === 'boolean' || typeof interpolation === 'undefined' ? '' : interpolation
+            interpolation = typeof interpolation === 'object' ? `${objToString(interpolation)};` : interpolation
 
-          result.push(interpolation + strings[i + 1])
+            result.push(interpolation + strings[i + 1])
+          }
+          const sx = {}
+          serialize(
+            compile(result.join('')),
+            middleware([
+              (element) => {
+                if (element.type === 'decl') {
+                  sx[element.props] = element.children
+                } else if (element.type === 'rule' || element.type === '@media') {
+                  const value = element.children
+                    .filter((item) => item.type === 'decl')
+                    .reduce((acc, curr) => {
+                      acc[curr.props] = curr.children
+                      return acc
+                    }, {})
+                  const prefix = (() => {
+                    if (element.type === '@media') {
+                      return '@media '
+                    }
+                    const [selector] = element.props
+                    if (selector[0] === '.') {
+                      return '& '
+                    }
+                    return '&'
+                  })()
+                  element.props.forEach((key) => {
+                    sx[prefix + key] = value
+                  })
+                }
+              },
+            ]),
+          )
+          return sx
         }
-        const sx = {}
-        serialize(
-          compile(result.join('')),
-          middleware([
-            (element) => {
-              if (element.type === 'decl') {
-                sx[element.props] = element.children
-              } else if (element.type === 'rule' || element.type === '@media') {
-                const value = element.children
-                  .filter((item) => item.type === 'decl')
-                  .reduce((acc, curr) => {
-                    acc[curr.props] = curr.children
-                    return acc
-                  }, {})
-                const prefix = (() => {
-                  if (element.type === '@media') {
-                    return '@media '
-                  }
-                  const [selector] = element.props
-                  if (selector[0] === '.') {
-                    return '& '
-                  }
-                  return '&'
-                })()
-                element.props.forEach((key) => {
-                  sx[prefix + key] = value
-                })
-              }
-            },
-          ]),
-        )
-        return sx
-      }
-      const sx = normalizeRawStyle(strings, ...interpolations)
-      const keyframesStyle = resolveAnimation(sx)
-      const styledCss = useMemo(
-        () => ({ ...sx, ...propsStyledCss }),
-        [sx, propsStyledCss],
-      )
-      const newStyledCss = resolveAllStyle(props, styledCss, theme)
-      const Component = createElement(styledBaseComponent as any, {
-        ...props,
-        ref,
-        __styledCss: newStyledCss,
-      })
-      if (keyframesStyle) {
-        return (
-          <>
-            {Component}
-            <style
-              dangerouslySetInnerHTML={{
-                __html: keyframesStyle,
-              }}
-            />
-          </>
-        )
-      }
-      return Component
-    })
+        const sx = normalizeRawStyle(strings, ...interpolations)
+        const keyframesStyle = resolveAnimation(sx)
+        const styledCss = useMemo(() => ({ ...sx, ...propsStyledCss }), [sx, propsStyledCss])
+        const newStyledCss = resolveAllStyle(props, styledCss, theme)
+        const Component = createElement(styledBaseComponent as any, {
+          ...props,
+          ref,
+          __styledCss: newStyledCss,
+        })
+        if (keyframesStyle) {
+          return (
+            <>
+              {Component}
+              <style
+                dangerouslySetInnerHTML={{
+                  __html: keyframesStyle,
+                }}
+              />
+            </>
+          )
+        }
+        return Component
+      },
+    )
     return StyledComponent
   }
   createdStyled.attrs = (_attrs) => {

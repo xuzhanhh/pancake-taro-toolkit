@@ -36,12 +36,12 @@ const RotatingPancakeIcon = styled(PancakeIcon)`
   left: 0;
   animation: ${rotate} 2s linear infinite;
   transform: translate3d(0, 0, 0);
-`;
+`
 
 const FloatingPanIcon = styled(PanIcon)`
   animation: ${float} 6s ease-in-out infinite;
   transform: translate3d(0, 0, 0);
-`;
+`
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 128 }) => {
   return (

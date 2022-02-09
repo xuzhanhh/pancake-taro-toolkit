@@ -16,10 +16,7 @@ export type SxStyleProp =
       string,
       | SystemStyleObject
       | ResponsiveStyleValue<number | string>
-      | Record<
-          string,
-          SystemStyleObject | ResponsiveStyleValue<number | string>
-        >
+      | Record<string, SystemStyleObject | ResponsiveStyleValue<number | string>>
     >
 export interface SxProps {
   sx?: SxStyleProp
@@ -35,4 +32,3 @@ export interface BoxProps
     SxProps {}
 export interface FlexProps extends BoxProps, FlexboxProps {}
 export interface GridProps extends FlexProps, _GridProps {}
-

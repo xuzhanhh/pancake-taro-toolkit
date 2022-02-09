@@ -8,14 +8,9 @@ interface ThemedProps extends TagProps {
   theme: PancakeTheme
 }
 
-const getOutlineStyles = ({
-  outline,
-  theme,
-  variant: variantKey = variants.PRIMARY,
-}: ThemedProps) => {
+const getOutlineStyles = ({ outline, theme, variant: variantKey = variants.PRIMARY }: ThemedProps) => {
   if (outline) {
-    const themeColorKey = styleVariants[variantKey]
-      .backgroundColor as keyof Colors
+    const themeColorKey = styleVariants[variantKey].backgroundColor as keyof Colors
     const color = theme.colors[themeColorKey]
 
     return `

@@ -56,14 +56,7 @@ const convert = (style) => {
   return { value: JSON.stringify(o), o }
 }
 export const resolveAllStyle = (props, __styledCss, theme) => {
-  const {
-    sx = {},
-    __css = {},
-    variant = 'default',
-    tx = 'variants',
-    __styledCss: propsStyledCss = {},
-    ...rest
-  } = props
+  const { sx = {}, __css = {}, variant = 'default', tx = 'variants', __styledCss: propsStyledCss = {}, ...rest } = props
 
   // get style props and rest props
   const styleProps = {}
@@ -77,9 +70,7 @@ export const resolveAllStyle = (props, __styledCss, theme) => {
   // by the order of priority
   const baseStyle = css(__css)({ theme })
   const styledStyle = css(__styledCss)({ theme })
-  const variantStyle = css(get(theme, tx + '.' + variant, get(theme, variant)))(
-    { theme },
-  )
+  const variantStyle = css(get(theme, tx + '.' + variant, get(theme, variant)))({ theme })
   const sxStyle = css(sx)({ theme })
   const propsStyle = css(styleProps)({ theme })
   const style = {
@@ -96,9 +87,7 @@ export function useStyle(props: BoxProps) {
   const { __styledCss: style, ...rest } = props
   const test: string = hash(JSON.stringify(style))
   const classname: string = `bn${test.slice(0, 8)}`
-  rest.className = rest?.className
-    ? `${rest.className} ${classname} bn ba`
-    : `ba bn ${classname}`
+  rest.className = rest?.className ? `${rest.className} ${classname} bn ba` : `ba bn ${classname}`
   let { value, o } = convert({ [`.${classname}.bn.ba`]: style })
   value = value
     .replace(/"/g, '')

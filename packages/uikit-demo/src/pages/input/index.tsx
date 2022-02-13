@@ -21,11 +21,7 @@ const Default: React.FC = () => {
             }}
           >
             <Input type="text" scale={scales[key]} value="Value" />
-            <Input
-              type="text"
-              scale={scales[key]}
-              placeholder="Placeholder..."
-            />
+            <Input type="text" scale={scales[key]} placeholder="Placeholder..." />
             <Input type="text" scale={scales[key]} value="Disabled" disabled />
             <Input type="text" scale={scales[key]} value="Success" isSuccess />
             <Input type="text" scale={scales[key]} value="Warning" isWarning />

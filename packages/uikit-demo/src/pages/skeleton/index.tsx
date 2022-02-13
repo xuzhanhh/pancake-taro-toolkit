@@ -16,9 +16,7 @@ const Text = (args) => {
     return () => clearTimeout(timer)
   }, [])
 
-  return (
-    <Box style={{ width: 200 }}>{loading ? <Skeleton {...args} /> : 'H1'}</Box>
-  )
+  return <Box style={{ width: 200 }}>{loading ? <Skeleton {...args} /> : 'H1'}</Box>
 }
 const ParentSize: React.FC = (args) => {
   return (
@@ -32,12 +30,7 @@ export default function Page() {
   return (
     <Provider>
       <Default animation="waves" width="100px" height="100px" />
-      <Default
-        animation="pulse"
-        variant="circle"
-        width="100px"
-        height="100px"
-      />
+      <Default animation="pulse" variant="circle" width="100px" height="100px" />
       <Text />
       <ParentSize />
     </Provider>

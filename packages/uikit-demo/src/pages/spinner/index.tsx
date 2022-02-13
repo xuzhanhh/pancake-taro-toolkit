@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Spinner } from '@pancake-taro-toolkit/uikit'
+import { Spinner } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 export default function Page() {
   return (

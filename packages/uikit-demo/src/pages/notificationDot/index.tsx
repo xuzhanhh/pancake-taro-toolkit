@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Box,
-  NotificationDot,
-  Button,
-  ButtonMenu,
-  ButtonMenuItem,
-} from '@pancake-taro-toolkit/uikit'
+import { Box, NotificationDot, Button, ButtonMenu, ButtonMenuItem } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 
 const Default: React.FC = () => {

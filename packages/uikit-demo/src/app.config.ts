@@ -14,6 +14,7 @@ export default {
     'pages/notificationDot/index',
     'pages/message/index',
     'pages/icon/index',
+    'pages/image/index',
     'pages/toggle/index',
     'pages/tag/index',
     'pages/skeleton/index',

@@ -1,6 +1,6 @@
 import React, { ComponentType, createElement, forwardRef, ReactNode, useMemo } from 'react'
 import { compile, serialize, middleware } from 'stylis'
-import { Button as MpButton, View } from '@binance/mp-components'
+import { Button as MpButton, View, Image as MpImage } from '@binance/mp-components'
 import { getKeyframes } from './keyframes'
 import { withStyle, objToString, resolveAllStyle } from './utils/style'
 import { Svg } from './components/Svg'
@@ -13,6 +13,7 @@ const domElement: Record<string, [any, { isStyled: boolean }]> = {
   svg: [Svg, { isStyled: false }],
   input: [Input, { isStyled: false }],
   button: [MpButton, { isStyled: false }],
+  img: [MpImage, { isStyled: false }],
 }
 
 const resolveAnimationKey = (animationValue: string) => animationValue.split(' ')[0]

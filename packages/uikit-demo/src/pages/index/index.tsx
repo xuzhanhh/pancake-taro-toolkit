@@ -44,6 +44,10 @@ const list = [
     url: '/pages/icon/index',
   },
   {
+    name: 'image',
+    url: '/pages/image/index',
+  },
+  {
     name: 'input',
     url: '/pages/input/index',
   },
@@ -105,18 +109,14 @@ const widgetList = [
 
 const Nav = ({ title, list }) => {
   const handleClick = (item: any) => {
-    mpService.navigateTo({ url: item.url+'?name=hello' })
+    mpService.navigateTo({ url: item.url + '?name=hello' })
   }
   return (
     <View className="demo-home-nav">
       <View className="demo-home-nav__title">{title}</View>
       <View className="demo-home-nav__group">
         {list.map((item) => (
-          <View
-            key={item.name}
-            className="demo-home-nav__block"
-            onClick={() => handleClick(item)}
-          >
+          <View key={item.name} className="demo-home-nav__block" onClick={() => handleClick(item)}>
             {item.name}
           </View>
         ))}
@@ -127,21 +127,15 @@ const Nav = ({ title, list }) => {
 export default function Index() {
   const router = useRouter()
   console.log('🚀 ~ router', router)
-  
+
   return (
     <Provider>
       <Box p="24px">
         <View className="demo-home__title">
-          <Image
-            mode="aspectFit"
-            className="demo-home__image"
-            src="../../asset/logo.png"
-          />
+          <Image mode="aspectFit" className="demo-home__image" src="../../asset/logo.png" />
           <View className="demo-home__text">Pancake Taro</View>
         </View>
-        <View className="demo-home__desc">
-          Lightweight and reliable mini-program components library
-        </View>
+        <View className="demo-home__desc">Lightweight and reliable mini-program components library</View>
         <Nav title="Basic Component" list={list} />
         <Nav title="Widget Component" list={widgetList} />
       </Box>

@@ -47,11 +47,7 @@ const WithHandler: React.FC = () => {
         </Alert>
       </Row>
       <Row>
-        <Alert
-          onClick={handleClick}
-          title="Danger A Long Title"
-          variant="danger"
-        />
+        <Alert onClick={handleClick} title="Danger A Long Title" variant="danger" />
       </Row>
       <Row>
         <Alert onClick={handleClick} title="Warning" variant="warning" />

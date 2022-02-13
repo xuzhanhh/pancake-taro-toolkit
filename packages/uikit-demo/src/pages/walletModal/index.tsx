@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  ModalProvider,
-  Flex,
-  Button,
-  useWalletModal,
-} from '@pancake-taro-toolkit/uikit'
+import { ModalProvider, Flex, Button, useWalletModal } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 const Wallet: React.FC = () => {
   const { onPresentConnectModal } = useWalletModal(

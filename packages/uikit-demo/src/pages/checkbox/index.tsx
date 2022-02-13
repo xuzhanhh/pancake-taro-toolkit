@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Checkbox, } from '@pancake-taro-toolkit/uikit'
+import { Box, Checkbox } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 const ControlCheck = () => {
   const [checked, setChecked] = React.useState(false)

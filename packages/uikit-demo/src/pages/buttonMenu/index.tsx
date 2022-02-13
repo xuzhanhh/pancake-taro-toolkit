@@ -38,13 +38,7 @@ const DisabledMenu: React.FC = () => {
         </ButtonMenu>
       </Row>
       <Row>
-        <ButtonMenu
-          activeIndex={index1}
-          onItemClick={handleClick1}
-          scale="sm"
-          variant="subtle"
-          ml="24px"
-        >
+        <ButtonMenu activeIndex={index1} onItemClick={handleClick1} scale="sm" variant="subtle" ml="24px">
           <ButtonMenuItem>Button 1</ButtonMenuItem>
           <ButtonMenuItem>Button 2</ButtonMenuItem>
           <ButtonMenuItem>Button 3</ButtonMenuItem>
@@ -52,14 +46,7 @@ const DisabledMenu: React.FC = () => {
         </ButtonMenu>
       </Row>
       <Row>
-        <ButtonMenu
-          disabled
-          activeIndex={index1}
-          onItemClick={handleClick1}
-          scale="sm"
-          variant="subtle"
-          ml="24px"
-        >
+        <ButtonMenu disabled activeIndex={index1} onItemClick={handleClick1} scale="sm" variant="subtle" ml="24px">
           <ButtonMenuItem>Disabled 1</ButtonMenuItem>
           <ButtonMenuItem>Disabled 2</ButtonMenuItem>
           <ButtonMenuItem>Disabled 3</ButtonMenuItem>
@@ -88,12 +75,7 @@ const Default: React.FC = () => {
         </ButtonMenu>
       </Row>
       <Row>
-        <ButtonMenu
-          activeIndex={index1}
-          onItemClick={handleClick1}
-          scale="sm"
-          ml="24px"
-        >
+        <ButtonMenu activeIndex={index1} onItemClick={handleClick1} scale="sm" ml="24px">
           <ButtonMenuItem>Button 1</ButtonMenuItem>
           <ButtonMenuItem>Button 2</ButtonMenuItem>
           <ButtonMenuItem>Button 3</ButtonMenuItem>
@@ -101,11 +83,7 @@ const Default: React.FC = () => {
         </ButtonMenu>
       </Row>
       <Row>
-        <ButtonMenu
-          activeIndex={index}
-          onItemClick={handleClick}
-          variant="subtle"
-        >
+        <ButtonMenu activeIndex={index} onItemClick={handleClick} variant="subtle">
           <ButtonMenuItem>Button 1</ButtonMenuItem>
           <ButtonMenuItem>Button 2</ButtonMenuItem>
           <ButtonMenuItem>Button 3</ButtonMenuItem>
@@ -113,13 +91,7 @@ const Default: React.FC = () => {
         </ButtonMenu>
       </Row>
       <Row>
-        <ButtonMenu
-          activeIndex={index1}
-          onItemClick={handleClick1}
-          scale="sm"
-          variant="subtle"
-          ml="24px"
-        >
+        <ButtonMenu activeIndex={index1} onItemClick={handleClick1} scale="sm" variant="subtle" ml="24px">
           <ButtonMenuItem>Button 1</ButtonMenuItem>
           <ButtonMenuItem>Button 2</ButtonMenuItem>
           <ButtonMenuItem>Button 3</ButtonMenuItem>
@@ -153,12 +125,7 @@ const FullWidthMenu: React.FC = () => {
 
   return (
     <Box width="840px">
-      <ButtonMenu
-        activeIndex={index}
-        onItemClick={handleClick}
-        fullWidth
-        mb="24px"
-      >
+      <ButtonMenu activeIndex={index} onItemClick={handleClick} fullWidth mb="24px">
         <ButtonMenuItem>Button 1</ButtonMenuItem>
         <ButtonMenuItem>Button 2</ButtonMenuItem>
         <ButtonMenuItem>Button 3</ButtonMenuItem>

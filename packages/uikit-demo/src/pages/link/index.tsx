@@ -1,10 +1,6 @@
 import React, { useContext } from 'react'
 import mpService from '@binance/mp-service'
-import {
-  Box,
-  Link,
-  LinkExternal,
-} from '@pancake-taro-toolkit/uikit'
+import { Box, Link, LinkExternal } from '@pancake-taro-toolkit/uikit'
 import { PathContext } from '../../context/pathContext'
 import Provider from 'src/Provider'
 export default function Page() {

@@ -19,6 +19,7 @@ export * from './components/ThemeSwitcher'
 export * from './components/BottomDrawer'
 export * from './components/Card'
 export * from './components/Alert'
+export * from './components/Image'
 
 // Widgets
 export * from './widgets/Modal'

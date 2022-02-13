@@ -1,12 +1,6 @@
 import React from 'react'
 import capitalize from 'lodash/capitalize'
-import {
-  Box,
-  Tag,
-  Flex,
-  CommunityIcon,
-  RemoveIcon,
-} from '@pancake-taro-toolkit/uikit'
+import { Box, Tag, Flex, CommunityIcon, RemoveIcon } from '@pancake-taro-toolkit/uikit'
 import Provider from 'src/Provider'
 const variants = {
   PRIMARY: 'primary',
@@ -43,23 +37,13 @@ const Default: React.FC = () => {
               <Tag variant={variant} startIcon={<CommunityIcon />} mr="8px">
                 {`${capitalize(variant)} Icon Left`}
               </Tag>
-              <Tag
-                variant={variant}
-                outline
-                startIcon={<CommunityIcon />}
-                mr="8px"
-              >
+              <Tag variant={variant} outline startIcon={<CommunityIcon />} mr="8px">
                 {`${capitalize(variant)} Icon Left`}
               </Tag>
               <Tag variant={variant} outline endIcon={<RemoveIcon />} mr="8px">
                 {`${capitalize(variant)} Icon Right`}
               </Tag>
-              <Tag
-                variant={variant}
-                outline
-                startIcon={<CommunityIcon />}
-                endIcon={<RemoveIcon />}
-              >
+              <Tag variant={variant} outline startIcon={<CommunityIcon />} endIcon={<RemoveIcon />}>
                 {`${capitalize(variant)} Both`}
               </Tag>
             </Flex>
@@ -80,8 +64,8 @@ const TextVariations: React.FC = () => {
         Bold
       </Tag>
     </Box>
-  );
-};
+  )
+}
 export default function Page() {
   return (
     <Provider>

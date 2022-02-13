@@ -17,9 +17,7 @@ class App extends Component {
   render() {
     return (
       <PathProvider>
-        <WebviewProvider webviewFilePath="pages/web-view/index">
-          {this.props.children}
-        </WebviewProvider>
+        <WebviewProvider webviewFilePath="pages/web-view/index">{this.props.children}</WebviewProvider>
       </PathProvider>
     )
   }

@@ -7,9 +7,5 @@ export const PathContext = React.createContext({
 
 export const PathProvider = function ({ children }) {
   const [redirectAddress, setRedirectAddress] = useState('')
-  return (
-    <PathContext.Provider value={{ redirectAddress, setRedirectAddress }}>
-      {children}
-    </PathContext.Provider>
-  )
+  return <PathContext.Provider value={{ redirectAddress, setRedirectAddress }}>{children}</PathContext.Provider>
 }

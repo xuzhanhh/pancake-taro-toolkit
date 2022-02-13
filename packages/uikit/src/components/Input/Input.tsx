@@ -61,8 +61,8 @@ const StyledInput = styled.input<InputProps>`
     box-shadow: ${({ theme }) => theme.shadows.focus};
   }
 `
-const Input = (props: InputProps) => {
+const Input = React.forwardRef((props: InputProps, ref) => {
   const theme = useTheme()
-  return <StyledInput placeholderStyle={{ color: theme.colors.textSubtle }} {...props} />
-}
+  return <StyledInput ref={ref} placeholderStyle={{ color: theme.colors.textSubtle }} {...props} />
+})
 export default Input

@@ -113,11 +113,12 @@ export function withStyle<T, P extends BoxProps = BoxProps>(
 ) {
   const WrappedComponent = forwardRef<any, T>((props, ref) => {
     const theme = useTheme()
+    const newProps = { ...props }
     if (needResolved) {
       const newStyledCss = resolveAllStyle(props, {}, theme)
-      props.__styledCss = newStyledCss
+      newProps.__styledCss = newStyledCss
     }
-    const { rest } = useStyle(props)
+    const { rest } = useStyle(newProps)
 
     return (
       <>

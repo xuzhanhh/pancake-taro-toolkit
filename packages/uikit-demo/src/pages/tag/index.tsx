@@ -1,6 +1,6 @@
 import React from 'react'
 import capitalize from 'lodash/capitalize'
-import { Box, Tag, Flex, CommunityIcon, RemoveIcon } from '@pancake-taro-toolkit/uikit'
+import { Box, Tag, Flex, CommunityIcon, RemoveIcon } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 const variants = {
   PRIMARY: 'primary',

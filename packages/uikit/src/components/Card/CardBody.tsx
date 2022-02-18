@@ -1,5 +1,5 @@
 import { SpaceProps } from 'styled-system'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 
 export type CardBodyProps = SpaceProps
 

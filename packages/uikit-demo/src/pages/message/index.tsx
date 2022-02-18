@@ -1,5 +1,5 @@
 import React from 'react'
-import { Message, MessageText, HelpIcon } from '@pancake-taro-toolkit/uikit'
+import { Message, MessageText, HelpIcon } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
 const Default: React.FC = () => {

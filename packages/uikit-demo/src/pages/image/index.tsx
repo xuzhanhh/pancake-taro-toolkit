@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image as Img, Box } from '@pancake-taro-toolkit/uikit'
+import { Image as Img, Box } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
 const Image: React.FC = () => {

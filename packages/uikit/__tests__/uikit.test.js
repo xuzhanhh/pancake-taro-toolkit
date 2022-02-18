@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const uikit = require('..');
+const uikit = require('..')
 
-describe('@pancake-taro-toolkit/uikit', () => {
-    it('needs tests');
-});
+describe('@binance/mp-pancake-uikit', () => {
+  it('needs tests')
+})

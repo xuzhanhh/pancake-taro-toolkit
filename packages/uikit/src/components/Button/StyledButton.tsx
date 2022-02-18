@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 import { Button as TaroButton } from '@tarojs/components'
 import { BoxProps } from '../Box'
-import styled, { useStyle, useTheme } from '@pancake-taro-toolkit/styled'
+import styled, { useStyle, useTheme } from '@binance/mp-styled'
 import sizes from './utils/ButtonSize'
 import { Scale, BaseButtonProps } from './types'
 import { scaleVariants } from './theme'

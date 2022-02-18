@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, Flex, Text } from '@pancake-taro-toolkit/uikit'
+import { Box, Flex, Text } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
-const context = require.context('@pancake-taro-toolkit/uikit/dist/esm/components/Svg/Icons', true, /.js$/)
+const context = require.context('@binance/mp-pancake-uikit/dist/esm/components/Svg/Icons', true, /.js$/)
 
 const components = context.keys().reduce((accum, path) => {
   const file = path.substring(2).replace('.tsx', '')

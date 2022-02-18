@@ -1,5 +1,5 @@
 import { PancakeTheme } from '../../theme'
-import styled, { keyframes } from '@pancake-taro-toolkit/styled'
+import styled, { keyframes } from '@binance/mp-styled'
 import { Box } from '../Box'
 import { CardProps } from './types'
 

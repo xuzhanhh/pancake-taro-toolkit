@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from '@tarojs/taro'
-import { Box, Alert, Text } from '@pancake-taro-toolkit/uikit'
-import styled from '@pancake-taro-toolkit/styled'
+import { Box, Alert, Text } from '@binance/mp-pancake-uikit'
+import styled from '@binance/mp-styled'
 import noop from 'lodash/noop'
 import Provider from 'src/Provider'
 

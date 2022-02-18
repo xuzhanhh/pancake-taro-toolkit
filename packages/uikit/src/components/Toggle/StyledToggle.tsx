@@ -1,5 +1,5 @@
 import { Switch as TaroSwitch } from '@tarojs/components'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { Box } from '../Box'
 import { ToggleProps, HandleProps, ScaleKeys, scales, StyleToggleProps } from './types'
 

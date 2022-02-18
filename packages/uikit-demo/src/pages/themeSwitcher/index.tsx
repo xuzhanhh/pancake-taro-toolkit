@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeSwitcher } from '@pancake-taro-toolkit/uikit'
+import { ThemeSwitcher } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 export default function Page() {
   const [isDark, setIsDark] = React.useState(false)

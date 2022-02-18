@@ -1,6 +1,6 @@
 import React from 'react'
 import mpService from '@binance/mp-service'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import Button from '../../components/Button/Button'
 import Text from '../../components/Text/Text'
 import MoreHorizontal from '../../components/Svg/Icons/MoreHorizontal'

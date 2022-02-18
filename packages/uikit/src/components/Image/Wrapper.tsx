@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { WrapperProps } from './types'
 
 const StyledWrapper = styled.div<{ $width: number; $height: number }>`

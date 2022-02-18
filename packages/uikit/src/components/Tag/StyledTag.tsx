@@ -1,4 +1,4 @@
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { PancakeTheme } from '../../theme'
 import { Colors } from '../../theme/types'
 import { scaleVariants, styleVariants } from './theme'

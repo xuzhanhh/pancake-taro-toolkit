@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { Text, TextProps } from '../Text'
 import { Box } from '../Box'
 import { MessageProps } from './types'

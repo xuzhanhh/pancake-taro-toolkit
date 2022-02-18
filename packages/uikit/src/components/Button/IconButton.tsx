@@ -1,5 +1,5 @@
 import Button from './Button'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { BaseButtonProps, PolymorphicComponent } from './types'
 
 const IconButton: PolymorphicComponent<BaseButtonProps, 'button'> = styled(Button)<BaseButtonProps>`

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from '@pancake-taro-toolkit/styled'
+import styled, { keyframes } from '@binance/mp-styled'
 import PanIcon from './PanIcon'
 import PancakeIcon from './PancakeIcon'
 import { SpinnerProps } from './types'

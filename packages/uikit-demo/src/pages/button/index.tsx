@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Box } from '@pancake-taro-toolkit/uikit'
+import { Button, Box } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
 export default function ButtonPage() {

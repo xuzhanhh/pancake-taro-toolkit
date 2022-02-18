@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { WebviewContext } from '@pancake-taro-toolkit/uikit'
+import { WebviewContext } from '@binance/mp-pancake-uikit'
 import { View, WebView } from '@binance/mp-components'
 import Provider from 'src/Provider'
 

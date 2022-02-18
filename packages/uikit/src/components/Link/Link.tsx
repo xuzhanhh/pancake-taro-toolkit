@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { LinkProps } from './types'
 import { Text } from '../Text'
 import Taro from '@tarojs/taro'

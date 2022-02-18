@@ -1,10 +1,11 @@
-# `@pancake-taro-toolkit/uikit`
+# `@binance/mp-pancake-uikit`
 
 pancake uikit for Taro
 
 ## Usage
 
 TODO
+
 ```
-import uikit from '@pancake-taro-toolkit/uikit'
+import uikit from '@binance/mp-pancake-uikit'
 ```

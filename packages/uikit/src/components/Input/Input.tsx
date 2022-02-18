@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { PancakeTheme, useTheme } from '../../theme'
 import { InputProps, scales } from './types'
 

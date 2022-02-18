@@ -1,4 +1,4 @@
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { SpaceProps } from 'styled-system'
 import { CardTheme } from './types'
 

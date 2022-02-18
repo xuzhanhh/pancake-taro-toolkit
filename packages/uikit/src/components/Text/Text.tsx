@@ -1,4 +1,4 @@
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { PancakeTheme } from '../../theme'
 import getThemeValue from '../../util/getThemeValue'
 import { TextProps } from '.'

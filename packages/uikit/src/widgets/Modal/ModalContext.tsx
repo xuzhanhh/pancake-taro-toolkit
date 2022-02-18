@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { Overlay } from '../../components/Overlay'
 import { Handler } from './types'
 

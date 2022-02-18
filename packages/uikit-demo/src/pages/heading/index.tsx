@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading } from '@pancake-taro-toolkit/uikit'
+import { Heading } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 export default function Page() {
   return (

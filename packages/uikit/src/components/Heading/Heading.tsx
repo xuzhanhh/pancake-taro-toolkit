@@ -1,4 +1,4 @@
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import Text from '../Text/Text'
 import { tags, scales, HeadingProps } from './types'
 

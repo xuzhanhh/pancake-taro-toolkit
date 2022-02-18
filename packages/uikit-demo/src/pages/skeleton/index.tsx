@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Skeleton } from '@pancake-taro-toolkit/uikit'
+import { Box, Skeleton } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
 const Default: React.FC<any> = (args) => {

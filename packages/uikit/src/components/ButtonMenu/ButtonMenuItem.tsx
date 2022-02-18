@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import Button from '../Button/Button'
 import { BaseButtonProps, PolymorphicComponent, variants } from '../Button/types'
 import type { ButtonMenuItemProps } from './types'

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { Colors } from '../../theme/types'
 import { PancakeTheme } from '../../theme'
 import { Box } from '../Box'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Box, ModalProps, Heading, Button, Modal, useModal, ModalProvider } from '@pancake-taro-toolkit/uikit'
+import { Box, ModalProps, Heading, Button, Modal, useModal, ModalProvider } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
-import { useTheme } from '@pancake-taro-toolkit/styled'
+import { useTheme } from '@binance/mp-styled'
 
 const CustomModal: React.FC<ModalProps> = ({ title, onDismiss, ...props }) => {
   return (

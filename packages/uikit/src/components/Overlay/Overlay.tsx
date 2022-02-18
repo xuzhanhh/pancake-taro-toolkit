@@ -1,4 +1,4 @@
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import React, { FC, useEffect } from 'react'
 import { Box, BoxProps } from '../Box'
 

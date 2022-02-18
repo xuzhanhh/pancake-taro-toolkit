@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import Flex from '../../components/Box/Flex'
 import { Box } from '../../components/Box'
 import { ArrowBackIcon, CloseIcon } from '../../components/Svg'

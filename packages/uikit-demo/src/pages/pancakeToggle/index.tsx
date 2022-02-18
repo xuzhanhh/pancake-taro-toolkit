@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, PancakeToggle } from '@pancake-taro-toolkit/uikit'
+import { Box, PancakeToggle } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
 const Default: React.FC = () => {

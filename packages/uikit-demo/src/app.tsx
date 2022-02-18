@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import { PathProvider } from './context'
 import './app.scss'
-import { WebviewProvider } from '@pancake-taro-toolkit/uikit'
+import { WebviewProvider } from '@binance/mp-pancake-uikit'
 
 class App extends Component {
   componentDidMount() {}

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from '@pancake-taro-toolkit/styled'
+import styled, { keyframes } from '@binance/mp-styled'
 import { Box } from '../Box'
 import { SkeletonProps, animation as ANIMATION, variant as VARIANT } from './types'
 

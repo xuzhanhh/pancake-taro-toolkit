@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { useTheme } from '@pancake-taro-toolkit/styled'
+import styled, { useTheme } from '@binance/mp-styled'
 import {
   CardRibbon,
   Box,
@@ -8,7 +8,7 @@ import {
   CardFooter,
   Heading,
   CardHeader as UIKitCardHeader,
-} from '@pancake-taro-toolkit/uikit'
+} from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
 const Row = styled.div`

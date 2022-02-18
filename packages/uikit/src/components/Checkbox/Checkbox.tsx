@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styled from '@pancake-taro-toolkit/styled'
+import styled from '@binance/mp-styled'
 import { Box } from '../Box'
 import { Checkbox as TaroCheckbox } from '@tarojs/components'
 import { CheckboxProps, scales, Scales } from './types'

@@ -8,7 +8,7 @@ interface ModalsContext {
   nodeId: string
   modalNode: React.ReactNode
   setModalNode: React.Dispatch<React.SetStateAction<React.ReactNode>>
-  onPresent: (node: React.ReactNode, newNodeId: string) => void
+  onPresent: (node: React.ReactNode, newNodeId: string, closeOnOverlayClick: boolean) => void
   onDismiss: Handler
   setCloseOnOverlayClick: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -42,10 +42,11 @@ const ModalProvider: React.FC = ({ children }) => {
   const [nodeId, setNodeId] = useState('')
   const [closeOnOverlayClick, setCloseOnOverlayClick] = useState(true)
 
-  const handlePresent = (node: React.ReactNode, newNodeId: string) => {
+  const handlePresent = (node: React.ReactNode, newNodeId: string, closeOnOverlayClick: boolean) => {
     setModalNode(node)
     setIsOpen(true)
     setNodeId(newNodeId)
+    setCloseOnOverlayClick(closeOnOverlayClick)
   }
 
   const handleDismiss = () => {

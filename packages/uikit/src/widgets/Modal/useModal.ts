@@ -9,10 +9,10 @@ const useModal = (
   updateOnPropsChange = false,
   modalId = 'defaultNodeId',
 ): [Handler, Handler] => {
-  const { isOpen, nodeId, modalNode, setModalNode, onPresent, onDismiss, setCloseOnOverlayClick } = useContext(Context)
+  const { isOpen, nodeId, modalNode, setModalNode, onPresent, onDismiss } = useContext(Context)
   const onPresentCallback = useCallback(() => {
-    onPresent(modal, modalId)
-  }, [modal, modalId, onPresent])
+    onPresent(modal, modalId, closeOnOverlayClick)
+  }, [modal, modalId, onPresent, closeOnOverlayClick])
 
   // Updates the "modal" component if props are changed
   // Use carefully since it might result in unnecessary rerenders
@@ -33,10 +33,6 @@ const useModal = (
       }
     }
   }, [updateOnPropsChange, nodeId, modalId, isOpen, modal, modalNode, setModalNode])
-
-  useEffect(() => {
-    setCloseOnOverlayClick(closeOnOverlayClick)
-  }, [closeOnOverlayClick, setCloseOnOverlayClick])
 
   return [onPresentCallback, onDismiss]
 }

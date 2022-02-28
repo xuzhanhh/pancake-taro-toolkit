@@ -7,21 +7,6 @@ interface StyledInputProps extends InputProps {
   theme: PancakeTheme
 }
 
-/**
- * Priority: Warning --> Success
- */
-const getBoxShadow = ({ isSuccess = false, isWarning = false, theme }: StyledInputProps) => {
-  if (isWarning) {
-    return theme.shadows.warning
-  }
-
-  if (isSuccess) {
-    return theme.shadows.success
-  }
-
-  return theme.shadows.inset
-}
-
 const getHeight = ({ scale = scales.MD }: StyledInputProps) => {
   switch (scale) {
     case scales.SM:
@@ -38,13 +23,12 @@ const StyledInput = styled.input<InputProps>`
   background-color: ${({ theme }) => theme.colors.input};
   border: 0;
   border-radius: 16px;
-  box-shadow: ${getBoxShadow};
   color: ${({ theme }) => theme.colors.text};
 
   display: block;
   font-size: 16px;
   height: ${getHeight};
-  minheight: ${getHeight};
+  min-height: ${getHeight};
   outline: 0;
   padding: 0 16px;
   width: 100%;
@@ -56,28 +40,9 @@ const StyledInput = styled.input<InputProps>`
     color: ${({ theme }) => theme.colors.textDisabled};
     cursor: not-allowed;
   }
-
-  &:focus:not(:disabled) {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
-  }
 `
-const Input = React.forwardRef(
-  (
-    props: InputProps & {
-      onChange(element: any): void
-    },
-    ref,
-  ) => {
-    const { onChange, ...rest } = props
-    const theme = useTheme()
-    const handleInput = (e) => {
-      if (onChange) {
-        return onChange(e)
-      }
-    }
-    return (
-      <StyledInput onInput={handleInput} ref={ref} placeholderStyle={{ color: theme.colors.textSubtle }} {...rest} />
-    )
-  },
-)
+const Input = React.forwardRef((props: InputProps, ref) => {
+  const theme = useTheme()
+  return <StyledInput ref={ref} placeholderStyle={{ color: theme.colors.textSubtle }} {...props} />
+})
 export default Input

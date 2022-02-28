@@ -11,7 +11,9 @@ const Input = forwardRef<any, any>((props, ref) => {
     }
   }, [ref])
   const handleInput = (e) => {
-    if (onChange) onChange(e)
+    if (onChange) {
+      return onChange(e)
+    }
   }
   return <MpInput onInput={handleInput} {...rest} />
 })

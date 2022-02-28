@@ -1,28 +1,32 @@
-import React, { useReducer, createContext } from 'react'
+import React, { useState, useEffect, FunctionComponent } from 'react'
+import merge from 'lodash/merge'
 import { objToString } from '../utils/style'
+import eventBus from '../utils/eventBus'
 
-export const StyleContext = createContext({
-  state: {},
-  dispatch: (() => {}) as React.Dispatch<any>,
-})
+export const StyleProvider: FunctionComponent = ({ children }) => {
+  const [styleValue, setStyleValue] = useState({})
 
-const initState = {}
+  useEffect(() => {
+    const setVal = (o) => {
+      setStyleValue((pre) => merge({}, pre, o))
+    }
+    eventBus.addListener('stylechange', setVal)
+    return () => {
+      eventBus.removeListener('stylechange', setVal)
+    }
+  }, [])
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'stylechange':
-      return { ...state, ...action.payload.o }
-    default:
-      return state
-  }
-}
+  useEffect(() => {
+    if (children) {
+      console.warn(
+        'There is a breaking change in StyleProvider, you no longer need to put the content of the page in the Provider, just a <StyleProvider />.',
+      )
+    }
+  }, [children])
 
-export const StyleProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initState)
   return (
-    <StyleContext.Provider value={{ state, dispatch }}>
-      <style dangerouslySetInnerHTML={{ __html: objToString(state) }} />
-      {children}
-    </StyleContext.Provider>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: objToString(styleValue) }} />
+    </>
   )
 }

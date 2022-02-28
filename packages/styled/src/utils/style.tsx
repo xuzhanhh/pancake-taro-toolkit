@@ -1,12 +1,11 @@
-// @ts-nocheck
-import React, { ComponentType, useEffect, useContext, forwardRef } from 'react'
-import Taro from '@tarojs/taro'
+import React, { ComponentType, useEffect, forwardRef } from 'react'
+// import Taro from '@tarojs/taro'
 import css, { cssProps, get } from './css'
-import { BoxProps } from '../../components/Box/types'
+import { ExtraBoxProps } from '../components/Box'
 import hash from 'object-hash'
 import flatten from 'obj-flatten'
-import { StyleContext } from '../context/StyleContext'
 import useTheme from '../hooks/useTheme'
+import eventBus from './eventBus'
 
 export const objToString = (o) => {
   let value = JSON.stringify(o)
@@ -83,7 +82,7 @@ export const resolveAllStyle = (props, __styledCss, theme) => {
   }
   return style
 }
-export function useStyle(props: BoxProps) {
+export function useStyle(props: ExtraBoxProps) {
   const { __styledCss: style, ...rest } = props
   const test: string = hash(JSON.stringify(style))
   const classname: string = `bn${test.slice(0, 8)}`
@@ -98,20 +97,19 @@ export function useStyle(props: BoxProps) {
     .replace(/}$/, '')
     .replace(/%998/g, '"')
     .replace(/%10086/g, ',')
-  const { dispatch } = useContext(StyleContext)
   useEffect(() => {
     if (value) {
-      dispatch({ type: 'stylechange', payload: { o } })
+      eventBus.emit('stylechange', o)
     }
   }, [rest.className, value])
   return { style, rest, value }
 }
 
-export function withStyle<T, P extends BoxProps = BoxProps>(
+export function withStyle<T, P extends ExtraBoxProps = ExtraBoxProps>(
   Component: ComponentType<P>,
   { needResolved = false } = {},
 ) {
-  const WrappedComponent = forwardRef<any, T>((props, ref) => {
+  const WrappedComponent = forwardRef<T, P>((props, ref) => {
     const theme = useTheme()
     const newProps = { ...props }
     if (needResolved) {
@@ -120,11 +118,7 @@ export function withStyle<T, P extends BoxProps = BoxProps>(
     }
     const { rest } = useStyle(newProps)
 
-    return (
-      <>
-        <Component ref={ref} {...rest} />
-      </>
-    )
+    return <Component ref={ref} {...(rest as any)} />
   })
   return WrappedComponent
 }

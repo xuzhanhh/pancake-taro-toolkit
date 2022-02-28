@@ -21,5 +21,10 @@ export interface BoxProps
     SpaceProps,
     HTMLAttributes<HTMLDivElement>,
     SxProps {}
+
+export interface ExtraBoxProps extends BoxProps {
+  __styledCss?: any
+}
+
 export interface FlexProps extends BoxProps, FlexboxProps {}
 export interface GridProps extends FlexProps, _GridProps {}

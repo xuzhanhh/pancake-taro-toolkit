@@ -38,6 +38,7 @@
     "styled-system": "^5.1.5"
   },
   "dependencies": {
+    "@binance/mp-styled": "^1.0.0",
     "@tarojs/components": "^3.3.19",
     "@tarojs/react": "^3.3.19",
     "@tarojs/taro": "^3.3.19",

@@ -1,2 +1,2 @@
 export { default as Box } from './Box'
-export type { BoxProps } from './types'
+export type { BoxProps, ExtraBoxProps } from './types'

@@ -4,8 +4,9 @@ import { light } from '@binance/mp-pancake-uikit'
 
 export default function Provider({ children }) {
   return (
-    <StyleProvider>
+    <>
+      <StyleProvider />
       <ThemeProvider theme={light}>{children}</ThemeProvider>
-    </StyleProvider>
+    </>
   )
 }

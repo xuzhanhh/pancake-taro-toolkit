@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FunctionComponent } from 'react'
-import clone from 'lodash/clone'
 import { objToString } from '../utils/style'
 import eventBus from '../utils/eventBus'
+import { shallowClone } from '../utils/shallowClone'
 
 interface StyleProps {
   styleStr: string
@@ -21,7 +21,7 @@ export const StyleProvider: FunctionComponent = ({ children }) => {
   useEffect(() => {
     const setVal = (o: StyleObject) => {
       setStyleValue((pre) => {
-        const newStyle = clone(pre)
+        const newStyle = shallowClone(pre)
         Object.keys(o).forEach((key) => {
           newStyle[key] = o[key]
         })

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from '@binance/mp-styled'
 import { LinkProps } from './types'
 import { Text } from '../Text'
-import Taro from '@tarojs/taro'
+import mpService from '@binance/mp-service'
+import { WebviewContext } from '../../context'
 
 const StyledLink = styled(Text)<LinkProps>`
   display: flex;
@@ -14,11 +15,17 @@ const StyledLink = styled(Text)<LinkProps>`
 `
 
 const Link: React.FC<LinkProps> = ({ external, onClick, href, ...props }) => {
+  const { webviewFilePath, setUrl } = useContext(WebviewContext)
   const handleClick = (e: any) => {
     if (href && !external) {
-      Taro.navigateTo({
+      mpService.navigateTo({
         url: href,
       })
+    } else if (external && webviewFilePath && href) {
+      setUrl(href)
+      setTimeout(() => {
+        mpService.navigateTo({ url: webviewFilePath })
+      }, 500)
     }
     if (onClick) {
       onClick(e)

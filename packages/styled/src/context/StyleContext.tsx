@@ -44,11 +44,7 @@ export const StyleProvider: FunctionComponent = ({ children }) => {
 
   return (
     <view style={{ display: 'none' }}>
-      {Object.keys(styleValue).map((key) => {
-        const styleStr = objToString({ [key]: styleValue[key] })
-        return <Style key={key} styleStr={styleStr} />
-      })}
-      {/*<style dangerouslySetInnerHTML={{ __html: objToString(styleValue) }} />*/}
+      <Style styleStr={objToString(styleValue)} />
     </view>
   )
 }

@@ -1,32 +1,14 @@
 import React, { useState, useEffect, FunctionComponent } from 'react'
+import merge from 'lodash/merge'
 import { objToString } from '../utils/style'
 import eventBus from '../utils/eventBus'
-import { shallowClone } from '../utils/shallowClone'
-
-interface StyleProps {
-  styleStr: string
-}
-
-interface StyleObject {
-  [key: string]: Record<string, string | number>
-}
-
-const Style: React.FunctionComponent<StyleProps> = React.memo(({ styleStr }) => {
-  return <style dangerouslySetInnerHTML={{ __html: styleStr }} />
-})
 
 export const StyleProvider: FunctionComponent = ({ children }) => {
-  const [styleValue, setStyleValue] = useState<StyleObject>({})
+  const [styleValue, setStyleValue] = useState({})
 
   useEffect(() => {
-    const setVal = (o: StyleObject) => {
-      setStyleValue((pre) => {
-        const newStyle = shallowClone(pre)
-        Object.keys(o).forEach((key) => {
-          newStyle[key] = o[key]
-        })
-        return newStyle
-      })
+    const setVal = (o) => {
+      setStyleValue((pre) => merge({}, pre, o))
     }
     eventBus.addListener('stylechange', setVal)
     return () => {
@@ -43,12 +25,8 @@ export const StyleProvider: FunctionComponent = ({ children }) => {
   }, [children])
 
   return (
-    <view style={{ display: 'none' }}>
-      {Object.keys(styleValue).map((key) => {
-        const styleStr = objToString({ [key]: styleValue[key] })
-        return <Style key={key} styleStr={styleStr} />
-      })}
-      {/*<style dangerouslySetInnerHTML={{ __html: objToString(styleValue) }} />*/}
+    <view>
+      <style dangerouslySetInnerHTML={{ __html: objToString(styleValue) }} />
     </view>
   )
 }

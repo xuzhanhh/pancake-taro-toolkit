@@ -54,7 +54,8 @@ const Svg = ({ width: propWidth, height: propHeight, viewBox, fill, color, child
     <Box
       {...props}
       {...nextProps}
-      __css={{ ...__css, ...props.__css, ...style }}
+      __css={{ ...__css, ...props.__css }}
+      style={{ ...style }}
       width={width}
       height={height || width}
     />

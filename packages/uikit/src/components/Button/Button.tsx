@@ -1,4 +1,4 @@
-import React, { ElementType, useContext } from 'react'
+import React, { ElementType, useContext, cloneElement, isValidElement } from 'react'
 import mpService from '@binance/mp-service'
 import getExternalLinkProps from '../../util/getExternalLinkProps'
 import StyledButton from './StyledButton'
@@ -46,7 +46,15 @@ const Button = <E extends ElementType = 'button'>(props: ButtonProps<E>): JSX.El
       {...internalProps}
       {...rest}
     >
+      {isValidElement(startIcon) &&
+        cloneElement(startIcon, {
+          mr: '0.5rem',
+        })}
       {children}
+      {isValidElement(endIcon) &&
+        cloneElement(endIcon, {
+          ml: '0.5rem',
+        })}
     </StyledButton>
   )
 }

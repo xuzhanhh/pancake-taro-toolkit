@@ -1,10 +1,35 @@
-import React from 'react'
-import { Button, Box } from '@binance/mp-pancake-uikit'
+import styled from '@binance/mp-styled'
+import React, { useState } from 'react'
+import { Button, Box, ExpandableButton, ExpandableLabel, Flex } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
 
-export default function ButtonPage() {
+const Row = styled(Flex)`
+  margin-bottom: 32px;
+  & > button + button,
+  & > a + a {
+    margin-left: 16px;
+  }
+`
+
+const Expandable: React.FC = () => {
+  const [expanded, setExpanded] = useState(false)
   return (
-    <Provider>
+    <Box width="640px">
+      {/* <BrowserRouter> */}
+      <Row>
+        <ExpandableButton expanded={expanded} onClick={() => setExpanded((prev) => !prev)} />
+        <ExpandableLabel expanded={expanded} onClick={() => setExpanded((prev) => !prev)}>
+          ExpandableLabel
+        </ExpandableLabel>
+      </Row>
+      {/* </BrowserRouter> */}
+    </Box>
+  )
+}
+
+function Default() {
+  return (
+    <view>
       <Box>
         <Button>primary MD</Button>
         <Button scale="sm">primary SM</Button>
@@ -79,6 +104,14 @@ export default function ButtonPage() {
           disabled
         </Button>
       </Box>
+    </view>
+  )
+}
+export default function ButtonPage() {
+  return (
+    <Provider>
+      <Default />
+      <Expandable />
     </Provider>
   )
 }

@@ -27,6 +27,7 @@ export default {
     'pages/bottomDrawer/index',
     'pages/card/index',
     'pages/alert/index',
+    'pages/balanceInput/index',
   ],
   window: {
     backgroundTextStyle: 'light',

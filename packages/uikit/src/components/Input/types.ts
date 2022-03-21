@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, InputHTMLAttributes } from 'react'
 import { SpaceProps } from 'styled-system'
 
 export const scales = {
@@ -9,7 +9,7 @@ export const scales = {
 
 export type Scales = typeof scales[keyof typeof scales]
 
-export interface InputProps extends SpaceProps {
+export interface InputProps extends SpaceProps, InputHTMLAttributes<HTMLInputElement> {
   scale?: Scales
   isSuccess?: boolean
   isWarning?: boolean

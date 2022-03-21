@@ -20,6 +20,7 @@ export * from './components/BottomDrawer'
 export * from './components/Card'
 export * from './components/Alert'
 export * from './components/Image'
+export * from './components/BalanceInput'
 
 // Widgets
 export * from './widgets/Modal'

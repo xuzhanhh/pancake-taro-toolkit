@@ -21,6 +21,7 @@ export * from './components/Card'
 export * from './components/Alert'
 export * from './components/Image'
 export * from './components/BalanceInput'
+export * from './components/Table'
 
 // Widgets
 export * from './widgets/Modal'

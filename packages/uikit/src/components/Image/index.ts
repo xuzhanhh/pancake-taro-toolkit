@@ -5,3 +5,4 @@ export type {
   variants as tokenPairImageVariant,
   Variant as TokenPairImageVariant,
 } from './types'
+export { default as TokenImage } from './TokenImage'

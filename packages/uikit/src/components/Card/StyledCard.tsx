@@ -1,19 +1,19 @@
 import { PancakeTheme } from '../../theme'
-import styled, { keyframes } from '@binance/mp-styled'
+import styled from '@binance/mp-styled'
 import { Box } from '../Box'
 import { CardProps } from './types'
 
-const PromotedGradient = keyframes(`
-  0% {
-    background-position: 50% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 50% 0%;
-  }
-`)
+// const PromotedGradient = keyframes(`
+//   0% {
+//     background-position: 50% 0%;
+//   }
+//   50% {
+//     background-position: 50% 100%;
+//   }
+//   100% {
+//     background-position: 50% 0%;
+//   }
+// `)
 
 interface StyledCardProps extends CardProps {
   theme: PancakeTheme
@@ -47,13 +47,6 @@ export const StyledCard = styled(Box)<CardProps>`
   color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? 'textDisabled' : 'text']};
   overflow: hidden;
   position: relative;
-
-  ${({ isActive }) =>
-    isActive &&
-    `
-    animation: ${PromotedGradient} 3s ease infinite;
-    background-size: 400% 400%;
-  `}
 
   padding: 1px 1px 3px 1px;
 `

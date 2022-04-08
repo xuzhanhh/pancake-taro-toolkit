@@ -61,14 +61,69 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
     '&.pancake-button--disabled': style,
   }
 }
+const Decorator = styled.div`
+  position: absolute;
+  border-bottom: 20px solid ${({ decorator, theme }) => decorator.backgroundColor ?? theme.colors.secondary};
+  border-left: 34px solid transparent;
+  border-right: 12px solid transparent;
+  height: 0;
+  top: -1px;
+  right: -12px;
+  width: 75px;
+  text-align: center;
+  padding-right: 30px;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  transform: rotate(31.17deg);
+  color: ${({ decorator }) => decorator.color ?? 'white'};
+`
+const getDecorator = ({ decorator, theme }: { decorator?: { text: string }; theme: PancakeTheme }) => {
+  if (decorator) {
+    return {
+      '&::before': {
+        content: decorator.text,
+        position: 'absolute',
+        borderBottom: `20px solid ${decorator.backgroundColor ?? theme.colors.secondary}`,
+        borderLeft: '34px solid transparent',
+        borderRight: '12px solid transparent',
+        height: 0,
+        top: '-1px',
+        right: '-12px',
+        width: '75px',
+        textAlign: 'center',
+        paddingRight: '30px',
+        lineHeight: '20px',
+        fontSize: '12px',
+        fontWeight: 400,
+        transform: 'rotate(31.17deg)',
+        color: `${decorator.color ?? 'white'}`,
+      },
+    }
+  }
+  return {}
+}
 const Button = styled.button``
 const StyledButton = (props: BaseButtonProps) => {
-  let { variant = 'default', colorStyle, scale, inactive, className, disabled, $isLoading = false, sx, __css } = props
+  let {
+    variant = 'default',
+    colorStyle,
+    scale,
+    inactive,
+    className,
+    disabled,
+    $isLoading = false,
+    sx,
+    decorator,
+    __css,
+    children,
+  } = props
   const theme = useTheme()
   const classNames: string = composeClassNames(className, !!inactive, 'inactive', disabled)
   const newProps = {
     tx: 'button',
     ...props,
+    children: undefined,
     variant,
     className: classNames,
     sx: sx || {},
@@ -114,7 +169,16 @@ const StyledButton = (props: BaseButtonProps) => {
       ...__css,
     },
   }
-  return <Button {...newProps} />
+  return (
+    <Button {...newProps}>
+      {decorator && (
+        <Decorator decorator={decorator} theme={theme}>
+          {decorator.text}
+        </Decorator>
+      )}
+      {children}
+    </Button>
+  )
 }
 
 export default StyledButton

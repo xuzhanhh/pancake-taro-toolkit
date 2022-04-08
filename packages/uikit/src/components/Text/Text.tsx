@@ -7,15 +7,12 @@ import { Box } from '../Box'
 interface ThemedProps extends TextProps {
   theme: PancakeTheme
 }
-const getFontSize = ({ fontSize, small }: TextProps) => {
-  return small ? '14px' : fontSize || '16px'
-}
+
 const getColor = ({ color, theme }: ThemedProps) => {
   return getThemeValue(`colors.${color}`, color)(theme)
 }
 const Text = styled(Box)<TextProps>`
   color: ${getColor};
-  font-size: ${getFontSize};
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
   line-height: 1.5;
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
@@ -24,12 +21,14 @@ const Text = styled(Box)<TextProps>`
     `white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;`}
+  ${({ small }) => small && `font-size: 14px;`}
 `
 
 Text.defaultProps = {
   color: 'text',
   small: false,
   ellipsis: false,
+  fontSize: '16px',
 }
 
 export default Text

@@ -16,9 +16,9 @@
     "format:write": "lerna run format:write",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "build:component": "lerna run --scope taro-ui build",
+    "build:uikit": "lerna run --scope @binance/mp-pancake-uikit build:es",
     "clean": "lerna run clean",
-    "clean:component": "lerna run --scope taro-ui clean",
+    "clean:uikit": "lerna run --scope @binance/mp-pancake-uikit clean",
     "publish": "lerna publish from-git --yes",
     "prepare": "husky install"
   },

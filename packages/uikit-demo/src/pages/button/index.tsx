@@ -103,6 +103,9 @@ function Default() {
         <Button disabled isLoading>
           disabled
         </Button>
+        <Button disabled p="0 45px" decorator={{ text: 'Soon' }}>
+          Locked
+        </Button>
       </Box>
     </view>
   )

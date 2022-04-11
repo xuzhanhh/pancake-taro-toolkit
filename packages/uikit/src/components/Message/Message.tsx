@@ -15,11 +15,13 @@ const Icons = {
 }
 
 const MessageContainer = styled(Box).attrs({ tx: 'message' })<MessageProps>`
-  display: flex;
   padding: 16px;
   border-radius: 16px;
   border-style: solid;
   border-width: 1px;
+`
+const Flex = styled.div`
+  display: flex;
 `
 const colors = {
   // these color names should be place in the theme once the palette is finalized
@@ -37,13 +39,17 @@ export const MessageText: React.FC<TextProps> = ({ children, ...props }) => {
   )
 }
 
-const Message: React.FC<MessageProps> = ({ children, variant, icon, ...props }) => {
+const Message: React.FC<MessageProps> = ({ children, variant, icon, action, actionInline, ...props }) => {
   const Icon = Icons[variant]
   return (
     <MessageContext.Provider value={{ variant }}>
       <MessageContainer variant={variant} {...props}>
-        <Box mr="12px">{icon ?? <Icon color={variants[variant].borderColor} width="24px" />}</Box>
-        {children}
+        <Flex>
+          <Box mr="12px">{icon ?? <Icon color={variants[variant].borderColor} width="24px" />}</Box>
+          {children}
+          {actionInline && action}
+        </Flex>
+        {!actionInline && action}
       </MessageContainer>
     </MessageContext.Provider>
   )

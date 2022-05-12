@@ -1,10 +1,19 @@
 import React from 'react'
-import {} from '@binance/mp-styled'
-import { Text } from '@binance/mp-pancake-uikit'
+import { Text, TooltipText } from '@binance/mp-pancake-uikit'
 import Provider from 'src/Provider'
+
+const TooltipTextVariant: React.FC = () => {
+  return (
+    <view>
+      <Text>Use TooltipText for text that has tooltip, it accepts the same props as normal Text component</Text>
+      <TooltipText>Example</TooltipText>
+    </view>
+  )
+}
 export default function Page() {
   return (
     <Provider>
+      <TooltipTextVariant />
       <Text>Default</Text>
       <Text bold>Bold text</Text>
       <Text small>Small text</Text>

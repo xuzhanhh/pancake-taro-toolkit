@@ -18,6 +18,7 @@ export default {
     'pages/toggle/index',
     'pages/tag/index',
     'pages/skeleton/index',
+    'pages/slider/index',
     'pages/spinner/index',
     'pages/pancakeToggle/index',
     'pages/overlay/index',

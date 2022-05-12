@@ -1,27 +1,12 @@
 import React from 'react'
 import styled from '@binance/mp-styled'
 import { Box } from '../Box'
-import { SkeletonProps, animation as ANIMATION, variant as VARIANT } from './types'
+import { SkeletonProps, SkeletonV2Props, animation as ANIMATION, variant as VARIANT } from './types'
 
-// const waves = keyframes`
-// 	from {
-// 		left: -150px;
-// 	}
-// 	to   {
-// 		left: 100%;
-// 	}
-// `
-// const pulse = keyframes`
-//   0% {
-//     opacity: 1;
-//   }
-//   50% {
-//     opacity: 0.4;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// `
+const SkeletonWrapper = styled.div<SkeletonProps>`
+  position: relative;
+`
+
 const Root = styled.div<SkeletonProps>`
   min-height: 20px;
   display: block;
@@ -59,6 +44,27 @@ const Skeleton: React.FC<SkeletonProps> = ({ variant = VARIANT.RECT, animation =
     return <Waves variant={variant} {...props} />
   }
   return <Pulse variant={variant} {...props} />
+}
+
+export const SkeletonV2: React.FC<SkeletonV2Props> = ({
+  variant = VARIANT.RECT,
+  animation = ANIMATION.PULSE,
+  isDataReady = false,
+  children,
+  wrapperProps,
+  ...props
+}) => {
+  return (
+    <SkeletonWrapper {...wrapperProps}>
+      {isDataReady && children}
+      {!isDataReady &&
+        (animation === ANIMATION.WAVES ? (
+          <Waves variant={variant} {...props} />
+        ) : (
+          <Pulse variant={variant} {...props} />
+        ))}
+    </SkeletonWrapper>
+  )
 }
 
 export default Skeleton

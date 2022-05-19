@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { renderToString } from 'react-dom/server'
 import { Box } from '../Box'
 import { SvgProps } from './types'
-import { useTheme, css } from '@binance/mp-styled'
+import styled, { useTheme, css, keyframes } from '@binance/mp-styled'
 
 interface SVGParams {
   width?: any
@@ -12,6 +12,18 @@ interface SVGParams {
   color?: any
   children?: any
 }
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const SpinBox = styled(Box)`
+  animation: ${({ spin }) => (spin ? `${rotate} 2s linear infinite` : 'unset')};
+`
 
 const svgRenderString = ({ color, ...props }: SVGParams) =>
   renderToString(<svg xmlns="http://www.w3.org/2000/svg" {...props} />)
@@ -51,7 +63,7 @@ const Svg = ({ width: propWidth, height: propHeight, viewBox, fill, color, child
   )
 
   return (
-    <Box
+    <SpinBox
       {...props}
       {...nextProps}
       __css={{ ...__css, ...props.__css }}

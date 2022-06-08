@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@binance/mp-styled'
-import { PancakeTheme } from '../../theme'
+import { PancakeTheme, useTheme } from '../../theme'
 import CheckmarkCircleIcon from '../Svg/Icons/CheckmarkCircle'
 import ErrorIcon from '../Svg/Icons/Error'
 import BlockIcon from '../Svg/Icons/Block'
@@ -77,11 +77,11 @@ const StyledAlert = styled(Flex)`
 
 const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
   const Icon = getIcon(variant)
-
+  const theme = useTheme()
   return (
     <StyledAlert>
       <IconLabel variant={variant} hasDescription={!!children}>
-        <Icon color="currentColor" width="24px" />
+        <Icon color={theme.alert.background} width="24px" />
       </IconLabel>
       <Details hasHandler={!!onClick}>
         <Text bold>{title}</Text>

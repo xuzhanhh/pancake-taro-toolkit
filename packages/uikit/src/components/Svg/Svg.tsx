@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { renderToString } from 'react-dom/server'
 import { Box } from '../Box'
 import { SvgProps } from './types'
-import styled, { useTheme, css, keyframes } from '@binance/mp-styled'
+import styled, { useTheme, css, keyframes } from '@pancakeswap/mp-styled'
 
 interface SVGParams {
   width?: any

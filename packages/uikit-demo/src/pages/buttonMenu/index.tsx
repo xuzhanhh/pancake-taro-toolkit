@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, ButtonMenu, ButtonMenuItem } from '@binance/mp-pancake-uikit'
+import { Box, ButtonMenu, ButtonMenuItem } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 const Row = (props) => (
   <Box

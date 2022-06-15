@@ -1,6 +1,6 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import React, { useState } from 'react'
-import { Button, Box, ExpandableButton, ExpandableLabel, Flex } from '@binance/mp-pancake-uikit'
+import { Button, Box, ExpandableButton, ExpandableLabel, Flex } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 
 const Row = styled(Flex)`

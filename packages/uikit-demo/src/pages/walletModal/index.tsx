@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalProvider, Flex, Button, useWalletModal } from '@binance/mp-pancake-uikit'
+import { ModalProvider, Flex, Button, useWalletModal } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 const Wallet: React.FC = () => {
   const { onPresentConnectModal } = useWalletModal(

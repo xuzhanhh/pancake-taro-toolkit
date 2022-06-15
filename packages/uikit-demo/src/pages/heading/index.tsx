@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading } from '@binance/mp-pancake-uikit'
+import { Heading } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 export default function Page() {
   return (

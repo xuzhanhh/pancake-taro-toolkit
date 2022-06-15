@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Input, Heading } from '@binance/mp-pancake-uikit'
+import { Box, Input, Heading } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 const scales = {
   SM: 'sm',

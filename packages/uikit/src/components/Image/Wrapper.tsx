@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { WrapperProps } from './types'
 
 const StyledWrapper = styled.div<{ $width: number; $height: number }>`

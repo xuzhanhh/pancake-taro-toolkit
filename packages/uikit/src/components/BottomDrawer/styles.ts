@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import styled, { keyframes } from '@binance/mp-styled'
+import styled, { keyframes } from '@pancakeswap/mp-styled'
 
 const MountAnimation = keyframes`
 0% {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, BalanceInput } from '@binance/mp-pancake-uikit'
+import { Box, BalanceInput } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 
 const Default: React.FC = () => {

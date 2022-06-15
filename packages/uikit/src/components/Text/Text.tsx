@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { PancakeTheme } from '../../theme'
 import getThemeValue from '../../util/getThemeValue'
 import { TextProps } from '.'

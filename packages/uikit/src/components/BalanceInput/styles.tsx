@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import Box from '../Box/Box'
 import Input from '../Input/Input'
 import Text from '../Text/Text'

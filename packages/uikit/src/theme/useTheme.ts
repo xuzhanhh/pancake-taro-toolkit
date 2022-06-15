@@ -1,4 +1,4 @@
-import { useTheme as useStyledTheme } from '@binance/mp-styled'
+import { useTheme as useStyledTheme } from '@pancakeswap/mp-styled'
 import { PancakeTheme } from '.'
 
 export const useTheme = () => {

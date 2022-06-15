@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Text, Button, BottomDrawer } from '@binance/mp-pancake-uikit'
+import { Box, Text, Button, BottomDrawer } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 
 const Default: React.FC = () => {

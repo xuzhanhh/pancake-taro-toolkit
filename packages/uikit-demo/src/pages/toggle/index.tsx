@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Toggle, SunIcon, MoonIcon } from '@binance/mp-pancake-uikit'
+import { Box, Toggle, SunIcon, MoonIcon } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 const Default: React.FC = () => {
   const [isChecked, setIsChecked] = useState(false)

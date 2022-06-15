@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { PancakeTheme } from '../../theme'
 import { Colors } from '../../theme/types'
 import { scaleVariants, styleVariants } from './theme'

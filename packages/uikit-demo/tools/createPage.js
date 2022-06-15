@@ -9,7 +9,7 @@ const options = program.opts()
 
 const template = `
 import React from 'react'
-import { Box } from '@binance/mp-pancake-uikit'
+import { Box } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 
 export default function Page() {

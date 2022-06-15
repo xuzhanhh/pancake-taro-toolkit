@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import Image from './Image'
 
 const TokenImage = styled(Image)`

@@ -1,4 +1,4 @@
-# `@binance/mp-pancake-uikit`
+# `@pancakeswap/mp-uikit`
 
 pancake uikit for Taro
 
@@ -7,5 +7,5 @@ pancake uikit for Taro
 TODO
 
 ```
-import uikit from '@binance/mp-pancake-uikit'
+import uikit from '@pancakeswap/mp-uikit'
 ```

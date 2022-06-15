@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { PancakeTheme, useTheme } from '../../theme'
 import CheckmarkCircleIcon from '../Svg/Icons/CheckmarkCircle'
 import ErrorIcon from '../Svg/Icons/Error'

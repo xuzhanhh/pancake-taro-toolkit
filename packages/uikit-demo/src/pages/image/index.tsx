@@ -1,7 +1,7 @@
 import React from 'react'
 import { random } from 'lodash'
-import styled from '@binance/mp-styled'
-import { Image as Img, Box, Flex, Text, TokenImage, TokenPairImage } from '@binance/mp-pancake-uikit'
+import styled from '@pancakeswap/mp-styled'
+import { Image as Img, Box, Flex, Text, TokenImage, TokenPairImage } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 import tokenList from './tokens'
 

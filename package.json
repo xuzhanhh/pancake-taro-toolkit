@@ -16,9 +16,9 @@
     "format:write": "lerna run format:write",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "build:uikit": "lerna run --scope @binance/mp-pancake-uikit build:es",
+    "build:uikit": "lerna run --scope @pancakeswap/mp-uikit build:es",
     "clean": "lerna run clean",
-    "clean:uikit": "lerna run --scope @binance/mp-pancake-uikit clean",
+    "clean:uikit": "lerna run --scope @pancakeswap/mp-uikit clean",
     "publish": "lerna publish from-git --yes",
     "prepare": "husky install"
   },

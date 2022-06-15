@@ -1,5 +1,5 @@
 import React, { cloneElement, Children, ReactElement } from 'react'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { NotificationDotProps, DotProps } from './types'
 
 const NotificationDotRoot = styled.div`

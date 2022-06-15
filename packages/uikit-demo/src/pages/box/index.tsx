@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Box, BoxProps, Flex, Grid } from '@binance/mp-pancake-uikit'
+import { Box, BoxProps, Flex, Grid } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 
 const Title = (props: BoxProps) => <Box textAlign="center" fontSize="20px" {...props} />

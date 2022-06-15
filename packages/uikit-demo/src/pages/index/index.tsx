@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Image } from '@binance/mp-components'
 import { useRouter } from '@tarojs/taro'
 import mpService from '@binance/mp-service'
-import { Box } from '@binance/mp-pancake-uikit'
+import { Box } from '@pancakeswap/mp-uikit'
 import './index.css'
 import Provider from 'src/Provider'
 

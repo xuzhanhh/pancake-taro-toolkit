@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 
 const Box = styled.div``
 

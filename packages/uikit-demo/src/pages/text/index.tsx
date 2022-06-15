@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, TooltipText } from '@binance/mp-pancake-uikit'
+import { Text, TooltipText } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 
 const TooltipTextVariant: React.FC = () => {

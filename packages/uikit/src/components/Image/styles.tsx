@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { ImageProps, Variant, variants } from './types'
 import TokenImage from './TokenImage'
 

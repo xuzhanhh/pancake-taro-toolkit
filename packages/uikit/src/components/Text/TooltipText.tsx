@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import Text from './Text'
 
 const TooltipText = styled(Text)`

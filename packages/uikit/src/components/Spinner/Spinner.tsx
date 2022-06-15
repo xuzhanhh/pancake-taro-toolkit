@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from '@binance/mp-styled'
+import styled, { keyframes } from '@pancakeswap/mp-styled'
 import PanIcon from './PanIcon'
 import PancakeIcon from './PancakeIcon'
 import { SpinnerProps } from './types'

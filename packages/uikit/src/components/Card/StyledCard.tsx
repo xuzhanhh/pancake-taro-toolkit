@@ -1,5 +1,5 @@
 import { PancakeTheme } from '../../theme'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { Box } from '../Box'
 import { CardProps } from './types'
 

@@ -2,6 +2,6 @@
 
 const uikit = require('..')
 
-describe('@binance/mp-pancake-uikit', () => {
+describe('@pancakeswap/mp-uikit', () => {
   it('needs tests')
 })

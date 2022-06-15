@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Box, ModalProps, Heading, Button, Modal, useModal, ModalProvider } from '@binance/mp-pancake-uikit'
+import { Box, ModalProps, Heading, Button, Modal, useModal, ModalProvider } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
-import { useTheme } from '@binance/mp-styled'
+import { useTheme } from '@pancakeswap/mp-styled'
 
 const CustomModal: React.FC<ModalProps> = ({ title, onDismiss, ...props }) => {
   return (

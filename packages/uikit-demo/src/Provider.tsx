@@ -1,6 +1,6 @@
 import React from 'react'
-import { ThemeProvider, StyleProvider } from '@binance/mp-styled'
-import { light } from '@binance/mp-pancake-uikit'
+import { ThemeProvider, StyleProvider } from '@pancakeswap/mp-styled'
+import { light } from '@pancakeswap/mp-uikit'
 
 export default function Provider({ children }) {
   return (

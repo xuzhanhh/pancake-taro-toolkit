@@ -1,4 +1,4 @@
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { SpaceProps } from 'styled-system'
 
 export type CardFooterProps = SpaceProps

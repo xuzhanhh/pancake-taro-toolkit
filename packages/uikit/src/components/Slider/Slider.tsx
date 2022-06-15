@@ -1,7 +1,7 @@
 import React from 'react'
 import SliderProps from './types'
 import { Slider as MpSlider } from '@binance/mp-components'
-import { useTheme } from '@binance/mp-styled'
+import { useTheme } from '@pancakeswap/mp-styled'
 
 const Slider: React.FC<SliderProps> = ({ min, max, value, onValueChanged, step, disabled = false, valueLabel }) => {
   const theme = useTheme()

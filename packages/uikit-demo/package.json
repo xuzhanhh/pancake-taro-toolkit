@@ -11,7 +11,7 @@
     "format:write": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@binance/mp-styled": "^1.0.0",
+    "@pancakeswap/mp-styled": "^1.0.0",
     "@tarojs/taro": "^3.4.0",
     "react": "^17.0.0"
   },

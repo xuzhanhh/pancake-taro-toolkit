@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { Box } from '../Box'
 import { SkeletonProps, SkeletonV2Props, animation as ANIMATION, variant as VARIANT } from './types'
 

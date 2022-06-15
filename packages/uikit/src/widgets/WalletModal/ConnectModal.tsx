@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import mpService from '@binance/mp-service'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { useTheme } from '../../theme'
 import Grid from '../../components/Box/Grid'
 import Box from '../../components/Box/Box'

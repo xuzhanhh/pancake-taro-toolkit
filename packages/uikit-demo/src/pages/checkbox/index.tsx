@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Checkbox } from '@binance/mp-pancake-uikit'
+import { Box, Checkbox } from '@pancakeswap/mp-uikit'
 import Provider from 'src/Provider'
 const ControlCheck = () => {
   const [checked, setChecked] = React.useState(false)

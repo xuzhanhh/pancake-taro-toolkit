@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled from '@binance/mp-styled'
+import styled from '@pancakeswap/mp-styled'
 import { LinkProps } from './types'
 import { Text } from '../Text'
 import mpService from '@binance/mp-service'

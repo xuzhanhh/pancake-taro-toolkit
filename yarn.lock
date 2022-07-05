@@ -1082,20 +1082,21 @@
     to-fast-properties "^2.0.0"
 
 "@binance/babel-preset-bmp@^1.0.1":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@binance/babel-preset-bmp/-/babel-preset-bmp-1.0.2.tgz#02772c4a1fd500fdb51f9c0c7f7e0bae7d3fcb14"
-  integrity sha512-NO/3md9BEHelnr10l0nNtmxUIVNYPCRH+BUXXKvtxwHhwzXmAeEH5Ufh5pCt87IlIbBVhj4B/rwa8aO95YaNdw==
+  version "1.0.10"
+  resolved "https://npm-registry.toolsfdg.net/@binance%2fbabel-preset-bmp/-/babel-preset-bmp-1.0.10.tgz#2951f09efee4d98f476b241a5f92bf234a453c52"
+  integrity sha512-+RjFEdGeKPimeMggPztlCIHjkcl5yvGmkrDoRcfUmNvkPsm1QrYnnmW4YuKS40QdJXzORsrkbWsCuK+3k0WrYg==
   dependencies:
-    babel-preset-taro "3.2.13"
+    "@tarojs/react" "3.4.4"
+    babel-preset-taro "3.4.4"
 
 "@binance/mp-components@^1.0.1":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@binance/mp-components/-/mp-components-1.0.3.tgz#1983a8898ba4861843bc92d8e4ca277567760be4"
+  resolved "https://npm-registry.toolsfdg.net/@binance%2fmp-components/-/mp-components-1.0.3.tgz#1983a8898ba4861843bc92d8e4ca277567760be4"
   integrity sha512-/s5QR0Iqutx6ahhYehcppSV4nm3RaZRnmPU8VzJ+U0T1OsGd+ZJzc8zYeuy3gOhptcqHc2OXDPWH76sqU5Td3g==
 
 "@binance/mp-service@^1.0.4":
   version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@binance/mp-service/-/mp-service-1.0.11.tgz#69d24e5d19f02a08ca319be14f88d5133ad53c5a"
+  resolved "https://npm-registry.toolsfdg.net/@binance%2fmp-service/-/mp-service-1.0.11.tgz#69d24e5d19f02a08ca319be14f88d5133ad53c5a"
   integrity sha512-kbq3vfmu55QEVKpq3W+asz2CZLlKOX8/QS6f2flrneY7syYOrbVrs99S3dEfGzqp067LAsk87fYUGeGGT8uH0A==
 
 "@gar/promisify@^1.0.1":

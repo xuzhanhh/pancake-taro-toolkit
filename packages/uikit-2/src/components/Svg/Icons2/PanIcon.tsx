@@ -1,6 +1,6 @@
 
 import { styled } from '@pancakeswap/mp-styled-2'
-import Svg from '../Svg/Svg2'
+import Svg from '../Svg2'
 const PanIconIcon = styled(Svg)`
 	background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256' %3E
       %3Cpath

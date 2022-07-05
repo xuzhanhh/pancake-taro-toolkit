@@ -1,6 +1,6 @@
 import React from 'react'
 import mpService from '@binance/mp-service'
-import { styled } from '@pancakeswap/mp-styled-2'
+import styled from '@pancakeswap/mp-styled-2'
 import Button from '../../components/Button/Button'
 import Text from '../../components/Text/Text'
 import MoreHorizontal from '../../components/Svg/Icons/MoreHorizontal'
@@ -14,7 +14,7 @@ interface Props {
   onDismiss: () => void
 }
 
-const WalletButton = styled(Button).attrs({ variant: 'text' })<any>`
+const WalletButton = styled(Button)<any>`
   alignitems: center;
   display: flex;
   flexdirection: column;

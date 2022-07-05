@@ -2,8 +2,9 @@ import React from 'react'
 import styled from '@pancakeswap/mp-styled'
 import { ImageProps } from './types'
 import Wrapper from './Wrapper'
+import { Image as MpImage} from '@tarojs/component'
 
-const StyledImage = styled.img<{ src: string }>`
+const StyledImage = styled(MpImage)<{ src: string }>`
   height: 100%;
   left: 0;
   position: absolute;

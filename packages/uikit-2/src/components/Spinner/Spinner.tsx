@@ -7,15 +7,33 @@ import { SpinnerProps } from './types'
 import { Box } from '../Box'
 
 const rotate = keyframes`
+`
+
+const float = keyframes`
+`
+
+const Container = styled(Box)`
+  position: relative;
+`
+
+const RotatingPancakeIcon = styled(PancakeIcon)`
+ @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+ }
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: rotate 2s linear infinite;
+  transform: translate3d(0, 0, 0);
 `
 
-const float = keyframes`
+const FloatingPanIcon = styled(PanIcon)`
+  @keyframes float {
 	0% {
 		transform: translatey(0px);
 	}
@@ -25,22 +43,9 @@ const float = keyframes`
 	100% {
 		transform: translatey(0px);
 	}
-`
 
-const Container = styled(Box)`
-  position: relative;
-`
-
-const RotatingPancakeIcon = styled(PancakeIcon)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: ${rotate} 2s linear infinite;
-  transform: translate3d(0, 0, 0);
-`
-
-const FloatingPanIcon = styled(PanIcon)`
-  animation: ${float} 6s ease-in-out infinite;
+  }
+  animation: float 6s ease-in-out infinite;
   transform: translate3d(0, 0, 0);
 `
 

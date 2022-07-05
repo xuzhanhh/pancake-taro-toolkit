@@ -24,7 +24,11 @@ const stylePrimaryVariants = {
 export const StyledPrimaryImage = styled(TokenImage)<Omit<StyledImageProps, 'width' | 'height'>>`
   position: absolute;
 
-  ${({ variant }) => stylePrimaryVariants[variant]};
+  bottom: ${({variant}) => stylePrimaryVariants[variant].bottom};
+  left: ${({variant}) => stylePrimaryVariants[variant].left};
+  right: ${({variant}) => stylePrimaryVariants[variant].right};
+  top: ${({variant}) => stylePrimaryVariants[variant].top};
+  z-index: ${({variant}) => stylePrimaryVariants[variant].zIndex};
 `
 const styleSecondaryVariants = {
   [variants.DEFAULT]: {
@@ -45,6 +49,9 @@ const styleSecondaryVariants = {
 export const StyledSecondaryImage = styled(TokenImage)<StyledImageProps>`
   position: absolute;
   width: 50%;
-
-  ${({ variant }) => styleSecondaryVariants[variant]};
+  bottom: ${({variant}) => styleSecondaryVariants[variant].bottom};
+  left: ${({variant}) => styleSecondaryVariants[variant].left};
+  right: ${({variant}) => styleSecondaryVariants[variant].right};
+  top: ${({variant}) => styleSecondaryVariants[variant].top};
+  z-index: ${({variant}) => styleSecondaryVariants[variant].zIndex};
 `

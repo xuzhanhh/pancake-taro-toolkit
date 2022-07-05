@@ -12,7 +12,6 @@
   "scripts": {
     "start": "yarn workspace uikit-demo dev",
     "format:check": "lerna run format:check",
-    "format:check:staged": "pretty-quick --staged --check",
     "format:write": "lerna run format:write",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",

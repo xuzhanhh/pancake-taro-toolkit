@@ -1,7 +1,7 @@
 // Components
 export * from './components/Box'
 export * from './components/Button'
-// export * from './components/ButtonMenu'
+export * from './components/ButtonMenu'
 export * from './components/Text'
 export * from './components/Heading'
 export * from './components/Checkbox'
@@ -25,11 +25,11 @@ export * from './components/Card'
 export * from './components/Alert'
 export * from './components/Image'
 export * from './components/BalanceInput'
-// export * from './components/Table'
+export * from './components/Table'
 // 
 // // Widgets
 export * from './widgets/Modal'
-// export * from './widgets/WalletModal'
+export * from './widgets/WalletModal'
 // 
 // // Themes
 export * from './theme'

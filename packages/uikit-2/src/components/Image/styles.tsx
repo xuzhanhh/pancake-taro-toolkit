@@ -21,14 +21,14 @@ const stylePrimaryVariants = {
     zIndex: 6,
   },
 }
-export const StyledPrimaryImage = styled(TokenImage)<Omit<StyledImageProps, 'width' | 'height'>>`
+export const StyledPrimaryImage = styled(TokenImage) <Omit<StyledImageProps, 'width' | 'height'>>`
   position: absolute;
 
-  bottom: ${({variant}) => StyledPrimaryImage[variants].bottom};
-  left: ${({variant}) => StyledPrimaryImage[variants].left};
-  right: ${({variant}) => StyledPrimaryImage[variants].right};
-  top: ${({variant}) => StyledPrimaryImage[variants].top};
-  z-index: ${({variant}) => StyledPrimaryImage[variants].zIndex};
+  bottom: ${({ type }) => { console.log('fuck', type); return stylePrimaryVariants[type].bottom }};
+  left: ${({ type }) => stylePrimaryVariants[type].left};
+  right: ${({ type }) => stylePrimaryVariants[type].right};
+  top: ${({ type }) => stylePrimaryVariants[type].top};
+  z-index: ${({ type }) => stylePrimaryVariants[type].zIndex};
 `
 const styleSecondaryVariants = {
   [variants.DEFAULT]: {
@@ -46,13 +46,13 @@ const styleSecondaryVariants = {
     zIndex: 5,
   },
 }
-export const StyledSecondaryImage = styled(TokenImage)<StyledImageProps>`
+export const StyledSecondaryImage = styled(TokenImage) <StyledImageProps>`
   position: absolute;
   width: 50%;
 
-  bottom: ${({ variant }) => styleSecondaryVariants[variant].bottom};
-  left: ${({ variant }) => styleSecondaryVariants[variant].left};
-  right: ${({ variant }) => styleSecondaryVariants[variant].right};
-  top: ${({ variant }) => styleSecondaryVariants[variant].top};
-  z-index: ${({ variant }) => styleSecondaryVariants[variant].zIndex};
+  bottom: ${({ type }) => styleSecondaryVariants[type].bottom};
+  left: ${({ type }) => styleSecondaryVariants[type].left};
+  right: ${({ type }) => styleSecondaryVariants[type].right};
+  top: ${({ type }) => styleSecondaryVariants[type].top};
+  z-index: ${({ type }) => styleSecondaryVariants[type].zIndex};
 `

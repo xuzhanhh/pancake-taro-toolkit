@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch } from '@binance/mp-components'
+import { Switch, View } from '@tarojs/components'
 import { styled } from '@pancakeswap/mp-styled-2'
 import { Box } from '../Box'
 import { ToggleProps, HandleProps, ScaleKeys, scales, StyleToggleProps } from './types'
@@ -56,6 +56,7 @@ export const Handle = styled(Box)<HandleProps>`
 
 // TODO remove any
 const TaroSwitch = (props) => <Switch {...props}/>
+// const TaroSwitch = (props) => <View {...props}/>
 export const Input = styled(TaroSwitch)<any>`
   cursor: pointer;
   opacity: 0;

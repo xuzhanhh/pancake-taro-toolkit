@@ -41,7 +41,8 @@
     "@types/babel__core": "^7.1.19",
     "@types/node": "^18.0.0",
     "esbuild": "^0.14.47",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-style-object-to-css": "^1.1.2"
   },
   "devDependencies": {
     "@linaria/core": "^3.0.0-beta.22",

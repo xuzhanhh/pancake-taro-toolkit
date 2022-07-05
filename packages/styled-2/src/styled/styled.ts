@@ -14,6 +14,7 @@ import  cx  from './utils/cx';
 import type { CSSProperties, StyledMeta } from '@linaria/core';
 import useTheme from '../hooks/useTheme'
 import { resolveAllStyle } from './utils/utils';
+import { Image } from '@tarojs/components'
 export type NoInfer<A extends any> = [A][A extends any ? 0 : never];
 
 type Options = {
@@ -74,8 +75,10 @@ function styled(tag: any): any {
   if(tag === 'div') {
     tag = 'view'
   }
+  if(tag === 'img') {
+    tag = Image
+  }
   return (options: Options) => {
-    console.log('???',tag, options)
     if (process.env.NODE_ENV !== 'production') {
       if (Array.isArray(options)) {
         // We received a strings array since it's used as a tag
@@ -86,7 +89,8 @@ function styled(tag: any): any {
     }
 
     const render = (props: any, ref: any) => {
-      const { as: component = tag, class: className } = props;
+      const { class: className } = props;
+      const component = tag
       const theme = useTheme()
       // @ts-ignore
       const newStyledCss = resolveAllStyle(props, props.style || {}, theme)
@@ -114,7 +118,6 @@ function styled(tag: any): any {
         filteredProps.className || className,
         options.class
       );
-    console.log('filteredProps', filteredProps)
       const { vars } = options;
 
       if (vars) {

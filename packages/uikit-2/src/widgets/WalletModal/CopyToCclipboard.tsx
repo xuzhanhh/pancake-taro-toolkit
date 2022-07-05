@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import mpService from '@binance/mp-service'
-import { styled } from '@pancakeswap/mp-styled-2'
+import styled from '@pancakeswap/mp-styled'
 import Text from '../../components/Text/Text'
 import { CopyIcon } from '../../components/Svg'
 import { Box } from '../../components/Box'
@@ -9,7 +9,7 @@ interface Props {
   toCopy: string
 }
 
-const StyleButton = styled(Text).attrs({ role: 'button' })<any>`
+const StyleButton = styled(Text)<any>`
   position: relative;
   display: flex;
   align-items: center;

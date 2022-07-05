@@ -1,7 +1,7 @@
 import type { PancakeTheme } from './index'
 import { dark as darkAlert } from '../components/Alert/theme'
 import { dark as darkCard } from '../components/Card/theme'
-import { dark as darkPancakeToggle } from '../components/PancakeToggle/theme'
+// import { dark as darkPancakeToggle } from '../components/PancakeToggle/theme'
 // import { dark as darkRadio } from "../components/Radio/theme";
 import { dark as darkToggle } from '../components/Toggle/theme'
 // import { dark as darkNav } from "../widgets/Menu/theme";
@@ -19,7 +19,7 @@ const darkTheme: PancakeTheme = {
   toggle: darkToggle,
   // nav: darkNav,
   modal: darkModal,
-  pancakeToggle: darkPancakeToggle,
+  // pancakeToggle: darkPancakeToggle,
   // radio: darkRadio,
   // tooltip: darkTooltip,
 }

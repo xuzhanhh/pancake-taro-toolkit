@@ -18,12 +18,10 @@ const Text = styled(Box)<TextProps>`
   font-size: ${getFontSize};
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
   line-height: 1.5;
-  ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
-  ${({ ellipsis }) =>
-    ellipsis &&
-    `white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;`}
+  text-transform: ${({ textTransform }) =>  `${textTransform || 'unset'}`};
+  white-space: ${({ellipsis}) => ellipsis ? 'nowrap': 'unset'};
+  overflow: ${({ellipsis}) => ellipsis ? 'hidden': 'unset'};
+  text-overflow: ${({ellipsis}) => ellipsis ? 'ellipsis': 'unset'};
 `
 
 Text.defaultProps = {

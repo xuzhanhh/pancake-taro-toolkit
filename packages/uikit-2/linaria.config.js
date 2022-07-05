@@ -4,7 +4,7 @@ module.exports = {
       action: require("@linaria/shaker").default,
     },
     {
-      test: /node_modules[\/\\](?!@binance)/,
+      test: /node_modules[\/\\](?!@tarojs)/,
       action: 'ignore',
     },
     // {

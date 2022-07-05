@@ -40,6 +40,11 @@ const StyledButtonMenu: any = styled.div<StyledButtonMenuProps>`
     flex: ${({ fullWidth }) => (fullWidth ? '1' : 'auto')};
   }
 
+`
+
+
+/* FIXME
+ *
   ${({ disabled, theme, variant }) => {
     if (disabled) {
       return `
@@ -52,7 +57,15 @@ const StyledButtonMenu: any = styled.div<StyledButtonMenuProps>`
     }
     return ''
   }}
-`
+ *
+ *
+ *
+ */
+
+//
+//
+//
+//
 // const StyledButtonMenu = (
 //   props: Omit<ButtonMenuProps, 'children'> & {
 //     children: React.ReactNode

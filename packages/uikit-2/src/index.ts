@@ -26,14 +26,14 @@ export * from './components/Alert'
 export * from './components/Image'
 export * from './components/BalanceInput'
 export * from './components/Table'
-// 
+//
 // // Widgets
 export * from './widgets/Modal'
 export * from './widgets/WalletModal'
-// 
+//
 // // Themes
 export * from './theme'
-// 
+//
 // // Icons
 export * from './components/Svg'
 //

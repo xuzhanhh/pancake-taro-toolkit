@@ -5,7 +5,6 @@
   "author": "opar-xu <opar.xu@binance.com>",
   "homepage": "",
   "license": "ISC",
-  "module": "dist/esm/index.js",
   "main": "dist/lib/index.js",
   "source": "src/index.ts",
   "types": "./dist/types/index.d.ts",

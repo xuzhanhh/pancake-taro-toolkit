@@ -86,8 +86,9 @@ function styled(tag: any): any {
       const theme = useTheme()
       // @ts-ignore
       const newStyledCss = resolveAllStyle(props, { ...(props.sx || {}), ...(props.style || {}) }, theme)
-      props.style = newStyledCss
-      const rest = restOp(props, ['as', 'class'])
+      const propsWithNewStyled = { ...props, style: newStyledCss }
+      // props.style = newStyledCss
+      const rest = restOp(propsWithNewStyled, ['as', 'class'])
       let filteredProps
 
       // Check if it's an HTML tag and not a custom element
@@ -117,7 +118,7 @@ function styled(tag: any): any {
           const variable = vars[name]
           const result = variable[0]
           const unit = variable[1] || ''
-          const value = typeof result === 'function' ? result({ ...props, theme }) : result
+          const value = typeof result === 'function' ? result({ ...propsWithNewStyled, theme }) : result
 
           warnIfInvalid(value, options.name)
 

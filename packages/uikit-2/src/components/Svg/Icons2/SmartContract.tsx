@@ -2,7 +2,7 @@
 import { styled } from '@pancakeswap/mp-styled-2'
 import Svg from '../Svg2'
 const SmartContractIcon = styled(Svg)`
-	background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg' %3E
+	mask-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg' %3E
       %3Cpath d='M10.037 6a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5h-7.5zM9.287 9.75a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM10.037 12a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5h-7.5z' /%3E
       %3Cpath
         fillRule='evenodd'
@@ -12,6 +12,6 @@ const SmartContractIcon = styled(Svg)`
     %3C/svg%3E");
 `
   
-
+SmartContractIcon.defaultProps = { color: "text" }
 export default SmartContractIcon
   

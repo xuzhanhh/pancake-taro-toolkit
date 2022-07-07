@@ -2,7 +2,7 @@
 import { styled } from '@pancakeswap/mp-styled-2'
 import Svg from '../Svg2'
 const ChartDisableIcon = styled(Svg)`
-	background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 22' %3E
+	mask-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 22' %3E
       %3Cpath d='M21.5 1l-20 20' strokeWidth={2} stroke='currentColor' strokeLinecap='round' /%3E
       %3Cpath
         fillRule='evenodd'
@@ -12,6 +12,6 @@ const ChartDisableIcon = styled(Svg)`
     %3C/svg%3E");
 `
   
-
+ChartDisableIcon.defaultProps = { color: "text" }
 export default ChartDisableIcon
   

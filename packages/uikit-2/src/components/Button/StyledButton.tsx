@@ -55,10 +55,11 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
     color: theme.colors.textDisabled,
     cursor: 'not-allowed',
   }
-  return {
-    '&[disabled]': style,
-    '&.pancake-button--disabled': style,
-  }
+  return style
+  // return {
+  //   '&[disabled]': style,
+  //   '&.pancake-button--disabled': style,
+  // }
 }
 const Decorator = styled.view`
   position: absolute;
@@ -103,34 +104,49 @@ const getDecorator = ({ decorator, theme }: { decorator?: { text: string }; them
   return {}
 }
 const Button = styled.button`
-      margin-left: unset;
-      margin-right: unset;
-      appearance: none;
-      user-select: none;
-      cursor: pointer;
+  margin-left: unset;
+  margin-right: unset;
+  appearance: none;
+  user-select: none;
+  cursor: pointer;
 
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      font-family: inherit;
-      text-align: center;
-      text-decoration: none;
-      background-image: none;
-      border: 0;
-      border-radius: 16px;
-      box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      line-height: 1;
-      outline: 0;
-      transition: background-color 0.2s, opacity 0.2s;
-      opacity: ${({$isLoading, theme}) => getOpacity({ $isLoading, theme })};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  background-image: none;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  outline: 0;
+  transition: background-color 0.2s, opacity 0.2s;
+  opacity: ${({ $isLoading, theme }) => getOpacity({ $isLoading, theme })};
+  &.pancake-button--disabled {
+    background-color: ${({ $isLoading, theme }) => getDisabledStyles({ $isLoading, theme }).backgroundColor}!important;
+    border-color: ${({ $isLoading, theme }) => getDisabledStyles({ $isLoading, theme }).borderColor}!important;
+    box-shadow: ${({ $isLoading, theme }) => getDisabledStyles({ $isLoading, theme }).boxShadow}!important;
+    color: ${({ $isLoading, theme }) => getDisabledStyles({ $isLoading, theme }).color}!important;
+    cursor: ${({ $isLoading, theme }) => getDisabledStyles({ $isLoading, theme }).cursor}!important;
+  }
+  &:hover:not(.pancake-button--disabled):not(:active) {
+    opacity: 0.65;
+  }
+  &:active:not(.pancake-button--disabled) {
+    opacity: 0.85;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
 `
 // FIXME remaining style not work
 /*
@@ -169,11 +185,10 @@ const StyledButton = (props: BaseButtonProps) => {
     sx: sx || {},
     __css: {
       ...(scaleVariants[scale] || {}),
-      ...getDisabledStyles({ $isLoading, theme }),
+      // ...getDisabledStyles({ $isLoading, theme }),
       ...__css,
     },
   }
-  console.log('????', newProps)
   return (
     <Button {...newProps}>
       {decorator && (

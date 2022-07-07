@@ -16,19 +16,21 @@ interface SVGParams {
 
 const SpinBox = styled(Box)`
   @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
   animation: ${({ spin }) => (spin ? `rotate 2s linear infinite` : 'unset')};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: center;
+  mask-repeat: no-repeat;
   display: inline-block;
-
 `
 
 // const svgRenderString = ({ color, ...props }: SVGParams) => {

@@ -2,7 +2,7 @@
 import { styled } from '@pancakeswap/mp-styled-2'
 import Svg from '../Svg2'
 const EarnFillIcon = styled(Svg)`
-	background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20' %3E
+	mask-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20' %3E
       %3Cpath
         fillRule='evenodd'
         clipRule='evenodd'
@@ -12,6 +12,6 @@ const EarnFillIcon = styled(Svg)`
     %3C/svg%3E");
 `
   
-
+EarnFillIcon.defaultProps = { color: "text" }
 export default EarnFillIcon
   

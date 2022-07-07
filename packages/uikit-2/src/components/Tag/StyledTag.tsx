@@ -8,7 +8,8 @@ interface ThemedProps extends TagProps {
   theme: PancakeTheme
 }
 
-const getOutlineStyles = ({ outline, theme, variant: variantKey = variants.PRIMARY }: ThemedProps) => {
+export const getOutlineStyles = ({ outline, theme, variant: variantKey = variants.PRIMARY }: ThemedProps) => {
+  console.log('??? getOutlineStyles', outline, variantKey)
   if (outline) {
     const themeColorKey = styleVariants[variantKey].backgroundColor as keyof Colors
     const color = theme.colors[themeColorKey]
@@ -33,12 +34,13 @@ export const StyledTag = styled.view<TagProps>`
   height: ${({ scale }) => scaleVariants[scale].height};
   padding: ${({ scale }) => scaleVariants[scale].padding};
   font-size: ${({ scale }) => scaleVariants[scale].fontSize};
-  background-color: ${({ variant }) => styleVariants[variant].backgroundColor};
-  color:${props => getOutlineStyles(props).color};
-  background:${props => getOutlineStyles(props).background};
-  border:${props => getOutlineStyles(props).border};
-  text-transform: ${({textTransform}) => textTransform? textTransform : 'unset'};
+  text-transform: ${({ textTransform }) => (textTransform ? textTransform : 'unset')};
 `
+
+//  background-color: ${({ variant }) => styleVariants[variant].backgroundColor};
+//   color: ${(props) => getOutlineStyles(props).color || '#ffffff'};
+//  background: ${(props) => getOutlineStyles(props).background || 'var(--tag-bg)'};
+//  border: ${(props) => getOutlineStyles(props).border};
 
 export default null
 /*

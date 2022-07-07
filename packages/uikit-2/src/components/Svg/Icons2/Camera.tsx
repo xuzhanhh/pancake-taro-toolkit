@@ -2,7 +2,7 @@
 import { styled } from '@pancakeswap/mp-styled-2'
 import Svg from '../Svg2'
 const CameraIcon = styled(Svg)`
-	background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E
+	mask-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E
     %3Cpath d='M15 12.1757C15 13.8325 13.6569 15.1757 12 15.1757C10.3431 15.1757 9 13.8325 9 12.1757C9 10.5188 10.3431 9.17566 12 9.17566C13.6569 9.17566 15 10.5188 15 12.1757Z' /%3E
     %3Cpath
       fillRule='evenodd'
@@ -12,6 +12,6 @@ const CameraIcon = styled(Svg)`
   %3C/svg%3E");
 `
   
-
+CameraIcon.defaultProps = { color: "text" }
 export default CameraIcon
   

@@ -1,16 +1,19 @@
 import React from 'react'
 import { useTheme } from '../../theme'
 import { scales, TagProps } from './types'
-import { StyledTag } from './StyledTag'
+import { getOutlineStyles, StyledTag } from './StyledTag'
 import { styleVariants } from './theme'
 import { Colors } from '../../theme/types'
 
-const Tag: React.FC<TagProps> = ({ startIcon, endIcon, children, ...props }) => {
+const Tag: React.FC<TagProps> = ({ startIcon, endIcon, children, style, ...props }) => {
   const theme = useTheme()
   const themeColorKey = styleVariants[props.variant || 'primary'].backgroundColor as keyof Colors
   const color = props.outline ? theme.colors[themeColorKey] : '#ffffff'
   return (
-    <StyledTag {...props}>
+    <StyledTag
+      style={{ ...styleVariants[props.variant], ...getOutlineStyles({ ...props, theme }), ...(style || {}) }}
+      {...props}
+    >
       {React.isValidElement(startIcon) &&
         React.cloneElement(startIcon, {
           mr: '0.5em',

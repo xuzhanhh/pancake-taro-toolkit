@@ -2,7 +2,7 @@
 import { styled } from '@pancakeswap/mp-styled-2'
 import Svg from '../Svg2'
 const WalletIcon = styled(Svg)`
-	background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E
+	mask-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E
       %3Cpath d='M17.5 12.323C17.5 13.1514 16.8284 13.823 16 13.823C15.1716 13.823 14.5 13.1514 14.5 12.323C14.5 11.4946 15.1716 10.823 16 10.823C16.8284 10.823 17.5 11.4946 17.5 12.323Z' /%3E
       %3Cpath
         fillRule='evenodd'
@@ -12,6 +12,6 @@ const WalletIcon = styled(Svg)`
     %3C/svg%3E");
 `
   
-
+WalletIcon.defaultProps = { color: "text" }
 export default WalletIcon
   

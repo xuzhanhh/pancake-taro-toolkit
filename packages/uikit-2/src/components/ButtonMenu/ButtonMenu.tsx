@@ -34,14 +34,16 @@ const StyledButtonMenu: any = styled.div<StyledButtonMenuProps>`
     margin-left: 2px; // To avoid focus shadow overlap
   }
 
-  & > button,
-  & a {
+  & button {
     box-shadow: none;
     flex: ${({ fullWidth }) => (fullWidth ? '1' : 'auto')};
   }
-
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  & > button:disabled {
+    background-color: transparent;
+    color: ${({ variant, theme }) => (variant === variants.PRIMARY ? theme.colors.primary : theme.colors.textSubtle)};
+  }
 `
-
 
 /* FIXME
  *

@@ -154,4 +154,5 @@ export { default as WalletIcon } from './Icons2/Wallet'
 export { default as WarningIcon } from './Icons2/Warning'
 
 export { default as Svg } from './Svg'
+export { default as Svg2 } from './Svg2'
 export type { SvgProps } from './types'

@@ -43,6 +43,7 @@ const StyledInput = styled.input<InputProps>`
 `
 const Input = React.forwardRef((props: InputProps, ref) => {
   const theme = useTheme()
+  console.log('in input', props)
   return <StyledInput ref={ref} placeholderStyle={{ color: theme.colors.textSubtle }} {...props} />
 })
 export default Input

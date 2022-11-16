@@ -45,6 +45,7 @@
     "react-style-object-to-css": "^1.1.2"
   },
   "devDependencies": {
+    "@babel/generator": "^7.18.7",
     "@linaria/core": "^3.0.0-beta.22",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",

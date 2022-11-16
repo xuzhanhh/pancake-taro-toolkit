@@ -127,7 +127,14 @@ function styled(tag: any): any {
 
         filteredProps.style = Object.assign(style, filteredProps.style)
       }
-
+      if (tag === 'input') {
+        const handleInput = (e) => {
+          if (props.onChange) {
+            return props.onChange(e)
+          }
+        }
+        filteredProps.onInput = handleInput
+      }
       if ((tag as any).__linaria && tag !== component) {
         // If the underlying tag is a styled component, forward the `as` prop
         // Otherwise the styles from the underlying component will be ignored

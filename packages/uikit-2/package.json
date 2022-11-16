@@ -2,9 +2,9 @@
   "name": "@pancakeswap/mp-uikit-2",
   "version": "1.0.0",
   "description": "UI KIT for taro",
-  "author": "opar-xu <opar.xu@binance.com>",
   "homepage": "",
   "license": "ISC",
+  "author": "zane-x",
   "main": "dist/lib/index.js",
   "source": "src/index.ts",
   "types": "./dist/types/index.d.ts",
@@ -20,12 +20,7 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "yarn run dev:lib",
-    "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
-    "build": "npm-run-all build:*",
-    "build:cjs": "rm -rf ./dist && tsc -p tsconfig.build.json -m commonjs --outDir dist/lib --declaration false",
-    "build:es": "tsc -p tsconfig.build.json -m esNext --outDir dist/esm --declarationDir dist/types",
-    "es-build": "node ./esbuild.js",
+    "build": "node ./esbuild.js",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:write": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
